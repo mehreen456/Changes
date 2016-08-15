@@ -36,8 +36,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-
-    _NameField.delegate = self;
+     
+     _NameField.delegate = self;
     _ContactField.delegate=self;
     _AddressField.delegate=self;
     [PButton setEnabled:NO];
@@ -145,7 +145,7 @@
         
         [PButton setEnabled:NO];
         PButton.userInteractionEnabled = NO;
-        [self.navigationController.view makeToast:@"Please Enter Data Correctly"];
+        [self.view makeToast:@"Please Enter Data Correctly"];
     }
 
 }

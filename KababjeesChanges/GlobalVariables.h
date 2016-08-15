@@ -26,5 +26,5 @@ extern NSMutableArray *ItemsOrder,*MenuArray;
 @interface GlobalVariables : NSObject
 
 +(UIButton *) BarButton;
-
++(UILabel *) Title:(NSString *) showtitle ;
 @end

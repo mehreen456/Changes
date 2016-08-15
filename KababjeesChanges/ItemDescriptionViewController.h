@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString *Name;
 @property (strong, nonatomic) NSString *ItemID;
 @property (strong, nonatomic) IBOutlet UILabel *Quantity;
+@property (strong, nonatomic) IBOutlet UILabel *Orderquan;
 @property (strong, nonatomic) NSString *Price;
 @property (strong, nonatomic) IBOutlet UILabel *TotalPrice;
 @property (strong, nonatomic) NSString *imageUrl;

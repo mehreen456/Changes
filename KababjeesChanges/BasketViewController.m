@@ -27,7 +27,19 @@
     
     j=2, t=1, m=0;
     [super viewDidLoad];
-    [self Display];
+    
+    AmountLabel1.text=[@"Rs. " stringByAppendingString:TPrice];
+    AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
+    [self AddBorders];
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
+    tapRecognizer.cancelsTouchesInView = NO;
+       
+    self.navigationItem.titleView = [[GlobalVariables class]Title:@"CheckOut" ];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Place Order" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    [self.view addGestureRecognizer:tapRecognizer];
+    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
    }
 
 #pragma mark - UITableViewDataSource
@@ -94,7 +106,7 @@
     CGPoint point = [textField.superview convertPoint:origin toView:self.OrderTable];
     NSIndexPath * indexPath = [self.OrderTable indexPathForRowAtPoint:point];
     
-        NSInteger newQ=[textField.text integerValue];
+    NSInteger newQ=[textField.text integerValue];
     if(newQ==0)
     {
         NSInteger diff=[TPrice integerValue]-Price;
@@ -103,7 +115,8 @@
     }
     else
     [[ItemsOrder objectAtIndex:indexPath.row] setValue:[NSString stringWithFormat:@"%ld", (long)newQ] forKey:QKey];
-    
+    [OrderTable reloadData];
+    [self change];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -121,7 +134,7 @@ else
 
 - (IBAction)MyButton:(id)sender
 {
-    btp=0;
+   
     if ([Button.titleLabel.text isEqualToString: @"APPLY CHANGES"])
     {
         j=0;
@@ -136,16 +149,9 @@ else
     }
     
     [OrderTable reloadData];
-    for(int k=0; k<ItemsOrder.count;k++)
-    {
-        NSInteger price =[[[ItemsOrder objectAtIndex:k]valueForKey:IPKey ]integerValue];
-        NSInteger quantity =[[[ItemsOrder objectAtIndex:k]valueForKey:QKey ]integerValue];
-        NSInteger basketPrice= price*quantity;
-        btp=btp + basketPrice;
-        TPrice=[NSString stringWithFormat:@"%02lu", (unsigned long)btp];
-    }
-    if (ItemsOrder.count>0)
-        [self view];
+   
+ 
+    
 }
 
 -(void)OrderRemove:(UIButton *) sender
@@ -155,33 +161,19 @@ else
         UITableViewCell *mycell= (UITableViewCell *)[[sender superview] superview];
         NSIndexPath *ind= [self.OrderTable indexPathForCell:mycell];
         [ItemsOrder removeObjectAtIndex:ind.row];
-        [self.navigationController.view makeToast:@"Item Deleted"];
+        [self.view makeToast:@"Item Deleted"];
         NSInteger diff=[TPrice integerValue]-totalPrice;
         TPrice=[NSString stringWithFormat:@"%2lu", (unsigned long)diff];
-       
-        if(ItemsOrder.count==0)
-        {
-            BasketItems=0;
-            TPrice=@"00";
-            self.navigationItem.rightBarButtonItem=nil;
-
-        }
-       
-        [OrderTable reloadData];
+         [OrderTable reloadData];
+         [self change];
+         
     }
 }
--(void) deleteOrder
-{
-   
-}
+
 - (IBAction)CheckOutButton:(id)sender {
+    
     if(ItemsOrder.count==0 )
       [self performSegueWithIdentifier:@"GoToMain" sender:self];
-    if([TPrice isEqualToString:@"00"])
-    {
-        self.navigationItem.rightBarButtonItem=nil;
-        [self.navigationController.view makeToast:@"Empty Order Can't Be Placed"];
-    }
 }
 -(void)AddBorders
 {
@@ -227,21 +219,17 @@ else
 {
     [self.view endEditing:YES];
 }
-- (void) Display
-{
-    AmountLabel1.text=[@"Rs. " stringByAppendingString:TPrice];
-    AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
-    [self AddBorders];
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-    
-    tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
-    tapRecognizer.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tapRecognizer];
-}
--(void) View
-{
+-(void) change
+{   btp=0;
+    for(int k=0; k<ItemsOrder.count;k++)
+    {
+        NSInteger price =[[[ItemsOrder objectAtIndex:k]valueForKey:IPKey ]integerValue];
+        NSInteger quantity =[[[ItemsOrder objectAtIndex:k]valueForKey:QKey ]integerValue];
+        NSInteger basketPrice= price*quantity;
+        btp=btp + basketPrice;
+        TPrice=[NSString stringWithFormat:@"%02lu", (unsigned long)btp];
+    }
+   
         UIView* BLView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 110, 50)];
         UIButton *basket=[[GlobalVariables class]BarButton];
         basket.frame = BLView.frame;
@@ -250,7 +238,17 @@ else
         UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithCustomView:BLView];
         self.navigationItem.rightBarButtonItem = rightBarButton;
         self.navigationItem.rightBarButtonItem.enabled = NO;
+       if(ItemsOrder.count==0)
+       {
+           BasketItems=0;
+           TPrice=@"00";
+           self.navigationItem.rightBarButtonItem=nil;
+        
+       }
         AmountLabel1.text=[@"Rs. " stringByAppendingString:TPrice];
         AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
+    
+   
+ 
 }
 @end

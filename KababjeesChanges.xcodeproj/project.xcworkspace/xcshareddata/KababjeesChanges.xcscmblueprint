@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "140B4BB203570C02508538CD353F79B4087CAB35",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F4A85611CDBDF52409BB30125FA7004E5DFEFC77" : 0,
+    "140B4BB203570C02508538CD353F79B4087CAB35" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "40008A5C-CD8C-4791-989C-506FEA90641B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F4A85611CDBDF52409BB30125FA7004E5DFEFC77" : "",
+    "140B4BB203570C02508538CD353F79B4087CAB35" : "KababjeesChanges\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "KababjeesChanges",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "KababjeesChanges.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mehreen456\/Changes.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "140B4BB203570C02508538CD353F79B4087CAB35"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mehreen456\/NewRepo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F4A85611CDBDF52409BB30125FA7004E5DFEFC77"
+    }
+  ]
+}

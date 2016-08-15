@@ -36,6 +36,7 @@
     {
         [self EmptyArray];
     }
+
 }
 #pragma mark - UITableDelegate
 
@@ -113,32 +114,7 @@
     cell.backgroundColor = [UIColor colorWithRed:1. green:1. blue:1. alpha:0.5];
     cell.nameLabel.text =currentCat.MIname ;
     cell.descriptionLabel.text = currentCat.MIdescrp;
-   
-    for (int d=0; d<ItemsOrder.count; d++) {
-        
-        NSString * DishName=[[ItemsOrder objectAtIndex:d]valueForKey:INKey];
-        if ([DishName isEqualToString:currentCat.MIname]) {
-            
-            NSString *quan=[[ItemsOrder objectAtIndex:d]valueForKey:QKey];
-            if([quan isEqualToString:@"01" ] ||[quan isEqualToString:@"1" ])
-               cell.priceLabel.text= [@"Rs " stringByAppendingString:currentCat.MIprice];
-            else
-            {
-              quan=[quan stringByAppendingString:@" x "];
-              cell.priceLabel.text= [quan stringByAppendingString:currentCat.MIprice];
-            }
-            cell.priceLabel.font=[UIFont systemFontOfSize:16];
-            cell.priceLabel.textColor=[UIColor redColor];
-            Do=NO;
-            break;
-        }
-    }
-    
-    if(Do)
-    {
     cell.priceLabel.text= [@"Rs " stringByAppendingString:currentCat.MIprice];
-    cell.priceLabel.textColor=[UIColor blackColor];
-    }
     CGSize textSize = [[cell.descriptionLabel text] sizeWithAttributes:@{NSFontAttributeName:[cell.descriptionLabel font]}];
     CGFloat strikeWidth = textSize.width;
     NLwidth=cell.nameLabel.frame.size.height;
@@ -191,7 +167,7 @@
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
        NSLog(@" Menu Data retrived faild");
-       [self.navigationController.view makeToast:@"No Internet Connection"];
+       [self.view makeToast:@"No Internet Connection"];
 }];
    
 }
@@ -251,7 +227,7 @@
         rightBarButton = [[UIBarButtonItem alloc]initWithCustomView:BLView];
         self.navigationItem.rightBarButtonItem = rightBarButton;
     }
-      self.navigationItem.title=CTitle;
+    self.navigationItem.title=CTitle;
     
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
@@ -263,7 +239,7 @@
 }
 -(void) EmptyArray
 {
-        btp=0;
+        TPrice=@"00";
         BasketItems=0;
         [ItemsOrder removeAllObjects];
         self.navigationItem.rightBarButtonItem=nil;

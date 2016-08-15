@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="400" y="-1"/>
         </scene>
-        <!--Basket View Controller-->
+        <!--CheckOut-->
         <scene sceneID="lyB-8M-lpq">
             <objects>
-                <viewController id="HLp-oY-aap" customClass="BasketViewController" sceneMemberID="viewController">
+                <viewController title="CheckOut" id="HLp-oY-aap" customClass="BasketViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ry3-gy-xV4"/>
                         <viewControllerLayoutGuide type="bottom" id="cfI-0k-jEx"/>
@@ -254,14 +254,14 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mha-rG-WP2">
-                                <rect key="frame" x="0.0" y="452" width="320" height="28"/>
+                                <rect key="frame" x="0.0" y="442" width="320" height="38"/>
                                 <color key="backgroundColor" red="0.47843140360000003" green="0.93725496529999996" blue="0.2078431547" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="UB2-fv-Alx"/>
+                                    <constraint firstAttribute="height" constant="38" id="I7F-fi-jJ5"/>
                                     <constraint firstAttribute="width" constant="320" id="p5J-ID-Sxb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                <state key="normal" title="CHECK OUT">
+                                <state key="normal" title="CHECKOUT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -274,10 +274,10 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="hTu-dZ-KnE" secondAttribute="trailing" constant="-4" id="3ub-UF-pVs"/>
                             <constraint firstAttribute="trailing" secondItem="4Gz-D1-oNl" secondAttribute="trailing" id="7H3-Ub-ZGr"/>
-                            <constraint firstItem="mha-rG-WP2" firstAttribute="top" secondItem="F37-Ky-cDE" secondAttribute="bottom" constant="33" id="FME-l7-EZB"/>
                             <constraint firstItem="AAV-Wv-Ctg" firstAttribute="leading" secondItem="ljf-LG-SaJ" secondAttribute="leadingMargin" constant="-11" id="HGg-bs-vhU"/>
                             <constraint firstItem="4Gz-D1-oNl" firstAttribute="top" secondItem="hTu-dZ-KnE" secondAttribute="bottom" constant="25" id="HN4-o7-tyL"/>
                             <constraint firstItem="4Gz-D1-oNl" firstAttribute="leading" secondItem="ljf-LG-SaJ" secondAttribute="leading" id="J5Q-6I-Sac"/>
+                            <constraint firstItem="mha-rG-WP2" firstAttribute="top" secondItem="F37-Ky-cDE" secondAttribute="bottom" constant="23" id="KYH-dA-geX"/>
                             <constraint firstAttribute="trailing" secondItem="4Gz-D1-oNl" secondAttribute="trailing" id="Ogl-TL-2BJ"/>
                             <constraint firstItem="F37-Ky-cDE" firstAttribute="top" secondItem="4Gz-D1-oNl" secondAttribute="bottom" constant="20" id="Pul-zo-vYg"/>
                             <constraint firstItem="4Gz-D1-oNl" firstAttribute="leading" secondItem="ljf-LG-SaJ" secondAttribute="leading" id="RnO-zi-dlm"/>
@@ -347,7 +347,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="01" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnR-d9-gc5">
                                 <rect key="frame" x="274" y="345" width="40" height="25"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -388,7 +388,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1b-pd-hfF">
                                 <rect key="frame" x="23" y="258" width="281" height="57"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="238" text="Quantity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aH-yQ-lNv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="238" text="Quantity 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aH-yQ-lNv">
                                         <rect key="frame" x="84" y="-6" width="99" height="25"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -519,7 +519,8 @@
                         <outlet property="ItemImage" destination="0H3-hN-RlL" id="CUj-hp-fTd"/>
                         <outlet property="ItemName" destination="AjQ-Dw-MDJ" id="j9x-7B-zBv"/>
                         <outlet property="ItemPrice" destination="3FM-1U-2hi" id="t4x-CY-EMb"/>
-                        <outlet property="Quantity" destination="xnR-d9-gc5" id="cCO-1M-ohQ"/>
+                        <outlet property="Orderquan" destination="xnR-d9-gc5" id="Fhz-Xk-KJM"/>
+                        <outlet property="Quantity" destination="8aH-yQ-lNv" id="65F-H0-vWO"/>
                         <outlet property="TotalPrice" destination="XfK-Lj-c0Z" id="ly1-GW-P7h"/>
                         <segue destination="HLp-oY-aap" kind="presentation" identifier="IToB" id="UWf-2E-bm7"/>
                     </connections>
@@ -528,10 +529,10 @@
             </objects>
             <point key="canvasLocation" x="1177" y="-1"/>
         </scene>
-        <!--Place Order-->
+        <!--Check Out View Controller-->
         <scene sceneID="P9b-lB-3cI">
             <objects>
-                <viewController title="Place Order" id="PNe-z2-1n5" customClass="CheckOutViewController" sceneMemberID="viewController">
+                <viewController id="PNe-z2-1n5" customClass="CheckOutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lhp-oX-ssg"/>
                         <viewControllerLayoutGuide type="bottom" id="po3-QL-PUP"/>

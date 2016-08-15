@@ -11,28 +11,33 @@
 @interface ItemDescriptionViewController ()
 {
     NSUInteger tp;
-    NSInteger value;
+    BOOL find;
+    NSInteger value,oldq,newq;
+    int d;
 }
 @end
 
 @implementation ItemDescriptionViewController
-@synthesize ItemImage,ItemName,Name,ItemPrice,Price,imageUrl,Quantity,TotalPrice,ItemID,values,EQLabel;
+@synthesize ItemImage,ItemName,Name,ItemPrice,Price,imageUrl,Quantity,TotalPrice,ItemID,values,EQLabel,Orderquan;
 
 - (void)viewDidLoad {
    
-    value=1;
-    self.Quantity.hidden=YES;
+    value=1; find=NO;
+
+    self.Orderquan.hidden=YES;
     self.EQLabel.hidden=YES;
+    [self ItemExist];
+    
     if([TPrice isEqualToString:@"00"]||[TPrice isEqualToString:@"0"] || ItemsOrder.count==0)
-        self.navigationItem.rightBarButtonItem=nil;
+    self.navigationItem.rightBarButtonItem=nil;
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     tp=[Price integerValue];
     self.ItemName.text=[@"  " stringByAppendingString:Name];
 
     self.ItemPrice.text=[self.ItemPrice.text stringByAppendingString:Price];
     self.TotalPrice.text=self.ItemPrice.text;
-    
     NSURL *url = [NSURL URLWithString:imageUrl];
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     UIImage *placeholderImage = [UIImage imageNamed:@" "];
     __weak UIImageView *weakimage = self.ItemImage;
@@ -41,6 +46,7 @@
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                        weakimage.image=image;
                                    } failure:nil];
+
     
     
     [super viewDidLoad];
@@ -51,36 +57,28 @@
 
 - (IBAction)AddToBasketButton:(UIButton *)sender {
     
-    BOOL find=NO;
     Relaod++;
     BasketItems++;
-    btp=tp+btp;
+    btp=tp+[TPrice integerValue];
     TPrice=[NSString stringWithFormat:@"%2lu", (unsigned long)btp];
-    for (int d=0; d<ItemsOrder.count; d++) {
-        
-        NSString * DishName=[[ItemsOrder objectAtIndex:d]valueForKey:INKey];
-        if ([DishName isEqualToString:Name]) {
-        NSInteger oldq=[[[ItemsOrder objectAtIndex:d]valueForKey:QKey ]integerValue];
-            NSInteger newq=oldq + value;
-            [[ItemsOrder objectAtIndex:d] setValue:[NSString stringWithFormat:@"%ld", (long)newq] forKey:QKey];
-            find=YES;
-            break;
-        }
-        
-    }
+    
     if(!find)
     {
-           NSMutableDictionary *order=[NSMutableDictionary dictionaryWithObjectsAndKeys:Name,INKey,Price, IPKey,self.Quantity.text,QKey,ItemID,@"menu_id",Key ,@"uuid",  nil];
+        NSMutableDictionary *order=[NSMutableDictionary dictionaryWithObjectsAndKeys:Name,INKey,Price, IPKey,[NSString stringWithFormat:@"%2lu", (unsigned long)value],QKey,ItemID,@"menu_id",Key ,@"uuid",  nil];
         [ItemsOrder addObject:order];
+        
     }
-   }
+    else
+    {
+        oldq=[[[ItemsOrder objectAtIndex:d]valueForKey:QKey ]integerValue];
+        newq=oldq + value;
 
+        [[ItemsOrder objectAtIndex:d] setValue:[NSString stringWithFormat:@"%ld", (long)newq] forKey:QKey];
+   }
+}
 - (IBAction)DecButton:(id)sender {
  
     value++;
-    self.EQLabel.hidden=NO;
-    self.Quantity.hidden=NO;
-
     [self valueChanged];
 }
 
@@ -95,9 +93,32 @@
 
 -(void)valueChanged
 {
-    self.Quantity.text = [NSString stringWithFormat:@"%2lu", (unsigned long)value];
+    self.Quantity.text =[@"Quantity" stringByAppendingString:[NSString stringWithFormat:@"%2lu", (unsigned long)value]];
     tp= [Price integerValue];
     tp= tp *value;
     self.TotalPrice.text= [@"Rs " stringByAppendingString:[NSString stringWithFormat:@"%2lu", (unsigned long)tp]];
 }
+-(void) ItemExist
+{
+    for (d=0; d<ItemsOrder.count; d++) {
+        
+        NSString * DishName=[[ItemsOrder objectAtIndex:d]valueForKey:INKey];
+        if ([DishName isEqualToString:Name]) {
+            
+            self.Orderquan.text =[[ItemsOrder objectAtIndex:d]valueForKey:QKey];
+            find=YES;
+            break;
+            
+        }
+        
+    }
+    if(find)
+    {
+        self.Orderquan.hidden=NO;
+        self.EQLabel.hidden=NO;
+    }
+
+
+}
+
 @end

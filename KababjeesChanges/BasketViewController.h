@@ -26,6 +26,5 @@
 - (void)OrderRemove :(UIButton *) sender;
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender;
 - (IBAction)CheckOutButton:(id)sender;
-- (void) Display;
 
 @end

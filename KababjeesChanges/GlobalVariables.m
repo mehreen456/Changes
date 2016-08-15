@@ -36,6 +36,17 @@ int *BasketItems=0, *Relaod=0;
     return basket;
 
 }
-
++(UILabel *) Title:(NSString *) showtitle 
+{
+    UILabel* lbNavTitle = [[UILabel alloc] initWithFrame:CGRectMake(0,0 ,150,40)];
+    lbNavTitle.textAlignment = NSTextAlignmentLeft;
+    lbNavTitle.text = showtitle;
+    lbNavTitle.textColor = [UIColor whiteColor];
+    lbNavTitle.font=[UIFont systemFontOfSize:20];
+    lbNavTitle.minimumScaleFactor = 0.5f;
+    [lbNavTitle sizeToFit];
+    
+    return lbNavTitle;
+}
 
 @end
