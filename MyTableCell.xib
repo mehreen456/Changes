@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1909" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MyTableCell" rowHeight="83" id="PcC-he-ZoV" customClass="MyTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PcC-he-ZoV" id="4Dl-6Z-gxh">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" placeholderIntrinsicWidth="20" placeholderIntrinsicHeight="20" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="r11-MR-gmJ">
+                        <rect key="frame" x="34" y="31" width="20" height="20"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="0.5"/>
+                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                        <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </activityIndicatorView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFS-UU-DHz">
+                        <rect key="frame" x="8" y="8" width="72" height="66"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="72" id="ASQ-QH-DNZ"/>
+                            <constraint firstAttribute="height" constant="66" id="pce-15-Qkw"/>
+                        </constraints>
+                        <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="14" y="10" width="391" height="56"/>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qHM-L2-iFH">
+                        <rect key="frame" x="88" y="33" width="218" height="41"/>
+                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="413" y="30" width="33" height="16"/>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Rs " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mjo-fP-igI">
+                        <rect key="frame" x="267" y="8" width="45" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="fmg-Wp-g49"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="194" y="30" width="31" height="16"/>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bb3-Ub-QwZ">
+                        <rect key="frame" x="88" y="8" width="179" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="179" id="D08-dy-BvK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="413" y="28" width="45" height="21"/>
+                        </variation>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="leadingMargin" secondItem="vFS-UU-DHz" secondAttribute="leading" id="6Km-HR-LQ1"/>
+                    <constraint firstItem="qHM-L2-iFH" firstAttribute="top" secondItem="Bb3-Ub-QwZ" secondAttribute="bottom" constant="2" id="7aX-2d-9GO"/>
+                    <constraint firstItem="Bb3-Ub-QwZ" firstAttribute="leading" secondItem="vFS-UU-DHz" secondAttribute="trailing" constant="8" id="90j-TF-vhA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="qHM-L2-iFH" secondAttribute="trailing" constant="6" id="BWM-V5-b68"/>
+                    <constraint firstAttribute="topMargin" secondItem="Mjo-fP-igI" secondAttribute="top" id="C75-PF-hba"/>
+                    <constraint firstItem="vFS-UU-DHz" firstAttribute="centerY" secondItem="4Dl-6Z-gxh" secondAttribute="centerY" id="IvX-Mq-EsH"/>
+                    <constraint firstItem="qHM-L2-iFH" firstAttribute="leading" secondItem="vFS-UU-DHz" secondAttribute="trailing" constant="8" id="MkC-77-D39"/>
+                    <constraint firstItem="qHM-L2-iFH" firstAttribute="top" secondItem="4Dl-6Z-gxh" secondAttribute="topMargin" constant="25" id="YlD-GP-5hk"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="qHM-L2-iFH" secondAttribute="bottom" constant="19" id="aRP-Mt-knU"/>
+                    <constraint firstAttribute="topMargin" secondItem="Bb3-Ub-QwZ" secondAttribute="top" id="bD3-CQ-KMT"/>
+                    <constraint firstItem="r11-MR-gmJ" firstAttribute="centerX" secondItem="vFS-UU-DHz" secondAttribute="centerX" id="bku-vh-OTL"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="qHM-L2-iFH" secondAttribute="bottom" id="h8v-4q-9l5"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Mjo-fP-igI" secondAttribute="trailing" id="ini-FB-Xxa"/>
+                    <constraint firstItem="Mjo-fP-igI" firstAttribute="leading" secondItem="Bb3-Ub-QwZ" secondAttribute="trailing" id="lvY-Cy-LWw"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Mjo-fP-igI" secondAttribute="trailing" id="qAZ-om-BCZ"/>
+                    <constraint firstItem="r11-MR-gmJ" firstAttribute="centerY" secondItem="vFS-UU-DHz" secondAttribute="centerY" id="zak-I4-HZW"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="aRP-Mt-knU"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.88360053859999999" green="0.82225633259999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="ActivityInd" destination="vFS-UU-DHz" id="LpF-wY-Zeq"/>
+                <outlet property="descriptionLabel" destination="qHM-L2-iFH" id="tkL-jJ-Cpi"/>
+                <outlet property="nameLabel" destination="Bb3-Ub-QwZ" id="F61-fB-UJK"/>
+                <outlet property="priceLabel" destination="Mjo-fP-igI" id="Asb-od-bCV"/>
+                <outlet property="thumbnailImageView" destination="vFS-UU-DHz" id="V0F-TY-ccD"/>
+            </connections>
+            <point key="canvasLocation" x="368" y="262.5"/>
+        </tableViewCell>
+    </objects>
+</document>
