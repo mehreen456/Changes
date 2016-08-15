@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CF560AED1D61A0E90004DFA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560AEC1D61A0E90004DFA5 /* main.m */; };
 		CF560AF01D61A0E90004DFA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560AEF1D61A0E90004DFA5 /* AppDelegate.m */; };
-		CF560B031D61A1330004DFA5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF560B021D61A1330004DFA5 /* Default@2x.png */; };
 		CF560B4A1D61A1710004DFA5 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B151D61A1710004DFA5 /* AFHTTPSessionManager.m */; };
 		CF560B4B1D61A1710004DFA5 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B181D61A1710004DFA5 /* AFNetworkReachabilityManager.m */; };
 		CF560B4C1D61A1710004DFA5 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B1A1D61A1710004DFA5 /* AFSecurityPolicy.m */; };
@@ -26,25 +25,26 @@
 		CF560B571D61A1710004DFA5 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B331D61A1710004DFA5 /* UIRefreshControl+AFNetworking.m */; };
 		CF560B581D61A1710004DFA5 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B351D61A1710004DFA5 /* UIWebView+AFNetworking.m */; };
 		CF560B591D61A1710004DFA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF560B361D61A1710004DFA5 /* Assets.xcassets */; };
-		CF560B5A1D61A1710004DFA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF560B371D61A1710004DFA5 /* LaunchScreen.storyboard */; };
-		CF560B5B1D61A1710004DFA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF560B381D61A1710004DFA5 /* Main.storyboard */; };
-		CF560B5C1D61A1710004DFA5 /* BasketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B391D61A1710004DFA5 /* BasketViewController.m */; };
-		CF560B5D1D61A1710004DFA5 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B3A1D61A1710004DFA5 /* Categories.m */; };
-		CF560B5E1D61A1710004DFA5 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B3B1D61A1710004DFA5 /* CategoriesViewController.m */; };
-		CF560B5F1D61A1710004DFA5 /* CheckOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B3C1D61A1710004DFA5 /* CheckOutViewController.m */; };
-		CF560B601D61A1710004DFA5 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B3D1D61A1710004DFA5 /* DejalActivityView.m */; };
-		CF560B611D61A1710004DFA5 /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B3E1D61A1710004DFA5 /* GlobalVariables.m */; };
-		CF560B621D61A1710004DFA5 /* ItemDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B3F1D61A1710004DFA5 /* ItemDescriptionViewController.m */; };
-		CF560B631D61A1710004DFA5 /* MenuItems.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B401D61A1710004DFA5 /* MenuItems.m */; };
-		CF560B641D61A1710004DFA5 /* MenuItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B411D61A1710004DFA5 /* MenuItemsViewController.m */; };
-		CF560B651D61A1710004DFA5 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B421D61A1710004DFA5 /* MyTableViewCell.m */; };
-		CF560B661D61A1710004DFA5 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B431D61A1710004DFA5 /* OrderCell.m */; };
-		CF560B671D61A1710004DFA5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B441D61A1710004DFA5 /* SWRevealViewController.m */; };
-		CF560B681D61A1710004DFA5 /* ThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B451D61A1710004DFA5 /* ThankYouViewController.m */; };
-		CF560B691D61A1710004DFA5 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B461D61A1710004DFA5 /* UIView+Toast.m */; };
-		CF560B6A1D61A1710004DFA5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B471D61A1710004DFA5 /* ViewController.m */; };
-		CF560B6B1D61A1710004DFA5 /* MyTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF560B481D61A1710004DFA5 /* MyTableCell.xib */; };
-		CF560B6C1D61A1710004DFA5 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF560B491D61A1710004DFA5 /* OrderCell.xib */; };
+		CF9F724B1D624A6C00B9B0AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9F72481D624A6C00B9B0AE /* LaunchScreen.storyboard */; };
+		CF9F724C1D624A6C00B9B0AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9F72491D624A6C00B9B0AE /* Main.storyboard */; };
+		CF9F724D1D624A6C00B9B0AE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9F724A1D624A6C00B9B0AE /* Default@2x.png */; };
+		CF9F72501D624B2B00B9B0AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F724F1D624B2B00B9B0AE /* ViewController.m */; };
+		CF9F72551D624B4300B9B0AE /* MenuItems.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F72531D624B4300B9B0AE /* MenuItems.m */; };
+		CF9F72561D624B4300B9B0AE /* MenuItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F72541D624B4300B9B0AE /* MenuItemsViewController.m */; };
+		CF9F72591D624B5E00B9B0AE /* ItemDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F72581D624B5E00B9B0AE /* ItemDescriptionViewController.m */; };
+		CF9F725C1D624B7300B9B0AE /* BasketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F725B1D624B7300B9B0AE /* BasketViewController.m */; };
+		CF9F725F1D624B8700B9B0AE /* CheckOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F725E1D624B8700B9B0AE /* CheckOutViewController.m */; };
+		CF9F72621D624B9E00B9B0AE /* ThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F72611D624B9E00B9B0AE /* ThankYouViewController.m */; };
+		CF9F72651D624BB000B9B0AE /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F72641D624BB000B9B0AE /* SWRevealViewController.m */; };
+		CF9F726A1D624BCD00B9B0AE /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F72681D624BCD00B9B0AE /* DejalActivityView.m */; };
+		CF9F726B1D624BCD00B9B0AE /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F72691D624BCD00B9B0AE /* UIView+Toast.m */; };
+		CF9F72721D624BEC00B9B0AE /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F726E1D624BEC00B9B0AE /* MyTableViewCell.m */; };
+		CF9F72731D624BEC00B9B0AE /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F726F1D624BEC00B9B0AE /* OrderCell.m */; };
+		CF9F72741D624BEC00B9B0AE /* MyTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9F72701D624BEC00B9B0AE /* MyTableCell.xib */; };
+		CF9F72751D624BEC00B9B0AE /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9F72711D624BEC00B9B0AE /* OrderCell.xib */; };
+		CF9F727A1D624C0600B9B0AE /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F72781D624C0600B9B0AE /* Categories.m */; };
+		CF9F727B1D624C0600B9B0AE /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F72791D624C0600B9B0AE /* CategoriesViewController.m */; };
+		CF9F727E1D624C1E00B9B0AE /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F727D1D624C1E00B9B0AE /* GlobalVariables.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,22 +53,6 @@
 		CF560AEE1D61A0E90004DFA5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CF560AEF1D61A0E90004DFA5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CF560AFC1D61A0E90004DFA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF560B021D61A1330004DFA5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
-		CF560B041D61A1710004DFA5 /* BasketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasketViewController.h; path = ../BasketViewController.h; sourceTree = "<group>"; };
-		CF560B051D61A1710004DFA5 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Categories.h; path = ../Categories.h; sourceTree = "<group>"; };
-		CF560B061D61A1710004DFA5 /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoriesViewController.h; path = ../CategoriesViewController.h; sourceTree = "<group>"; };
-		CF560B071D61A1710004DFA5 /* CheckOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckOutViewController.h; path = ../CheckOutViewController.h; sourceTree = "<group>"; };
-		CF560B081D61A1710004DFA5 /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DejalActivityView.h; path = ../DejalActivityView.h; sourceTree = "<group>"; };
-		CF560B091D61A1710004DFA5 /* GlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalVariables.h; path = ../GlobalVariables.h; sourceTree = "<group>"; };
-		CF560B0A1D61A1710004DFA5 /* ItemDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemDescriptionViewController.h; path = ../ItemDescriptionViewController.h; sourceTree = "<group>"; };
-		CF560B0B1D61A1710004DFA5 /* MenuItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItems.h; path = ../MenuItems.h; sourceTree = "<group>"; };
-		CF560B0C1D61A1710004DFA5 /* MenuItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItemsViewController.h; path = ../MenuItemsViewController.h; sourceTree = "<group>"; };
-		CF560B0D1D61A1710004DFA5 /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTableViewCell.h; path = ../MyTableViewCell.h; sourceTree = "<group>"; };
-		CF560B0E1D61A1710004DFA5 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderCell.h; path = ../OrderCell.h; sourceTree = "<group>"; };
-		CF560B0F1D61A1710004DFA5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ../SWRevealViewController.h; sourceTree = "<group>"; };
-		CF560B101D61A1710004DFA5 /* ThankYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThankYouViewController.h; path = ../ThankYouViewController.h; sourceTree = "<group>"; };
-		CF560B111D61A1710004DFA5 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "../UIView+Toast.h"; sourceTree = "<group>"; };
-		CF560B121D61A1710004DFA5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
 		CF560B141D61A1710004DFA5 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		CF560B151D61A1710004DFA5 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		CF560B161D61A1710004DFA5 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -103,25 +87,41 @@
 		CF560B341D61A1710004DFA5 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		CF560B351D61A1710004DFA5 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		CF560B361D61A1710004DFA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
-		CF560B371D61A1710004DFA5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CF560B381D61A1710004DFA5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
-		CF560B391D61A1710004DFA5 /* BasketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasketViewController.m; path = ../BasketViewController.m; sourceTree = "<group>"; };
-		CF560B3A1D61A1710004DFA5 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Categories.m; path = ../Categories.m; sourceTree = "<group>"; };
-		CF560B3B1D61A1710004DFA5 /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoriesViewController.m; path = ../CategoriesViewController.m; sourceTree = "<group>"; };
-		CF560B3C1D61A1710004DFA5 /* CheckOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckOutViewController.m; path = ../CheckOutViewController.m; sourceTree = "<group>"; };
-		CF560B3D1D61A1710004DFA5 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DejalActivityView.m; path = ../DejalActivityView.m; sourceTree = "<group>"; };
-		CF560B3E1D61A1710004DFA5 /* GlobalVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalVariables.m; path = ../GlobalVariables.m; sourceTree = "<group>"; };
-		CF560B3F1D61A1710004DFA5 /* ItemDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemDescriptionViewController.m; path = ../ItemDescriptionViewController.m; sourceTree = "<group>"; };
-		CF560B401D61A1710004DFA5 /* MenuItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItems.m; path = ../MenuItems.m; sourceTree = "<group>"; };
-		CF560B411D61A1710004DFA5 /* MenuItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItemsViewController.m; path = ../MenuItemsViewController.m; sourceTree = "<group>"; };
-		CF560B421D61A1710004DFA5 /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTableViewCell.m; path = ../MyTableViewCell.m; sourceTree = "<group>"; };
-		CF560B431D61A1710004DFA5 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderCell.m; path = ../OrderCell.m; sourceTree = "<group>"; };
-		CF560B441D61A1710004DFA5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ../SWRevealViewController.m; sourceTree = "<group>"; };
-		CF560B451D61A1710004DFA5 /* ThankYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThankYouViewController.m; path = ../ThankYouViewController.m; sourceTree = "<group>"; };
-		CF560B461D61A1710004DFA5 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "../UIView+Toast.m"; sourceTree = "<group>"; };
-		CF560B471D61A1710004DFA5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
-		CF560B481D61A1710004DFA5 /* MyTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyTableCell.xib; path = ../MyTableCell.xib; sourceTree = "<group>"; };
-		CF560B491D61A1710004DFA5 /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderCell.xib; path = ../OrderCell.xib; sourceTree = "<group>"; };
+		CF9F72481D624A6C00B9B0AE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../AFNetworking/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CF9F72491D624A6C00B9B0AE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../AFNetworking/Main.storyboard; sourceTree = "<group>"; };
+		CF9F724A1D624A6C00B9B0AE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../AFNetworking/Default@2x.png"; sourceTree = "<group>"; };
+		CF9F724E1D624B2B00B9B0AE /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CF9F724F1D624B2B00B9B0AE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CF9F72511D624B4300B9B0AE /* MenuItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItems.h; sourceTree = "<group>"; };
+		CF9F72521D624B4300B9B0AE /* MenuItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemsViewController.h; sourceTree = "<group>"; };
+		CF9F72531D624B4300B9B0AE /* MenuItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItems.m; sourceTree = "<group>"; };
+		CF9F72541D624B4300B9B0AE /* MenuItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemsViewController.m; sourceTree = "<group>"; };
+		CF9F72571D624B5E00B9B0AE /* ItemDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDescriptionViewController.h; sourceTree = "<group>"; };
+		CF9F72581D624B5E00B9B0AE /* ItemDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDescriptionViewController.m; sourceTree = "<group>"; };
+		CF9F725A1D624B7300B9B0AE /* BasketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasketViewController.h; sourceTree = "<group>"; };
+		CF9F725B1D624B7300B9B0AE /* BasketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasketViewController.m; sourceTree = "<group>"; };
+		CF9F725D1D624B8700B9B0AE /* CheckOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckOutViewController.h; sourceTree = "<group>"; };
+		CF9F725E1D624B8700B9B0AE /* CheckOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckOutViewController.m; sourceTree = "<group>"; };
+		CF9F72601D624B9E00B9B0AE /* ThankYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThankYouViewController.h; sourceTree = "<group>"; };
+		CF9F72611D624B9E00B9B0AE /* ThankYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThankYouViewController.m; sourceTree = "<group>"; };
+		CF9F72631D624BB000B9B0AE /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		CF9F72641D624BB000B9B0AE /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		CF9F72661D624BCD00B9B0AE /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
+		CF9F72671D624BCD00B9B0AE /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		CF9F72681D624BCD00B9B0AE /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
+		CF9F72691D624BCD00B9B0AE /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		CF9F726C1D624BEC00B9B0AE /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
+		CF9F726D1D624BEC00B9B0AE /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
+		CF9F726E1D624BEC00B9B0AE /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
+		CF9F726F1D624BEC00B9B0AE /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
+		CF9F72701D624BEC00B9B0AE /* MyTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTableCell.xib; sourceTree = "<group>"; };
+		CF9F72711D624BEC00B9B0AE /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
+		CF9F72761D624C0600B9B0AE /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
+		CF9F72771D624C0600B9B0AE /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
+		CF9F72781D624C0600B9B0AE /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
+		CF9F72791D624C0600B9B0AE /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
+		CF9F727C1D624C1E00B9B0AE /* GlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
+		CF9F727D1D624C1E00B9B0AE /* GlobalVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,9 +160,9 @@
 				CF560AEF1D61A0E90004DFA5 /* AppDelegate.m */,
 				CF560AFC1D61A0E90004DFA5 /* Info.plist */,
 				CF560B361D61A1710004DFA5 /* Assets.xcassets */,
-				CF560B371D61A1710004DFA5 /* LaunchScreen.storyboard */,
-				CF560B381D61A1710004DFA5 /* Main.storyboard */,
-				CF560B021D61A1330004DFA5 /* Default@2x.png */,
+				CF9F72481D624A6C00B9B0AE /* LaunchScreen.storyboard */,
+				CF9F72491D624A6C00B9B0AE /* Main.storyboard */,
+				CF9F724A1D624A6C00B9B0AE /* Default@2x.png */,
 				CF560B771D61A1B70004DFA5 /* MainViewController */,
 				CF560B751D61A1B10004DFA5 /* MenuViewController */,
 				CF560B741D61A1AE0004DFA5 /* ItemsDescriptionViewController */,
@@ -239,8 +239,8 @@
 		CF560B6D1D61A1940004DFA5 /* GlobalVariables */ = {
 			isa = PBXGroup;
 			children = (
-				CF560B091D61A1710004DFA5 /* GlobalVariables.h */,
-				CF560B3E1D61A1710004DFA5 /* GlobalVariables.m */,
+				CF9F727C1D624C1E00B9B0AE /* GlobalVariables.h */,
+				CF9F727D1D624C1E00B9B0AE /* GlobalVariables.m */,
 			);
 			name = GlobalVariables;
 			sourceTree = "<group>";
@@ -248,12 +248,12 @@
 		CF560B6E1D61A1980004DFA5 /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
-				CF560B0E1D61A1710004DFA5 /* OrderCell.h */,
-				CF560B431D61A1710004DFA5 /* OrderCell.m */,
-				CF560B491D61A1710004DFA5 /* OrderCell.xib */,
-				CF560B481D61A1710004DFA5 /* MyTableCell.xib */,
-				CF560B0D1D61A1710004DFA5 /* MyTableViewCell.h */,
-				CF560B421D61A1710004DFA5 /* MyTableViewCell.m */,
+				CF9F726C1D624BEC00B9B0AE /* MyTableViewCell.h */,
+				CF9F726D1D624BEC00B9B0AE /* OrderCell.h */,
+				CF9F726E1D624BEC00B9B0AE /* MyTableViewCell.m */,
+				CF9F726F1D624BEC00B9B0AE /* OrderCell.m */,
+				CF9F72701D624BEC00B9B0AE /* MyTableCell.xib */,
+				CF9F72711D624BEC00B9B0AE /* OrderCell.xib */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -261,10 +261,10 @@
 		CF560B6F1D61A19A0004DFA5 /* Toast+LoadingBar */ = {
 			isa = PBXGroup;
 			children = (
-				CF560B111D61A1710004DFA5 /* UIView+Toast.h */,
-				CF560B461D61A1710004DFA5 /* UIView+Toast.m */,
-				CF560B081D61A1710004DFA5 /* DejalActivityView.h */,
-				CF560B3D1D61A1710004DFA5 /* DejalActivityView.m */,
+				CF9F72661D624BCD00B9B0AE /* DejalActivityView.h */,
+				CF9F72671D624BCD00B9B0AE /* UIView+Toast.h */,
+				CF9F72681D624BCD00B9B0AE /* DejalActivityView.m */,
+				CF9F72691D624BCD00B9B0AE /* UIView+Toast.m */,
 			);
 			name = "Toast+LoadingBar";
 			sourceTree = "<group>";
@@ -272,8 +272,8 @@
 		CF560B701D61A19D0004DFA5 /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CF560B0F1D61A1710004DFA5 /* SWRevealViewController.h */,
-				CF560B441D61A1710004DFA5 /* SWRevealViewController.m */,
+				CF9F72631D624BB000B9B0AE /* SWRevealViewController.h */,
+				CF9F72641D624BB000B9B0AE /* SWRevealViewController.m */,
 			);
 			name = SWRevealViewController;
 			sourceTree = "<group>";
@@ -281,8 +281,8 @@
 		CF560B711D61A1A30004DFA5 /* ThankYouViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CF560B101D61A1710004DFA5 /* ThankYouViewController.h */,
-				CF560B451D61A1710004DFA5 /* ThankYouViewController.m */,
+				CF9F72601D624B9E00B9B0AE /* ThankYouViewController.h */,
+				CF9F72611D624B9E00B9B0AE /* ThankYouViewController.m */,
 			);
 			name = ThankYouViewController;
 			sourceTree = "<group>";
@@ -290,8 +290,8 @@
 		CF560B721D61A1A70004DFA5 /* CheckOutViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CF560B071D61A1710004DFA5 /* CheckOutViewController.h */,
-				CF560B3C1D61A1710004DFA5 /* CheckOutViewController.m */,
+				CF9F725D1D624B8700B9B0AE /* CheckOutViewController.h */,
+				CF9F725E1D624B8700B9B0AE /* CheckOutViewController.m */,
 			);
 			name = CheckOutViewController;
 			sourceTree = "<group>";
@@ -299,8 +299,8 @@
 		CF560B731D61A1AB0004DFA5 /* BasketViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CF560B041D61A1710004DFA5 /* BasketViewController.h */,
-				CF560B391D61A1710004DFA5 /* BasketViewController.m */,
+				CF9F725A1D624B7300B9B0AE /* BasketViewController.h */,
+				CF9F725B1D624B7300B9B0AE /* BasketViewController.m */,
 			);
 			name = BasketViewController;
 			sourceTree = "<group>";
@@ -308,8 +308,8 @@
 		CF560B741D61A1AE0004DFA5 /* ItemsDescriptionViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CF560B0A1D61A1710004DFA5 /* ItemDescriptionViewController.h */,
-				CF560B3F1D61A1710004DFA5 /* ItemDescriptionViewController.m */,
+				CF9F72571D624B5E00B9B0AE /* ItemDescriptionViewController.h */,
+				CF9F72581D624B5E00B9B0AE /* ItemDescriptionViewController.m */,
 			);
 			name = ItemsDescriptionViewController;
 			sourceTree = "<group>";
@@ -317,10 +317,10 @@
 		CF560B751D61A1B10004DFA5 /* MenuViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CF560B0B1D61A1710004DFA5 /* MenuItems.h */,
-				CF560B401D61A1710004DFA5 /* MenuItems.m */,
-				CF560B0C1D61A1710004DFA5 /* MenuItemsViewController.h */,
-				CF560B411D61A1710004DFA5 /* MenuItemsViewController.m */,
+				CF9F72511D624B4300B9B0AE /* MenuItems.h */,
+				CF9F72521D624B4300B9B0AE /* MenuItemsViewController.h */,
+				CF9F72531D624B4300B9B0AE /* MenuItems.m */,
+				CF9F72541D624B4300B9B0AE /* MenuItemsViewController.m */,
 			);
 			name = MenuViewController;
 			sourceTree = "<group>";
@@ -328,10 +328,10 @@
 		CF560B761D61A1B40004DFA5 /* CategoriesViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CF560B051D61A1710004DFA5 /* Categories.h */,
-				CF560B3A1D61A1710004DFA5 /* Categories.m */,
-				CF560B061D61A1710004DFA5 /* CategoriesViewController.h */,
-				CF560B3B1D61A1710004DFA5 /* CategoriesViewController.m */,
+				CF9F72761D624C0600B9B0AE /* Categories.h */,
+				CF9F72771D624C0600B9B0AE /* CategoriesViewController.h */,
+				CF9F72781D624C0600B9B0AE /* Categories.m */,
+				CF9F72791D624C0600B9B0AE /* CategoriesViewController.m */,
 			);
 			name = CategoriesViewController;
 			sourceTree = "<group>";
@@ -339,8 +339,8 @@
 		CF560B771D61A1B70004DFA5 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CF560B121D61A1710004DFA5 /* ViewController.h */,
-				CF560B471D61A1710004DFA5 /* ViewController.m */,
+				CF9F724E1D624B2B00B9B0AE /* ViewController.h */,
+				CF9F724F1D624B2B00B9B0AE /* ViewController.m */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -402,12 +402,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF560B5A1D61A1710004DFA5 /* LaunchScreen.storyboard in Resources */,
-				CF560B6B1D61A1710004DFA5 /* MyTableCell.xib in Resources */,
-				CF560B6C1D61A1710004DFA5 /* OrderCell.xib in Resources */,
+				CF9F72751D624BEC00B9B0AE /* OrderCell.xib in Resources */,
+				CF9F724D1D624A6C00B9B0AE /* Default@2x.png in Resources */,
+				CF9F724C1D624A6C00B9B0AE /* Main.storyboard in Resources */,
 				CF560B591D61A1710004DFA5 /* Assets.xcassets in Resources */,
-				CF560B031D61A1330004DFA5 /* Default@2x.png in Resources */,
-				CF560B5B1D61A1710004DFA5 /* Main.storyboard in Resources */,
+				CF9F72741D624BEC00B9B0AE /* MyTableCell.xib in Resources */,
+				CF9F724B1D624A6C00B9B0AE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,38 +418,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF9F727E1D624C1E00B9B0AE /* GlobalVariables.m in Sources */,
+				CF9F72721D624BEC00B9B0AE /* MyTableViewCell.m in Sources */,
 				CF560B4A1D61A1710004DFA5 /* AFHTTPSessionManager.m in Sources */,
-				CF560B681D61A1710004DFA5 /* ThankYouViewController.m in Sources */,
 				CF560B4F1D61A1710004DFA5 /* AFURLSessionManager.m in Sources */,
-				CF560B661D61A1710004DFA5 /* OrderCell.m in Sources */,
 				CF560B571D61A1710004DFA5 /* UIRefreshControl+AFNetworking.m in Sources */,
-				CF560B611D61A1710004DFA5 /* GlobalVariables.m in Sources */,
 				CF560B4C1D61A1710004DFA5 /* AFSecurityPolicy.m in Sources */,
-				CF560B5C1D61A1710004DFA5 /* BasketViewController.m in Sources */,
+				CF9F72561D624B4300B9B0AE /* MenuItemsViewController.m in Sources */,
 				CF560AF01D61A0E90004DFA5 /* AppDelegate.m in Sources */,
-				CF560B5F1D61A1710004DFA5 /* CheckOutViewController.m in Sources */,
-				CF560B6A1D61A1710004DFA5 /* ViewController.m in Sources */,
+				CF9F726B1D624BCD00B9B0AE /* UIView+Toast.m in Sources */,
+				CF9F72651D624BB000B9B0AE /* SWRevealViewController.m in Sources */,
 				CF560B561D61A1710004DFA5 /* UIProgressView+AFNetworking.m in Sources */,
 				CF560B521D61A1710004DFA5 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				CF560B551D61A1710004DFA5 /* UIImageView+AFNetworking.m in Sources */,
-				CF560B601D61A1710004DFA5 /* DejalActivityView.m in Sources */,
+				CF9F72621D624B9E00B9B0AE /* ThankYouViewController.m in Sources */,
 				CF560B4D1D61A1710004DFA5 /* AFURLRequestSerialization.m in Sources */,
+				CF9F725F1D624B8700B9B0AE /* CheckOutViewController.m in Sources */,
 				CF560B531D61A1710004DFA5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				CF560B581D61A1710004DFA5 /* UIWebView+AFNetworking.m in Sources */,
-				CF560B631D61A1710004DFA5 /* MenuItems.m in Sources */,
-				CF560B641D61A1710004DFA5 /* MenuItemsViewController.m in Sources */,
 				CF560B4B1D61A1710004DFA5 /* AFNetworkReachabilityManager.m in Sources */,
 				CF560B501D61A1710004DFA5 /* AFAutoPurgingImageCache.m in Sources */,
 				CF560B511D61A1710004DFA5 /* AFImageDownloader.m in Sources */,
+				CF9F72731D624BEC00B9B0AE /* OrderCell.m in Sources */,
+				CF9F727A1D624C0600B9B0AE /* Categories.m in Sources */,
+				CF9F726A1D624BCD00B9B0AE /* DejalActivityView.m in Sources */,
 				CF560B4E1D61A1710004DFA5 /* AFURLResponseSerialization.m in Sources */,
-				CF560B651D61A1710004DFA5 /* MyTableViewCell.m in Sources */,
-				CF560B691D61A1710004DFA5 /* UIView+Toast.m in Sources */,
-				CF560B671D61A1710004DFA5 /* SWRevealViewController.m in Sources */,
+				CF9F725C1D624B7300B9B0AE /* BasketViewController.m in Sources */,
+				CF9F72501D624B2B00B9B0AE /* ViewController.m in Sources */,
 				CF560B541D61A1710004DFA5 /* UIButton+AFNetworking.m in Sources */,
-				CF560B621D61A1710004DFA5 /* ItemDescriptionViewController.m in Sources */,
 				CF560AED1D61A0E90004DFA5 /* main.m in Sources */,
-				CF560B5E1D61A1710004DFA5 /* CategoriesViewController.m in Sources */,
-				CF560B5D1D61A1710004DFA5 /* Categories.m in Sources */,
+				CF9F72591D624B5E00B9B0AE /* ItemDescriptionViewController.m in Sources */,
+				CF9F727B1D624C0600B9B0AE /* CategoriesViewController.m in Sources */,
+				CF9F72551D624B4300B9B0AE /* MenuItems.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
