@@ -31,7 +31,7 @@
                             <rect key="frame" x="14" y="10" width="391" height="56"/>
                         </variation>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qHM-L2-iFH">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHM-L2-iFH">
                         <rect key="frame" x="88" y="33" width="218" height="41"/>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,12 +52,12 @@
                             <rect key="frame" x="194" y="30" width="31" height="16"/>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bb3-Ub-QwZ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bb3-Ub-QwZ">
                         <rect key="frame" x="88" y="8" width="179" height="23"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="179" id="D08-dy-BvK"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
@@ -80,6 +80,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="qHM-L2-iFH" secondAttribute="bottom" id="h8v-4q-9l5"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Mjo-fP-igI" secondAttribute="trailing" id="ini-FB-Xxa"/>
                     <constraint firstItem="Mjo-fP-igI" firstAttribute="leading" secondItem="Bb3-Ub-QwZ" secondAttribute="trailing" id="lvY-Cy-LWw"/>
+                    <constraint firstItem="qHM-L2-iFH" firstAttribute="top" secondItem="Bb3-Ub-QwZ" secondAttribute="bottom" constant="2" id="oZo-y2-mHW"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Mjo-fP-igI" secondAttribute="trailing" id="qAZ-om-BCZ"/>
                     <constraint firstItem="r11-MR-gmJ" firstAttribute="centerY" secondItem="vFS-UU-DHz" secondAttribute="centerY" id="zak-I4-HZW"/>
                 </constraints>

@@ -21,7 +21,7 @@
 
 @implementation BasketViewController
 
-@synthesize OrderTable,Button,AmountLabel1,AmountLabel2,PriceView,tapRecognizer;
+@synthesize OrderTable,Button,AmountLabel1,AmountLabel2,PriceView,tapRecognizer,addbutn,chckbtn;
 
 - (void)viewDidLoad {
     
@@ -34,13 +34,14 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
     tapRecognizer.cancelsTouchesInView = NO;
-       
+   
     self.navigationItem.titleView = [[GlobalVariables class]Title:@"CheckOut" ];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Place Order" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     [self.view addGestureRecognizer:tapRecognizer];
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-   }
+    [self setcolor];
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -78,7 +79,7 @@
     if(j==0)
         [[cell.contentView viewWithTag:201] setHidden:YES];
    
-    if(j==2)
+    if(j==2 && m<ItemsOrder.count)
     {
         m++;
         addProject = [UIButton buttonWithType: UIButtonTypeRoundedRect];
@@ -90,8 +91,7 @@
         addProject.tag=201;
         [cell.contentView addSubview:addProject];
         [[cell.contentView viewWithTag:201] setHidden:YES];
-        if(ItemsOrder.count==m)
-            j=0;
+       
       }
   
     return cell;
@@ -130,6 +130,21 @@ else
     return NO;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *currentString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if ([currentString length] > 4) {
+     
+        UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+        UIView *new=[[UIView alloc]init];
+        new.backgroundColor=[UIColor clearColor];
+        [window addSubview:new];
+        [window makeToast:@"Can't Enter More Quantity"];
+        [new removeFromSuperview];
+         return NO;
+    }
+    return YES;
+}
 #pragma mark - ViewButtons
 
 - (IBAction)MyButton:(id)sender
@@ -246,9 +261,15 @@ else
         
        }
         AmountLabel1.text=[@"Rs. " stringByAppendingString:TPrice];
-        AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
-    
+    AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
    
  
+}
+-(void) setcolor
+{
+    [self.Button  setTitleColor:[[GlobalVariables class]color:0] forState:UIControlStateNormal ];
+    [self.addbutn setTitleColor:[[GlobalVariables class]color:0] forState:UIControlStateNormal ];
+    [self.chckbtn setBackgroundColor: [[GlobalVariables class]color:1]];
+
 }
 @end

@@ -24,9 +24,9 @@ int *BasketItems=0, *Relaod=0;
     UIButton *basket = [UIButton buttonWithType:UIButtonTypeSystem];
     basket.backgroundColor = [UIColor clearColor];
     [basket setImage:[UIImage imageNamed:@"basket"] forState:UIControlStateNormal];
-    [basket setTitle:[@"  Rs " stringByAppendingString:TPrice] forState:UIControlStateNormal];
+    [basket setTitle:[@" Rs " stringByAppendingString:TPrice] forState:UIControlStateNormal];
     basket.titleLabel.font=[UIFont systemFontOfSize:16];
-    basket.titleLabel.minimumScaleFactor = 0.5f;
+    basket.titleLabel.minimumScaleFactor = 0.4f;
     [basket.titleLabel sizeToFit];
     basket.tintColor = [UIColor whiteColor];
     [basket setTranslatesAutoresizingMaskIntoConstraints:YES];
@@ -48,5 +48,15 @@ int *BasketItems=0, *Relaod=0;
     
     return lbNavTitle;
 }
++(UIColor *) color:(int) c
+{
+    UIColor *mycolor;
+    if(c==1)
+    mycolor=[UIColor colorWithRed:124/255.0f green:175/255.0f blue:65/255.0f alpha:1.0f];
+    else
+        mycolor=[UIColor colorWithRed:215/255.0f green:8/255.0f blue:13/255.0f alpha:1.0f];
 
+    return mycolor;
+
+}
 @end

@@ -18,7 +18,7 @@
 @end
 
 @implementation ItemDescriptionViewController
-@synthesize ItemImage,ItemName,Name,ItemPrice,Price,imageUrl,Quantity,TotalPrice,ItemID,values,EQLabel,Orderquan;
+@synthesize ItemImage,ItemName,Name,ItemPrice,Price,imageUrl,Quantity,TotalPrice,ItemID,values,EQLabel,Orderquan,addbutton;
 
 - (void)viewDidLoad {
    
@@ -35,9 +35,10 @@
     self.ItemName.text=[@"  " stringByAppendingString:Name];
 
     self.ItemPrice.text=[self.ItemPrice.text stringByAppendingString:Price];
-    self.TotalPrice.text=self.ItemPrice.text;
-    NSURL *url = [NSURL URLWithString:imageUrl];
+       self.TotalPrice.text=self.ItemPrice.text;
+    self.navigationController.interactivePopGestureRecognizer.enabled=NO;
     
+    NSURL *url = [NSURL URLWithString:imageUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     UIImage *placeholderImage = [UIImage imageNamed:@" "];
     __weak UIImageView *weakimage = self.ItemImage;
@@ -47,9 +48,8 @@
                                        weakimage.image=image;
                                    } failure:nil];
 
-    
-    
-    [super viewDidLoad];
+    [self setcolor];
+        [super viewDidLoad];
 }
 
 
@@ -118,7 +118,18 @@
         self.EQLabel.hidden=NO;
     }
 
+    
 
+}
+-(void) setcolor
+{
+    [self.ItemPrice setBackgroundColor: [[GlobalVariables class]color:0]];
+    [self.Ib setBackgroundColor: [[GlobalVariables class]color:1]];
+    [self.Db setBackgroundColor: [[GlobalVariables class]color:1]];
+    [self.line setBackgroundColor: [[GlobalVariables class]color:1]];
+    [self.addbutton setBackgroundColor: [[GlobalVariables class]color:0]];
+    [self.Orderquan setTextColor:[[GlobalVariables class]color:1]];
+    [self.EQLabel setTextColor: [[GlobalVariables class]color:1]];
 }
 
 @end

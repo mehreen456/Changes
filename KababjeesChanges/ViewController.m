@@ -21,7 +21,7 @@
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(revealToggle:)];
     tapRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapRecognizer];
-   
+    [self.navigationController.navigationBar setBackgroundColor: [[GlobalVariables class]color:0]];
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {

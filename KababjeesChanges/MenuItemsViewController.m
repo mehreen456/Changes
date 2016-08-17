@@ -60,9 +60,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     if(Dlines==1)
-            return NLwidth+NLwidth*Dlines+30;
+            return NLwidth+(NLwidth*Dlines)+20;
     else
-            return NLwidth+NLwidth*Dlines+20;
+            return NLwidth+(NLwidth*Dlines)+10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -112,13 +112,15 @@
                                             } failure:nil];
   
     cell.backgroundColor = [UIColor colorWithRed:1. green:1. blue:1. alpha:0.5];
+    CGSize textSize = [currentCat.MIdescrp sizeWithAttributes:@{NSFontAttributeName:[cell.descriptionLabel font]}];
+    CGFloat strikeWidth = textSize.width;
+    NLwidth=cell.nameLabel.frame.size.height;
+    Dlines=strikeWidth/cell.descriptionLabel.frame.size.width+2;
+    cell.descriptionLabel.frame=CGRectMake(cell.descriptionLabel.frame.origin.x,cell.descriptionLabel.frame.origin.y, cell.descriptionLabel.frame.size.width, Dlines*NLwidth);
     cell.nameLabel.text =currentCat.MIname ;
     cell.descriptionLabel.text = currentCat.MIdescrp;
     cell.priceLabel.text= [@"Rs " stringByAppendingString:currentCat.MIprice];
-    CGSize textSize = [[cell.descriptionLabel text] sizeWithAttributes:@{NSFontAttributeName:[cell.descriptionLabel font]}];
-    CGFloat strikeWidth = textSize.width;
-    NLwidth=cell.nameLabel.frame.size.height;
-    Dlines=strikeWidth/cell.descriptionLabel.frame.size.width+1;
+   
     return cell;
 }
 
@@ -185,7 +187,7 @@
         swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
             
             UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
-       
+            [self.navigationController.navigationBar setBackgroundColor: [[GlobalVariables class]color:0]];
             [navController setViewControllers: @[dvc] animated: NO ];
             dvc.navigationItem.leftBarButtonItem=menu;
             dvc.navigationItem.rightBarButtonItem=rightBarButton;

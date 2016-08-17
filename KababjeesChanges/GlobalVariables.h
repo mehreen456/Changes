@@ -27,4 +27,6 @@ extern NSMutableArray *ItemsOrder,*MenuArray;
 
 +(UIButton *) BarButton;
 +(UILabel *) Title:(NSString *) showtitle ;
++(UIColor *) color:(int) c;
+
 @end

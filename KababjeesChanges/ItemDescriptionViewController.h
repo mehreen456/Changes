@@ -10,6 +10,7 @@
 #import "GlobalVariables.h"
 
 @interface ItemDescriptionViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIButton *addbutton;
 @property (strong, nonatomic) IBOutlet UILabel *ItemPrice;
 @property (strong, nonatomic) IBOutlet UILabel *EQLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *ItemImage;
@@ -26,5 +27,8 @@
 - (IBAction)DecButton:(id)sender;
 - (IBAction)IncButton:(id)sender;
 -(void)valueChanged;
+@property (strong, nonatomic) IBOutlet UIButton *Db;
+@property (strong, nonatomic) IBOutlet UIButton *Ib;
+@property (strong, nonatomic) IBOutlet UILabel *line;
 @end
 

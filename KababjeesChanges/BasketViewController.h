@@ -14,6 +14,7 @@
 #import "ViewController.h"
 
 @interface BasketViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UIButton *addbutn;
 
 @property (strong, nonatomic) IBOutlet UIButton *Button;
 @property (strong, nonatomic) IBOutlet UITableView *OrderTable;
@@ -26,5 +27,6 @@
 - (void)OrderRemove :(UIButton *) sender;
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender;
 - (IBAction)CheckOutButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *chckbtn;
 
 @end

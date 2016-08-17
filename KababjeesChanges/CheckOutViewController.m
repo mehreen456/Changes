@@ -36,12 +36,12 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-     
+    
+    [self.PButton setBackgroundColor: [[GlobalVariables class]color:1]];
      _NameField.delegate = self;
     _ContactField.delegate=self;
     _AddressField.delegate=self;
-    [PButton setEnabled:NO];
-    PButton.userInteractionEnabled = NO;
+ 
 }
 
 #pragma mark - My Methods
@@ -108,14 +108,18 @@
 }
 
 - (IBAction)ProceedButton:(id)sender {
-   
-   
+  
+    [self.view endEditing:YES];
+    
+   if (!([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
+   {
     name=self.NameField.text;
     num=self.ContactField.text;
     address=self.AddressField.text;
     time=[self time];
     [self PostData];
     
+   }
 }
 
 #pragma mark - UITextFieldDelegate
@@ -132,22 +136,6 @@
        [textField resignFirstResponder];
    
     return YES;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    if (!([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
-    {
-        [PButton setEnabled:YES];
-        PButton.userInteractionEnabled = YES;
-    }
-    else{
-        
-        [PButton setEnabled:NO];
-        PButton.userInteractionEnabled = NO;
-        [self.view makeToast:@"Please Enter Data Correctly"];
-    }
-
 }
 
 - (void)keyboardWillShow:(NSNotification*)aNotification {
@@ -180,6 +168,23 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if (([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
+    {
+        UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+        UIView *new=[[UIView alloc]init];
+        new.backgroundColor=[UIColor clearColor];
+        [window addSubview:new];
+        [window makeToast:@"Please Enter Data Correctly"];
+        [new removeFromSuperview];
+        return NO;
+    }
+    else
+        return YES;
+}
+
 
 @end
 

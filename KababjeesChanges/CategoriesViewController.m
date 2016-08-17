@@ -16,11 +16,11 @@
 - (void)viewDidLoad {
   
     [super viewDidLoad];
-     self.HeaderView.frame = CGRectMake(0,0,self.myTable.frame.size.width,self.view.frame.size.height/3);
+    self.HeaderView.frame = CGRectMake(0,0,self.myTable.frame.size.width,self.view.frame.size.height/3);
      ItemsOrder =[[NSMutableArray alloc]init];
      [self retriveData];
-    
     }
+
 
 #pragma mark - UITableViewDelegate
 
@@ -90,7 +90,7 @@
      
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Data retrived faild");
-        [self.navigationController.view makeToast:@"No Internet Connection"];
+        [self.view makeToast:@"No Internet Connection"];
     }];
  
      [self.myTable reloadData];
@@ -106,6 +106,7 @@
         swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
             
             UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
+            [self.navigationController.navigationBar setBackgroundColor: [[GlobalVariables class]color:0]];
                        [navController setViewControllers: @[dvc] animated: NO ];
                        [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
       };
