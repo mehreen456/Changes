@@ -45,6 +45,7 @@
 		CF9F727A1D624C0600B9B0AE /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F72781D624C0600B9B0AE /* Categories.m */; };
 		CF9F727B1D624C0600B9B0AE /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F72791D624C0600B9B0AE /* CategoriesViewController.m */; };
 		CF9F727E1D624C1E00B9B0AE /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F727D1D624C1E00B9B0AE /* GlobalVariables.m */; };
+		CFC7CA8B1D644D2A00973819 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CFC7CA8A1D644D2A00973819 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +123,7 @@
 		CF9F72791D624C0600B9B0AE /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		CF9F727C1D624C1E00B9B0AE /* GlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
 		CF9F727D1D624C1E00B9B0AE /* GlobalVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
+		CFC7CA8A1D644D2A00973819 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		CF560ADF1D61A0E90004DFA5 = {
 			isa = PBXGroup;
 			children = (
+				CFC7CA8A1D644D2A00973819 /* logo.png */,
 				CF560AEA1D61A0E90004DFA5 /* KababjeesChanges */,
 				CF560AEB1D61A0E90004DFA5 /* Supporting Files */,
 				CF560AE91D61A0E90004DFA5 /* Products */,
@@ -249,10 +252,10 @@
 			isa = PBXGroup;
 			children = (
 				CF9F726C1D624BEC00B9B0AE /* MyTableViewCell.h */,
-				CF9F726D1D624BEC00B9B0AE /* OrderCell.h */,
 				CF9F726E1D624BEC00B9B0AE /* MyTableViewCell.m */,
-				CF9F726F1D624BEC00B9B0AE /* OrderCell.m */,
 				CF9F72701D624BEC00B9B0AE /* MyTableCell.xib */,
+				CF9F726D1D624BEC00B9B0AE /* OrderCell.h */,
+				CF9F726F1D624BEC00B9B0AE /* OrderCell.m */,
 				CF9F72711D624BEC00B9B0AE /* OrderCell.xib */,
 			);
 			name = TableCells;
@@ -318,8 +321,8 @@
 			isa = PBXGroup;
 			children = (
 				CF9F72511D624B4300B9B0AE /* MenuItems.h */,
-				CF9F72521D624B4300B9B0AE /* MenuItemsViewController.h */,
 				CF9F72531D624B4300B9B0AE /* MenuItems.m */,
+				CF9F72521D624B4300B9B0AE /* MenuItemsViewController.h */,
 				CF9F72541D624B4300B9B0AE /* MenuItemsViewController.m */,
 			);
 			name = MenuViewController;
@@ -329,8 +332,8 @@
 			isa = PBXGroup;
 			children = (
 				CF9F72761D624C0600B9B0AE /* Categories.h */,
-				CF9F72771D624C0600B9B0AE /* CategoriesViewController.h */,
 				CF9F72781D624C0600B9B0AE /* Categories.m */,
+				CF9F72771D624C0600B9B0AE /* CategoriesViewController.h */,
 				CF9F72791D624C0600B9B0AE /* CategoriesViewController.m */,
 			);
 			name = CategoriesViewController;
@@ -406,6 +409,7 @@
 				CF9F724D1D624A6C00B9B0AE /* Default@2x.png in Resources */,
 				CF9F724C1D624A6C00B9B0AE /* Main.storyboard in Resources */,
 				CF560B591D61A1710004DFA5 /* Assets.xcassets in Resources */,
+				CFC7CA8B1D644D2A00973819 /* logo.png in Resources */,
 				CF9F72741D624BEC00B9B0AE /* MyTableCell.xib in Resources */,
 				CF9F724B1D624A6C00B9B0AE /* LaunchScreen.storyboard in Resources */,
 			);

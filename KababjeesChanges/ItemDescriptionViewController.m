@@ -38,16 +38,7 @@
        self.TotalPrice.text=self.ItemPrice.text;
     self.navigationController.interactivePopGestureRecognizer.enabled=NO;
     
-    NSURL *url = [NSURL URLWithString:imageUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    UIImage *placeholderImage = [UIImage imageNamed:@" "];
-    __weak UIImageView *weakimage = self.ItemImage;
-    [self.ItemImage setImageWithURLRequest:request
-                          placeholderImage:placeholderImage
-                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                       weakimage.image=image;
-                                   } failure:nil];
-
+    self.ItemImage.image=[UIImage imageNamed:@"logo.png"];
     [self setcolor];
         [super viewDidLoad];
 }

@@ -11,15 +11,17 @@
 
 @implementation CategoriesViewController
 
+
 @synthesize CategoriesArray,myTable,HeaderView,Json;
 
 - (void)viewDidLoad {
   
     [super viewDidLoad];
-    self.HeaderView.frame = CGRectMake(0,0,self.myTable.frame.size.width,self.view.frame.size.height/3);
+    [self.view endEditing:YES];
      ItemsOrder =[[NSMutableArray alloc]init];
      [self retriveData];
-    }
+   
+}
 
 
 #pragma mark - UITableViewDelegate
@@ -31,7 +33,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return myTable.frame.size.height/13;
+    return 50;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -53,7 +55,7 @@
     Categories *currentCat=[CategoriesArray objectAtIndex:indexPath.row];
     cell.textLabel.text=currentCat.CName ;
     cell.backgroundColor=[UIColor whiteColor];
-   
+    
     return cell;
 }
 
@@ -62,7 +64,8 @@
     Categories *c1= [CategoriesArray objectAtIndex:indexPath.row];
     CID=c1.CId; 
     CTitle=c1.CName;
- }
+   
+   }
 
 #pragma mark - My Methods
 
@@ -100,18 +103,49 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
+    
+    
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
         Relaod=0;
         swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
-            
+  
             UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
-            [self.navigationController.navigationBar setBackgroundColor: [[GlobalVariables class]color:0]];
+            [navController.navigationBar setBackgroundColor: [[GlobalVariables class]color:0]];
                        [navController setViewControllers: @[dvc] animated: NO ];
                        [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
-      };
-      
+                 };
+        
+}
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if(scrollView.contentOffset.y<self.view.frame.size.height )
+    {
+    
+    CGRect rect = self.myview.frame;
+    rect.origin.y =-(scrollView.contentOffset.y+50);
+    self.myview.frame = rect;
+    CGRect rect2 = self.myTable.frame;
+    rect2.origin.y=self.myview.frame.size.height+self.myview.frame.origin.y;
+    rect2.size.height=+(self.view.frame.size.height-rect2.origin.y);
+    self.myTable.frame=rect2;
+ 
     }
+    if(scrollView.contentOffset.y==0)
+    {
+        self.myview.frame=CGRectMake(0, 0, self.myview.frame.size.width, self.myview.frame.size.height);
+        self.myTable.frame=CGRectMake(0, self.myview.frame.size.height+self.myview.frame.origin.y, self.myTable.frame.size.width, self.myTable.frame.size.height);
+    }
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+   [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
+    NSIndexPath *firstCellIndex = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.myTable scrollToRowAtIndexPath:firstCellIndex atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 

@@ -456,6 +456,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
             segue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc)
             {
                 [self _setRearViewController:dvc];
+                
             };
         }
         else if ( [identifier isEqualToString:SWSegueFrontIdentifier] )
@@ -485,6 +486,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
         @try
         {
             [self performSegueWithIdentifier:SWSegueRearIdentifier sender:nil];
+            
         }
         @catch(NSException *exception) {}
         
@@ -629,7 +631,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
         toogledFrontViewPosition = FrontViewPositionRight;
     
     [self setFrontViewPosition:toogledFrontViewPosition animated:animated];
-}
+   }
 
 - (void)rightRevealToggleAnimated:(BOOL)animated
 {
@@ -697,6 +699,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 - (void)revealToggle:(id)sender
 {    
     [self revealToggleAnimated:YES];
+    
 }
 
 - (void)rightRevealToggle:(id)sender
@@ -1153,7 +1156,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     UIViewController *old = _rearViewController;
     _rearViewController = newRearViewController;
     [self _transitionFromViewController:old toViewController:newRearViewController inView:_contentView.rearView]();
-    [self _dequeue];
+     [self _dequeue];
 }
 
 // Primitive method for right controller transition
@@ -1383,6 +1386,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     if ( _performBlock != nil )
     {
         _performBlock( self, self.sourceViewController, self.destinationViewController );
+       
     }
 }
 

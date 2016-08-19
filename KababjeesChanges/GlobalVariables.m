@@ -15,6 +15,7 @@ NSMutableArray * ItemsOrder= nil,*MenuArray=nil;
 NSUInteger btp=0;
 int *BasketItems=0, *Relaod=0;
 
+
 @implementation GlobalVariables
 
 

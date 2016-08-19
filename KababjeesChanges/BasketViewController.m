@@ -35,7 +35,7 @@
     tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
     tapRecognizer.cancelsTouchesInView = NO;
    
-    self.navigationItem.titleView = [[GlobalVariables class]Title:@"CheckOut" ];
+    self.navigationItem.titleView = [[GlobalVariables class]Title:@"Checkout" ];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Place Order" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     [self.view addGestureRecognizer:tapRecognizer];
@@ -269,7 +269,13 @@ else
 {
     [self.Button  setTitleColor:[[GlobalVariables class]color:0] forState:UIControlStateNormal ];
     [self.addbutn setTitleColor:[[GlobalVariables class]color:0] forState:UIControlStateNormal ];
+
     [self.chckbtn setBackgroundColor: [[GlobalVariables class]color:1]];
 
 }
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.view endEditing:YES];
+}
+
 @end

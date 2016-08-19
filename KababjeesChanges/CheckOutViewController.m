@@ -177,14 +177,17 @@
         UIView *new=[[UIView alloc]init];
         new.backgroundColor=[UIColor clearColor];
         [window addSubview:new];
-        [window makeToast:@"Please Enter Data Correctly"];
+        [window makeToast:@"Please enter data correctly"];
         [new removeFromSuperview];
         return NO;
     }
     else
         return YES;
 }
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.view endEditing:YES];
+}
 
 @end
 

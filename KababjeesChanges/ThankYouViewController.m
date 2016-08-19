@@ -26,7 +26,11 @@
  - (void)goToNextView {
  [self performSegueWithIdentifier:@"GoToMain" sender:self];
  }
- 
+ -(void)viewWillAppear:(BOOL)animated
+{
+     [self.view endEditing:YES];
+    
+}
  
 
 

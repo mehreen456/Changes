@@ -16,8 +16,7 @@
 {
     CGFloat Dlwidth,NLwidth;
     int Dlines;
-    UIBarButtonItem* rightBarButton;
-    UIBarButtonItem *menu;
+    UIBarButtonItem* rightBarButton,*menu;
     NSString *ImageUrl;
     BOOL Do;
 }
@@ -59,10 +58,8 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    if(Dlines==1)
-            return NLwidth+(NLwidth*Dlines)+20;
-    else
-            return NLwidth+(NLwidth*Dlines)+10;
+   
+    return NLwidth+Dlines+20 ;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -100,26 +97,30 @@
    
     MenuItems *currentCat=[MenuArray objectAtIndex:indexPath.section];
    
-    NSURL *url = [NSURL URLWithString:currentCat.MImg];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    UIImage *placeholderImage = [UIImage imageNamed:@" "];
-    __weak MyTableViewCell *weakCell = cell;
-    
-    [cell.thumbnailImageView setImageWithURLRequest:request
-                                   placeholderImage:placeholderImage
-                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                weakCell.thumbnailImageView.image=image;
-                                            } failure:nil];
-  
+   
+    cell.thumbnailImageView.image=[UIImage imageNamed:@"logo.png"];
     cell.backgroundColor = [UIColor colorWithRed:1. green:1. blue:1. alpha:0.5];
-    CGSize textSize = [currentCat.MIdescrp sizeWithAttributes:@{NSFontAttributeName:[cell.descriptionLabel font]}];
+       CGSize textSize = [currentCat.MIdescrp sizeWithAttributes:@{NSFontAttributeName:[cell.descriptionLabel font]}];
     CGFloat strikeWidth = textSize.width;
-    NLwidth=cell.nameLabel.frame.size.height;
-    Dlines=strikeWidth/cell.descriptionLabel.frame.size.width+2;
-    cell.descriptionLabel.frame=CGRectMake(cell.descriptionLabel.frame.origin.x,cell.descriptionLabel.frame.origin.y, cell.descriptionLabel.frame.size.width, Dlines*NLwidth);
+    Dlines=(strikeWidth/cell.descriptionLabel.frame.size.width+1)*25;
+    CGSize textSize2 = [currentCat.MIname sizeWithAttributes:@{NSFontAttributeName:[cell.nameLabel font]}];
+    CGFloat strikeWidth2 = textSize2.width;
+
+    NLwidth=strikeWidth2/cell.nameLabel.frame.size.width;
+    if(NLwidth<=1)
+           NLwidth=25;
+   
+    else
+           NLwidth=50;
+    
+
+    cell.nameLabel.frame=CGRectMake(cell.nameLabel.frame.origin.x,cell.frame.origin.y+10, cell.nameLabel.frame.size.width, NLwidth);
+    
+    cell.descriptionLabel.frame=CGRectMake(cell.descriptionLabel.frame.origin.x,cell.nameLabel.frame.origin.y+NLwidth, cell.descriptionLabel.frame.size.width, Dlines);
     cell.nameLabel.text =currentCat.MIname ;
     cell.descriptionLabel.text = currentCat.MIdescrp;
     cell.priceLabel.text= [@"Rs " stringByAppendingString:currentCat.MIprice];
+    
    
     return cell;
 }
@@ -189,7 +190,7 @@
             UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
             [self.navigationController.navigationBar setBackgroundColor: [[GlobalVariables class]color:0]];
             [navController setViewControllers: @[dvc] animated: NO ];
-            dvc.navigationItem.leftBarButtonItem=menu;
+            dvc.navigationItem.leftBarButtonItem= menu;
             dvc.navigationItem.rightBarButtonItem=rightBarButton;
             dvc.navigationItem.title=@"Checkout";
             [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated:YES];
@@ -213,10 +214,6 @@
 
 -(void) show
 {
-    menu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu-icon" ] style:UIBarButtonItemStylePlain target:self.revealViewController action:@selector(revealToggle:)];
-    
-    self.navigationItem.leftBarButtonItem = menu;
-    self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
     
     if(BasketItems>0)
     {
@@ -229,6 +226,12 @@
         rightBarButton = [[UIBarButtonItem alloc]initWithCustomView:BLView];
         self.navigationItem.rightBarButtonItem = rightBarButton;
     }
+    
+   
+    menu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu-icon" ] style:UIBarButtonItemStylePlain target:self.revealViewController action:@selector(revealToggle:)];
+   
+    self.navigationItem.leftBarButtonItem = menu;
+    self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
     self.navigationItem.title=CTitle;
     
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];

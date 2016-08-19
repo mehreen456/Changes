@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
 #import "GlobalVariables.h"
+#import "CategoriesViewController.h"
 
 @interface ViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *barButton;

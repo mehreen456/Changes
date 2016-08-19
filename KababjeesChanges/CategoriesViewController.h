@@ -11,11 +11,12 @@
 #import "Categories.h"
 
 
-@interface CategoriesViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@interface CategoriesViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+@property (strong, nonatomic) IBOutlet UIView *myview;
 @property (strong, nonatomic) IBOutlet UIView *HeaderView;
 @property (strong, nonatomic) IBOutlet UITableView *myTable;
 @property (nonatomic,strong) NSMutableArray * CategoriesArray, *Json;
--(void) retriveData;
 
+-(void) retriveData;
 
 @end
