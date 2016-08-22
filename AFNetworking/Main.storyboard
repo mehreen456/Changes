@@ -21,8 +21,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <segue destination="Ied-fm-v4e" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegue" id="QiL-H7-I86"/>
-                        <segue destination="caF-fx-QYg" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="xwY-wb-bDS"/>
+                        <segue destination="Ied-fm-v4e" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegue" animates="NO" id="QiL-H7-I86"/>
+                        <segue destination="caF-fx-QYg" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" animates="NO" id="xwY-wb-bDS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="im1-oQ-tzG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -95,7 +95,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="wl2-25-bym" kind="custom" customClass="SWRevealViewControllerSegue" id="EGY-h9-Hfe"/>
+                                            <segue destination="wl2-25-bym" kind="custom" customClass="SWRevealViewControllerSegue" animates="NO" id="EGY-h9-Hfe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -161,7 +161,7 @@
                                 </state>
                                 <connections>
                                     <action selector="MyButton:" destination="HLp-oY-aap" eventType="touchUpInside" id="V8l-JM-KOH"/>
-                                    <segue destination="ruC-c7-ZlZ" kind="show" identifier="EToMain" id="hqk-hC-W8v"/>
+                                    <segue destination="ruC-c7-ZlZ" kind="show" identifier="EToMain" animates="NO" id="hqk-hC-W8v"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="19" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Gz-D1-oNl">
@@ -275,7 +275,7 @@
                                             <color key="titleColor" red="1" green="0.0" blue="0.010051519910000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ruC-c7-ZlZ" kind="showDetail" identifier="GoToMain" action="showViewController:sender:" id="CiU-re-Uvq"/>
+                                            <segue destination="ruC-c7-ZlZ" kind="showDetail" identifier="GoToMain" animates="NO" action="showViewController:sender:" id="CiU-re-Uvq"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Free" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AGF-EP-O8S">
@@ -321,7 +321,7 @@
                                 </state>
                                 <connections>
                                     <action selector="CheckOutButton:" destination="HLp-oY-aap" eventType="touchUpInside" id="A4K-89-jen"/>
-                                    <segue destination="PNe-z2-1n5" kind="show" identifier="GoToProceed" id="Yfi-Mv-5CI"/>
+                                    <segue destination="PNe-z2-1n5" kind="show" identifier="GoToProceed" animates="NO" id="Yfi-Mv-5CI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -414,7 +414,7 @@
                                 </state>
                                 <connections>
                                     <action selector="AddToBasketButton:" destination="q1k-tS-seD" eventType="touchUpInside" id="fWC-Yd-Zb2"/>
-                                    <segue destination="wl2-25-bym" kind="show" identifier="AToM" id="HtS-yL-A52"/>
+                                    <segue destination="wl2-25-bym" kind="show" identifier="AToM" animates="NO" id="HtS-yL-A52"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XfK-Lj-c0Z">
@@ -590,7 +590,7 @@
                         <outlet property="TotalPrice" destination="XfK-Lj-c0Z" id="ly1-GW-P7h"/>
                         <outlet property="addbutton" destination="l93-1v-T91" id="k2a-gi-mBY"/>
                         <outlet property="line" destination="MrJ-Mh-DCX" id="EKG-30-Oa6"/>
-                        <segue destination="HLp-oY-aap" kind="presentation" identifier="IToB" id="UWf-2E-bm7"/>
+                        <segue destination="HLp-oY-aap" kind="presentation" identifier="IToB" animates="NO" id="UWf-2E-bm7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3A-s6-W1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -657,7 +657,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="ProceedButton:" destination="PNe-z2-1n5" eventType="touchUpInside" id="7HW-ln-w5s"/>
-                                    <segue destination="ARE-tY-1Rr" kind="show" identifier="TySegue" id="Lnz-MT-niZ"/>
+                                    <segue destination="ARE-tY-1Rr" kind="show" identifier="TySegue" animates="NO" id="Lnz-MT-niZ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BAu-H3-t26">
@@ -768,7 +768,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <segue destination="A1U-dZ-Nid" kind="show" identifier="GoToMain" id="OGH-2X-gwI"/>
+                        <segue destination="A1U-dZ-Nid" kind="show" identifier="GoToMain" animates="NO" id="OGH-2X-gwI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oka-vW-YqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -805,7 +805,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="q1k-tS-seD" kind="show" identifier="MSegue" id="eFl-GJ-Vgg"/>
+                                            <segue destination="q1k-tS-seD" kind="show" identifier="MSegue" animates="NO" id="eFl-GJ-Vgg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -930,8 +930,8 @@
         <image name="menu-icon.png" width="22" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="HtS-yL-A52"/>
         <segue reference="b1d-4d-sHp"/>
-        <segue reference="EGY-h9-Hfe"/>
-        <segue reference="hqk-hC-W8v"/>
+        <segue reference="CiU-re-Uvq"/>
     </inferredMetricsTieBreakers>
 </document>

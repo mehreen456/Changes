@@ -48,8 +48,8 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFS-UU-DHz">
                         <rect key="frame" x="15" y="29" width="65" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="65" id="6rR-pc-gxW"/>
-                            <constraint firstAttribute="height" constant="60" id="wwt-8Q-SzZ"/>
+                            <constraint firstAttribute="width" constant="65" id="5K1-Xg-FHR"/>
+                            <constraint firstAttribute="height" constant="60" id="Pvb-XZ-nwc"/>
                         </constraints>
                         <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
                             <rect key="frame" x="14" y="10" width="391" height="56"/>

@@ -13,16 +13,12 @@
 
 @synthesize CategoriesArray,myTable,HeaderView,Json;
 
--(void) viewWillAppear:(BOOL)animated
-{
-    
-}
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     ItemsOrder =[[NSMutableArray alloc]init];
     [self retriveData];
-
+    Running=NO;
 }
 
 
@@ -93,6 +89,9 @@
             
             [CategoriesArray addObject:Cobj];
         }
+        
+            SWRevealViewController *sv=self.revealViewController;
+            [sv revealToggle:self];
      
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Data retrived faild");
@@ -116,7 +115,7 @@
             UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
             [navController.navigationBar setBackgroundColor: [[GlobalVariables class]color:0]];
                        [navController setViewControllers: @[dvc] animated: NO ];
-                       [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
+                       [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: NO];
                  };
         
 }

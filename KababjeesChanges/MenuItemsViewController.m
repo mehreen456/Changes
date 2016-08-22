@@ -186,7 +186,7 @@
             dvc.navigationItem.leftBarButtonItem= menu;
             dvc.navigationItem.rightBarButtonItem=rightBarButton;
             dvc.navigationItem.title=@"Checkout";
-            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated:YES];
+            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated:NO];
             
         };
     }

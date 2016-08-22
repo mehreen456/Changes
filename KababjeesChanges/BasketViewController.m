@@ -204,7 +204,7 @@ else
 
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
-    [self.view endEditing:YES];
+    [self.view endEditing:NO];
 }
 -(void) change
 {   btp=0;
@@ -240,7 +240,7 @@ else
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [self.view endEditing:YES];
+    [self.view endEditing:NO];
 }
 
 -(void) show

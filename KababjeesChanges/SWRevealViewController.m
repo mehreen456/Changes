@@ -698,13 +698,13 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 - (void)revealToggle:(id)sender
 {    
-    [self revealToggleAnimated:YES];
-    [self.view endEditing:YES];
+    [self revealToggleAnimated:NO];
+    [self.view endEditing:NO];
 }
 
 - (void)rightRevealToggle:(id)sender
 {    
-    [self rightRevealToggleAnimated:YES];
+    [self rightRevealToggleAnimated:NO];
 }
 
 

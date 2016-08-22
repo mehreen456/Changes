@@ -166,14 +166,14 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
+    [self.view endEditing:NO];
 }
 
 #pragma mark - Passing Data Through Segue
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    [self.view endEditing:YES];
+    [self.view endEditing:NO];
     if (([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
     {
         UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
