@@ -13,6 +13,6 @@
 
 @interface ViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *barButton;
-
+-(void) Drawer;
 @end
 

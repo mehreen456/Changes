@@ -40,11 +40,10 @@
     
     self.ItemImage.image=[UIImage imageNamed:@"logo.png"];
     [self setcolor];
-        [super viewDidLoad];
+    [super viewDidLoad];
 }
 
-
-#pragma mark - My Methods
+#pragma mark - Button Methods
 
 - (IBAction)AddToBasketButton:(UIButton *)sender {
     
@@ -82,6 +81,8 @@
     }
 }
 
+#pragma mark - View Methods
+
 -(void)valueChanged
 {
     self.Quantity.text =[@"Quantity" stringByAppendingString:[NSString stringWithFormat:@"%2lu", (unsigned long)value]];
@@ -99,8 +100,7 @@
             self.Orderquan.text =[[ItemsOrder objectAtIndex:d]valueForKey:QKey];
             find=YES;
             break;
-            
-        }
+         }
         
     }
     if(find)
@@ -108,10 +108,8 @@
         self.Orderquan.hidden=NO;
         self.EQLabel.hidden=NO;
     }
-
-    
-
 }
+
 -(void) setcolor
 {
     [self.ItemPrice setBackgroundColor: [[GlobalVariables class]color:0]];

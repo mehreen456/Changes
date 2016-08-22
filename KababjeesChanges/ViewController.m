@@ -18,19 +18,35 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(revealToggle:)];
-    tapRecognizer.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tapRecognizer];
+    [self Drawer];
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    if(Running) {
+        
+        SWRevealViewController *sv=self.revealViewController;
+        [sv revealToggle:self];
+    }
+
+}
+
+-(void) Drawer
+{
     
-    [self.navigationController.navigationBar setBackgroundColor: [[GlobalVariables class]color:0]];
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if ( revealViewController )
-    {
-        [self.barButton setTarget: self.revealViewController];
-        [self.barButton setAction: @selector( revealToggle: )];
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-       
-    }
-    }
+UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.revealViewController action:@selector(revealToggle:)];
+tapRecognizer.cancelsTouchesInView = NO;
+[self.view addGestureRecognizer:tapRecognizer];
+
+[self.navigationController.navigationBar setBackgroundColor: [[GlobalVariables class]color:0]];
+SWRevealViewController *revealViewController = self.revealViewController;
+if ( revealViewController )
+{
+    [self.barButton setTarget: self.revealViewController];
+    [self.barButton setAction: @selector( revealToggle: )];
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    
+}
+}
 @end

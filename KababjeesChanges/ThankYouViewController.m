@@ -20,16 +20,16 @@
     [self performSelector:@selector(goToNextView) withObject:nil afterDelay:8];
     BasketItems=0;
     TPrice=@"00";
-    
 }
 
  - (void)goToNextView {
+     
  [self performSegueWithIdentifier:@"GoToMain" sender:self];
- }
+}
+
  -(void)viewWillAppear:(BOOL)animated
 {
-     [self.view endEditing:YES];
-    
+     [self.view endEditing:YES];    
 }
  
 

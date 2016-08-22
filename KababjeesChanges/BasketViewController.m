@@ -27,20 +27,8 @@
     
     j=2, t=1, m=0;
     [super viewDidLoad];
-    
-    AmountLabel1.text=[@"Rs. " stringByAppendingString:TPrice];
-    AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
-    [self AddBorders];
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
-    tapRecognizer.cancelsTouchesInView = NO;
+    [self show];
    
-    self.navigationItem.titleView = [[GlobalVariables class]Title:@"Checkout" ];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Place Order" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-    [self.view addGestureRecognizer:tapRecognizer];
-    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-    [self setcolor];
 }
 
 #pragma mark - UITableViewDataSource
@@ -145,6 +133,7 @@ else
     }
     return YES;
 }
+
 #pragma mark - ViewButtons
 
 - (IBAction)MyButton:(id)sender
@@ -164,9 +153,7 @@ else
     }
     
     [OrderTable reloadData];
-   
- 
-    
+  
 }
 
 -(void)OrderRemove:(UIButton *) sender
@@ -190,26 +177,14 @@ else
     if(ItemsOrder.count==0 )
       [self performSegueWithIdentifier:@"GoToMain" sender:self];
 }
--(void)AddBorders
-{
-    UIView *topBorder = [UIView new];
-    topBorder.backgroundColor = [UIColor lightGrayColor];
-    topBorder.frame = CGRectMake(0, 0,self.view.frame.size.width, 2);
-    [PriceView addSubview:topBorder];
-    UIView *bottomBorder = [UIView new];
-    bottomBorder.backgroundColor = [UIColor lightGrayColor];
-    bottomBorder.frame = CGRectMake(0, self.PriceView.frame.size.height - 2, self.view.frame.size.width,2);
-    [PriceView addSubview:bottomBorder];
-
-}
 
 #pragma mark - SegueMethod
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
    if([identifier isEqualToString:@"GoToMain"])
-           return YES;
-    
+            return YES;
+   
     else if ([identifier isEqualToString:@"GoToProceed"])
     { if(ItemsOrder.count>0 && ![TPrice isEqual:@"00"])
        return YES;
@@ -217,14 +192,11 @@ else
      }
     else if ([identifier isEqualToString:@"EToMain"])
     {
-       if(ItemsOrder.count==0) {
-   
+       if(ItemsOrder.count==0)
         return YES;
-        }
         return NO;
     }
     else
-  
         return NO;
 }
 
@@ -261,21 +233,58 @@ else
         
        }
         AmountLabel1.text=[@"Rs. " stringByAppendingString:TPrice];
-    AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
+        AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
    
  
 }
--(void) setcolor
-{
-    [self.Button  setTitleColor:[[GlobalVariables class]color:0] forState:UIControlStateNormal ];
-    [self.addbutn setTitleColor:[[GlobalVariables class]color:0] forState:UIControlStateNormal ];
 
-    [self.chckbtn setBackgroundColor: [[GlobalVariables class]color:1]];
-
-}
 -(void)viewWillDisappear:(BOOL)animated
 {
     [self.view endEditing:YES];
 }
 
+-(void) show
+{
+    AmountLabel1.text=[@"Rs. " stringByAppendingString:TPrice];
+    AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
+    [self AddBorders];
+    [self navigation];
+    [self setcolor];
+    [self Tap];
+}
+-(void)Tap
+{
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnywhere:)];
+    tapRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapRecognizer];
+    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+
+}
+-(void) setcolor
+{
+    [self.Button  setTitleColor:[[GlobalVariables class]color:0] forState:UIControlStateNormal ];
+    [self.addbutn setTitleColor:[[GlobalVariables class]color:0] forState:UIControlStateNormal ];
+    
+    [self.chckbtn setBackgroundColor: [[GlobalVariables class]color:1]];
+    
+}
+-(void) navigation
+{
+    self.navigationItem.title= [[GlobalVariables class]Title:@"Checkout" ];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Place Order" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+}
+-(void)AddBorders
+{
+    UIView *topBorder = [UIView new];
+    topBorder.backgroundColor = [UIColor lightGrayColor];
+    topBorder.frame = CGRectMake(0, 0,self.view.frame.size.width, 2);
+    [PriceView addSubview:topBorder];
+    UIView *bottomBorder = [UIView new];
+    bottomBorder.backgroundColor = [UIColor lightGrayColor];
+    bottomBorder.frame = CGRectMake(0, self.PriceView.frame.size.height - 2, self.view.frame.size.width,2);
+    [PriceView addSubview:bottomBorder];
+    
+}
 @end

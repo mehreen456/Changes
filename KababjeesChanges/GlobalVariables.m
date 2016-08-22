@@ -14,7 +14,7 @@ NSString *NKey=@"name",*IdKey=@"category_id",*DesKey=@"description",*PKey=@"pric
 NSMutableArray * ItemsOrder= nil,*MenuArray=nil;
 NSUInteger btp=0;
 int *BasketItems=0, *Relaod=0;
-
+BOOL Running=NO;
 
 @implementation GlobalVariables
 
@@ -37,18 +37,22 @@ int *BasketItems=0, *Relaod=0;
     return basket;
 
 }
-+(UILabel *) Title:(NSString *) showtitle 
++(NSString *) Title:(NSString *) showtitle
 {
-    UILabel* lbNavTitle = [[UILabel alloc] initWithFrame:CGRectMake(0,0 ,150,40)];
-    lbNavTitle.textAlignment = NSTextAlignmentLeft;
-    lbNavTitle.text = showtitle;
-    lbNavTitle.textColor = [UIColor whiteColor];
-    lbNavTitle.font=[UIFont systemFontOfSize:20];
-    lbNavTitle.minimumScaleFactor = 0.5f;
-    [lbNavTitle sizeToFit];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.adjustsFontSizeToFitWidth = YES;
+    label.minimumScaleFactor = 0.5;
+    [label setFont:[UIFont boldSystemFontOfSize:20.0]];
+    [label setText:showtitle];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setTextColor:[UIColor whiteColor]];
     
-    return lbNavTitle;
+    NSString *mystr;
+    mystr=label.text;
+    return mystr;
 }
+
 +(UIColor *) color:(int) c
 {
     UIColor *mycolor;

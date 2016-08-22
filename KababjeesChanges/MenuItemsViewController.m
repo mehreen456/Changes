@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     
+    Running=YES;
     [self show];
     [super viewDidLoad];
     if(Relaod==0)
@@ -32,12 +33,13 @@
         [self retriveData];
      }
     if([TPrice isEqualToString:@"00"]||[TPrice isEqualToString:@"0"]  || ItemsOrder.count==0)
-    {
+     {
         [self EmptyArray];
-    }
+     }
 
 }
-#pragma mark - UITableDelegate
+
+#pragma mark - UITableDelegate Method
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -64,11 +66,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section==0)
-      return 10.;
-    
-    else
-      return 20.;
+   return 20.;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -113,7 +111,6 @@
     else
            NLwidth=50;
     
-
     cell.nameLabel.frame=CGRectMake(cell.nameLabel.frame.origin.x,cell.frame.origin.y+10, cell.nameLabel.frame.size.width, NLwidth);
     
     cell.descriptionLabel.frame=CGRectMake(cell.descriptionLabel.frame.origin.x,cell.nameLabel.frame.origin.y+NLwidth, cell.descriptionLabel.frame.size.width, Dlines);
@@ -125,7 +122,7 @@
     return cell;
 }
 
-#pragma mark - My Methods
+#pragma mark - Load Data Through API
 
 -(void)retriveData
 {
@@ -169,16 +166,12 @@
         [DejalActivityView removeView];
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-       NSLog(@" Menu Data retrived faild");
-       [self.view makeToast:@"No Internet Connection"];
+        [self.view makeToast:@"No Internet Connection"];
 }];
    
 }
 
--(void) basket
-{
-    [self performSegueWithIdentifier:@"BSegue" sender:self.view];
-}
+#pragma mark - Passing DataThrough Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
    
@@ -212,6 +205,8 @@
 
 }
 
+#pragma mark - Customized Navigation Bar
+
 -(void) show
 {
     
@@ -232,16 +227,22 @@
    
     self.navigationItem.leftBarButtonItem = menu;
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
-    self.navigationItem.title=CTitle;
+        
+    self.navigationItem.title=[[GlobalVariables class]Title:CTitle];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:CTitle style:UIBarButtonItemStylePlain target:nil action:nil];
     
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BAckground"]];
-    [tempImageView setFrame:self.menuTable.frame];
-    
-    self.menuTable.backgroundView = tempImageView;
-   
+     
 }
+
+#pragma mark - View Methods
+
+-(void) basket
+{
+    [self performSegueWithIdentifier:@"BSegue" sender:self.view];
+}
+
 -(void) EmptyArray
 {
         TPrice=@"00";
@@ -250,4 +251,12 @@
         self.navigationItem.rightBarButtonItem=nil;
    
 }
+
+#pragma mark - Scroll View Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    menuTable.alwaysBounceVertical = NO;
+}
+
 @end

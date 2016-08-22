@@ -44,11 +44,10 @@
  
 }
 
-#pragma mark - My Methods
+#pragma mark - Post Data Through API
 
 -(void) PostData
 {
-    
     NSString *string = [NSString stringWithFormat:@"%@/orders", BaseUrl];
     NSURL *URL = [NSURL URLWithString:string];
     
@@ -92,9 +91,10 @@
                                       NSLog(@"Response Body:\n%@\n", body);
                                   }];
     [task resume];
-    
-  
 }
+
+#pragma mark - Getting System Time
+
 -(NSString *) time
 {
     NSDate *now = [NSDate date];
@@ -103,13 +103,12 @@
     dateFormatter.dateFormat = @"hh:mm:ss";
     [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
     return [dateFormatter stringFromDate:now];
-    
-
 }
+
+#pragma mark - View Button
 
 - (IBAction)ProceedButton:(id)sender {
   
-    [self.view endEditing:YES];
     
    if (!([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
    {
@@ -138,6 +137,8 @@
     return YES;
 }
 
+#pragma mark - Keyboard Methods
+
 - (void)keyboardWillShow:(NSNotification*)aNotification {
     [UIView animateWithDuration:0.25 animations:^
      {
@@ -162,15 +163,17 @@
      {
          
      }];
-   
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
 
+#pragma mark - Passing Data Through Segue
+
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
+    [self.view endEditing:YES];
     if (([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
     {
         UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
@@ -184,10 +187,7 @@
     else
         return YES;
 }
--(void)viewWillDisappear:(BOOL)animated
-{
-    [self.view endEditing:YES];
-}
+
 
 @end
 

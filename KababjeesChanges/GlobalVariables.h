@@ -22,11 +22,12 @@ extern NSString *CID,*CTitle,*TPrice,*Key,*DataType,*MenuUrl,*CatUrl,*CType,*Aut
 extern int *BasketItems,*Relaod;
 extern  NSUInteger btp;
 extern NSMutableArray *ItemsOrder,*MenuArray;
+extern BOOL Running;
 
 @interface GlobalVariables : NSObject
 
 +(UIButton *) BarButton;
-+(UILabel *) Title:(NSString *) showtitle ;
++(NSString *) Title:(NSString *) showtitle ;
 +(UIColor *) color:(int) c;
 
 @end
