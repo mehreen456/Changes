@@ -287,4 +287,11 @@ else
     [PriceView addSubview:bottomBorder];
     
 }
+#pragma mark - Delegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+  self.OrderTable.alwaysBounceVertical = NO;
+}
+
 @end
