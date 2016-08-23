@@ -27,7 +27,8 @@
     
     j=2, t=1, m=0;
     [super viewDidLoad];
-    [self show];
+    Button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+     [self show];
    
 }
 
@@ -138,20 +139,19 @@ else
 
 - (IBAction)MyButton:(id)sender
 {
-   
-    if ([Button.titleLabel.text isEqualToString: @"APPLY CHANGES"])
+    if ([Button.titleLabel.text isEqualToString: @"Apply Changes"])
     {
         j=0;
-        [Button setTitle:@"EDIT ORDER" forState:UIControlStateNormal];
+        [Button setTitle:@"Edit Order" forState:UIControlStateNormal];
         [Button setTintColor:[UIColor blueColor]];
     }
     else
     {
          j=1;
-        [Button setTitle:@"APPLY CHANGES" forState:UIControlStateNormal];
+        [Button setTitle:@"Apply Changes" forState:UIControlStateNormal];
         [Button setTintColor:[UIColor redColor]];
     }
-    
+   
     [OrderTable reloadData];
   
 }
@@ -204,8 +204,9 @@ else
 
 - (void)didTapAnywhere:(UITapGestureRecognizer *) sender
 {
-    [self.view endEditing:NO];
+    [self.view endEditing:YES];
 }
+
 -(void) change
 {   btp=0;
     for(int k=0; k<ItemsOrder.count;k++)
@@ -238,11 +239,6 @@ else
  
 }
 
--(void)viewWillDisappear:(BOOL)animated
-{
-    [self.view endEditing:NO];
-}
-
 -(void) show
 {
     AmountLabel1.text=[@"Rs. " stringByAppendingString:TPrice];
@@ -259,7 +255,8 @@ else
     tapRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapRecognizer];
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-
+    
+    
 }
 -(void) setcolor
 {
@@ -272,7 +269,7 @@ else
 -(void) navigation
 {
     self.navigationItem.title= [[GlobalVariables class]Title:@"Checkout" ];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Place Order" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 -(void)AddBorders
@@ -293,5 +290,8 @@ else
 {
   self.OrderTable.alwaysBounceVertical = NO;
 }
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+     [self.view endEditing:YES];
+}
 @end

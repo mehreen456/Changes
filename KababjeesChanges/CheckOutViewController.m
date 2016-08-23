@@ -38,7 +38,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     
     [self.PButton setBackgroundColor: [[GlobalVariables class]color:1]];
-     _NameField.delegate = self;
+     self.navigationItem.title= [[GlobalVariables class]Title:@"Place Order" ];
+   
+    _NameField.delegate = self;
     _ContactField.delegate=self;
     _AddressField.delegate=self;
  
@@ -166,14 +168,15 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:NO];
+    [self.view endEditing:YES];
 }
 
 #pragma mark - Passing Data Through Segue
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    [self.view endEditing:NO];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+   
     if (([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
     {
         UIWindow *window = [UIApplication sharedApplication].windows.lastObject;

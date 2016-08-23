@@ -33,13 +33,12 @@
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     tp=[Price integerValue];
     self.ItemName.text=[@"  " stringByAppendingString:Name];
-
     self.ItemPrice.text=[self.ItemPrice.text stringByAppendingString:Price];
        self.TotalPrice.text=self.ItemPrice.text;
     self.navigationController.interactivePopGestureRecognizer.enabled=NO;
-    
     self.ItemImage.image=[UIImage imageNamed:@"logo.png"];
     [self setcolor];
+    [self align];
     [super viewDidLoad];
 }
 
@@ -70,6 +69,7 @@
  
     value++;
     [self valueChanged];
+
 }
 
 - (IBAction)IncButton:(id)sender {
@@ -120,5 +120,11 @@
     [self.Orderquan setTextColor:[[GlobalVariables class]color:1]];
     [self.EQLabel setTextColor: [[GlobalVariables class]color:1]];
 }
-
+-(void) align
+{
+    self.Ib.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    self.Ib.contentHorizontalAlignment=UIControlContentVerticalAlignmentCenter;
+    self.Db.contentHorizontalAlignment=UIControlContentVerticalAlignmentCenter;
+    self.Db.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+}
 @end

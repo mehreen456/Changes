@@ -18,7 +18,7 @@
     [super viewDidLoad];
     ItemsOrder =[[NSMutableArray alloc]init];
     [self retriveData];
-    Running=NO;
+     Running=NO;
 }
 
 
@@ -130,8 +130,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-   [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
-   [myTable setContentOffset:CGPointZero animated:NO];
+     [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
+      [myTable setContentOffset:CGPointZero animated:NO];
     
 }
 

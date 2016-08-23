@@ -186,7 +186,7 @@
             dvc.navigationItem.leftBarButtonItem= menu;
             dvc.navigationItem.rightBarButtonItem=rightBarButton;
             dvc.navigationItem.title=@"Checkout";
-            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated:NO];
+            [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:NO];
             
         };
     }
@@ -229,8 +229,6 @@
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
         
     self.navigationItem.title=[[GlobalVariables class]Title:CTitle];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:CTitle style:UIBarButtonItemStylePlain target:nil action:nil];
-    
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
      
