@@ -10,7 +10,7 @@
 
 @interface CheckOutViewController ()
 {
-    int key;
+    int key,hide;
     NSData *kj;
     NSString *name,*address,*time,*num;
     NSNumber *contact;
@@ -18,6 +18,7 @@
     CGRect oldFrame ;
     CGSize kbSize;
     CGPoint kbposi;
+    UIView * subv;
 }
 
 @end
@@ -33,13 +34,13 @@
     key=1;
     [super viewDidLoad];
     oldFrame.origin.y= self.view.frame.origin.y;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
+    oldFrame.size.height= self.view.frame.size.height;
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     
     [self.PButton setBackgroundColor: [[GlobalVariables class]color:1]];
      self.navigationItem.title= [[GlobalVariables class]Title:@"Place Order" ];
-   
+    
     _NameField.delegate = self;
     _ContactField.delegate=self;
     _AddressField.delegate=self;
@@ -114,12 +115,14 @@
     
    if (!([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
    {
+   [self.view endEditing:YES];
+
     name=self.NameField.text;
     num=self.ContactField.text;
     address=self.AddressField.text;
     time=[self time];
     [self PostData];
-    
+    [self performSelector:@selector(goToNextView) withObject:nil afterDelay:4];
    }
 }
 
@@ -142,12 +145,13 @@
 #pragma mark - Keyboard Methods
 
 - (void)keyboardWillShow:(NSNotification*)aNotification {
-    [UIView animateWithDuration:0.25 animations:^
+    [UIView animateWithDuration:0.15 animations:^
      {
          CGRect newFrame = [self.view frame];
          newFrame.origin.y -= 30;
          [self.view setFrame:newFrame];
-     
+         subv=[[UIView alloc]init];
+        
      }completion:^(BOOL finished)
      {
          
@@ -155,12 +159,12 @@
 }
 
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification {
-    [UIView animateWithDuration:0.25 animations:^
+    [UIView animateWithDuration:0.15 animations:^
      {
          CGRect newFrame = [self.view frame];
          newFrame.origin.y = oldFrame.origin.y;
          [self.view setFrame:newFrame];
-         
+        
      }completion:^(BOOL finished)
      {
          
@@ -168,16 +172,14 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
-}
+     [self.view endEditing:YES];
+    }
 
 #pragma mark - Passing Data Through Segue
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-   
-    if (([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
+   if (([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
     {
         UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
         UIView *new=[[UIView alloc]init];
@@ -187,10 +189,13 @@
         [new removeFromSuperview];
         return NO;
     }
-    else
-        return YES;
+        return NO;
+    
 }
-
+- (void)goToNextView {
+    
+    [self performSegueWithIdentifier:@"TySegue" sender:self];
+}
 
 @end
 
