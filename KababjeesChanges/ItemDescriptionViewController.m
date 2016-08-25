@@ -36,7 +36,6 @@
     self.ItemPrice.text=[self.ItemPrice.text stringByAppendingString:Price];
        self.TotalPrice.text=self.ItemPrice.text;
     self.navigationController.interactivePopGestureRecognizer.enabled=NO;
-    self.ItemImage.image=[UIImage imageNamed:@"logo.png"];
     [self setcolor];
     [self align];
     [super viewDidLoad];

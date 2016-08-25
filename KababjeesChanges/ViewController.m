@@ -24,7 +24,7 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     [self.view endEditing:YES];
-    if(Running) {
+    if(Running ) {
         
         SWRevealViewController *sv=self.revealViewController;
         [sv revealToggle:self];

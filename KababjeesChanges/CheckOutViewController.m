@@ -121,8 +121,8 @@
     num=self.ContactField.text;
     address=self.AddressField.text;
     time=[self time];
-    [self PostData];
-    [self performSelector:@selector(goToNextView) withObject:nil afterDelay:4];
+    //[self PostData];
+    [self performSelector:@selector(goToNextView) withObject:nil afterDelay:2];
    }
 }
 
@@ -196,6 +196,4 @@
     
     [self performSegueWithIdentifier:@"TySegue" sender:self];
 }
-
 @end
-

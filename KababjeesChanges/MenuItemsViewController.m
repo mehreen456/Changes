@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     
     Running=YES;
+    LoadData++;
     [self show];
     [super viewDidLoad];
     if(Relaod==0)
@@ -95,10 +96,8 @@
    
     MenuItems *currentCat=[MenuArray objectAtIndex:indexPath.section];
    
-   
-    cell.thumbnailImageView.image=[UIImage imageNamed:@"logo.png"];
-    cell.backgroundColor = [UIColor colorWithRed:1. green:1. blue:1. alpha:0.5];
-       CGSize textSize = [currentCat.MIdescrp sizeWithAttributes:@{NSFontAttributeName:[cell.descriptionLabel font]}];
+   cell.backgroundColor = [UIColor colorWithRed:1. green:1. blue:1. alpha:0.5];
+   CGSize textSize = [currentCat.MIdescrp sizeWithAttributes:@{NSFontAttributeName:[cell.descriptionLabel font]}];
     CGFloat strikeWidth = textSize.width;
     Dlines=(strikeWidth/cell.descriptionLabel.frame.size.width+1)*25;
     CGSize textSize2 = [currentCat.MIname sizeWithAttributes:@{NSFontAttributeName:[cell.nameLabel font]}];
@@ -139,18 +138,23 @@
     [manager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         JsonRes = (NSMutableArray *)responseObject;
         
-        for(int i=0;i<JsonRes.count;i++)
+        NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                                  ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortByName];
+        NSArray *sortedArray = [JsonRes sortedArrayUsingDescriptors:sortDescriptors];
+        
+        for(int i=0;i<sortedArray.count;i++)
         {
-            NSString *MId = [[[JsonRes objectAtIndex:i]valueForKey:IdKey]stringValue];
+            NSString *MId = [[[sortedArray objectAtIndex:i]valueForKey:IdKey]stringValue];
             
            if([MId isEqualToString:CID])
           {
-            NSString *MIname = [[JsonRes objectAtIndex:i]valueForKey:NKey];
+            NSString *MIname = [[sortedArray objectAtIndex:i]valueForKey:NKey];
             
-            NSString *MIdescrp = [[JsonRes objectAtIndex:i]valueForKey:DesKey];
+            NSString *MIdescrp = [[sortedArray objectAtIndex:i]valueForKey:DesKey];
             
-            NSString *MIprice = [[[JsonRes  objectAtIndex:i]valueForKey:PKey]stringValue];
-            NSArray *img=[[JsonRes objectAtIndex:i]valueForKey:ImgKey];
+            NSString *MIprice = [[[sortedArray  objectAtIndex:i]valueForKey:PKey]stringValue];
+            NSArray *img=[[sortedArray objectAtIndex:i]valueForKey:ImgKey];
             if(img.count==0)
             ImageUrl=nil;
             else

@@ -45,7 +45,7 @@
                             <rect key="frame" x="413" y="28" width="45" height="21"/>
                         </variation>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFS-UU-DHz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="vFS-UU-DHz">
                         <rect key="frame" x="15" y="29" width="65" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="65" id="5K1-Xg-FHR"/>
@@ -92,4 +92,7 @@
             <point key="canvasLocation" x="391" y="280"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="logo" width="240" height="240"/>
+    </resources>
 </document>

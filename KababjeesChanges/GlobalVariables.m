@@ -13,7 +13,7 @@ NSString *Key=@"e6b4777d-7edd-4622-aba7-a7b2c12b4630", *DataType=@"application/j
 NSString *NKey=@"name",*IdKey=@"category_id",*DesKey=@"description",*PKey=@"price",*ImgKey=@"images",*UKey=@"url",*INKey=@"item_name",*QKey=@"quantity",*IPKey=@"item_price",*IKey=@"id",*BaseUrl= @"http://olo.dmenu.co:3003/api/v1";
 NSMutableArray * ItemsOrder= nil,*MenuArray=nil;
 NSUInteger btp=0;
-int *BasketItems=0, *Relaod=0;
+int *BasketItems=0, *Relaod=0 ,*LoadData;
 BOOL Running=NO;
 
 @implementation GlobalVariables

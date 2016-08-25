@@ -16,9 +16,11 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
     ItemsOrder =[[NSMutableArray alloc]init];
     [self retriveData];
-     Running=NO;
+     
+    Running=NO;
 }
 
 
@@ -78,19 +80,25 @@
    
     manager.responseSerializer=[AFJSONResponseSerializer serializer];
     [manager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
         Json = (NSMutableArray *)responseObject;
         CategoriesArray =[[NSMutableArray alloc]init];
         
-        for(int i=0;i<Json.count;i++)
+        NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                                     ascending:YES];
+        
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortByName];
+        NSArray *sortedArray = [Json sortedArrayUsingDescriptors:sortDescriptors];
+        
+        for(int i=0;i<sortedArray.count;i++)
         {
-            NSString *CName = [[Json objectAtIndex:i]valueForKey:NKey];
-            NSString *CId = [[[Json objectAtIndex:i]valueForKey:IKey ]stringValue] ;
+            NSString *CName = [[sortedArray objectAtIndex:i]valueForKey:NKey];
+            NSString *CId = [[[sortedArray objectAtIndex:i]valueForKey:IKey ]stringValue] ;
             Categories *Cobj=[[Categories alloc] initWithCId:CId andCName:CName];
             
             [CategoriesArray addObject:Cobj];
         }
-        
-            SWRevealViewController *sv=self.revealViewController;
+             SWRevealViewController *sv=self.revealViewController;
             [sv revealToggle:self];
      
     } failure:^(NSURLSessionTask *operation, NSError *error) {

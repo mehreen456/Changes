@@ -19,7 +19,7 @@
 
 
 extern NSString *CID,*CTitle,*TPrice,*Key,*DataType,*MenuUrl,*CatUrl,*CType,*Authorization,*NKey,*IdKey,*DesKey,*PKey,*IKey,*UKey,*OrderUrl,*INKey,*QKey,*IPKey,*ImgKey,*BaseUrl;
-extern int *BasketItems,*Relaod;
+extern int *BasketItems,*Relaod,*LoadData;
 extern  NSUInteger btp;
 extern NSMutableArray *ItemsOrder,*MenuArray;
 extern BOOL Running;
