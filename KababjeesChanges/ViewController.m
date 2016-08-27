@@ -19,6 +19,7 @@
     
     [super viewDidLoad];
     [self Drawer];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 -(void) viewDidAppear:(BOOL)animated

@@ -84,16 +84,10 @@
         Json = (NSMutableArray *)responseObject;
         CategoriesArray =[[NSMutableArray alloc]init];
         
-        NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name"
-                                                                     ascending:YES];
-        
-        NSArray *sortDescriptors = [NSArray arrayWithObject:sortByName];
-        NSArray *sortedArray = [Json sortedArrayUsingDescriptors:sortDescriptors];
-        
-        for(int i=0;i<sortedArray.count;i++)
+        for(int i=0;i<Json.count;i++)
         {
-            NSString *CName = [[sortedArray objectAtIndex:i]valueForKey:NKey];
-            NSString *CId = [[[sortedArray objectAtIndex:i]valueForKey:IKey ]stringValue] ;
+            NSString *CName = [[Json objectAtIndex:i]valueForKey:NKey];
+            NSString *CId = [[[Json objectAtIndex:i]valueForKey:IKey ]stringValue] ;
             Categories *Cobj=[[Categories alloc] initWithCId:CId andCName:CName];
             
             [CategoriesArray addObject:Cobj];

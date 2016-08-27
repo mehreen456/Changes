@@ -12,5 +12,8 @@
 
 @property(nonatomic,strong) NSString * CId;
 @property(nonatomic,strong) NSString * CName;
+
 -(id) initWithCId: (NSString *) cid andCName: (NSString *) cname;
+
+
 @end

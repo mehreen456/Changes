@@ -136,25 +136,22 @@
     
     manager.responseSerializer=[AFJSONResponseSerializer serializer];
     [manager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
         JsonRes = (NSMutableArray *)responseObject;
+        JsonRes=[[[JsonRes reverseObjectEnumerator] allObjects] mutableCopy];
         
-        NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name"
-                                                                  ascending:YES];
-        NSArray *sortDescriptors = [NSArray arrayWithObject:sortByName];
-        NSArray *sortedArray = [JsonRes sortedArrayUsingDescriptors:sortDescriptors];
-        
-        for(int i=0;i<sortedArray.count;i++)
+        for(int i=0;i<JsonRes.count;i++)
         {
-            NSString *MId = [[[sortedArray objectAtIndex:i]valueForKey:IdKey]stringValue];
+            NSString *MId = [[[JsonRes objectAtIndex:i]valueForKey:IdKey]stringValue];
             
            if([MId isEqualToString:CID])
           {
-            NSString *MIname = [[sortedArray objectAtIndex:i]valueForKey:NKey];
+            NSString *MIname = [[JsonRes objectAtIndex:i]valueForKey:NKey];
             
-            NSString *MIdescrp = [[sortedArray objectAtIndex:i]valueForKey:DesKey];
+            NSString *MIdescrp = [[JsonRes objectAtIndex:i]valueForKey:DesKey];
             
-            NSString *MIprice = [[[sortedArray  objectAtIndex:i]valueForKey:PKey]stringValue];
-            NSArray *img=[[sortedArray objectAtIndex:i]valueForKey:ImgKey];
+            NSString *MIprice = [[[JsonRes  objectAtIndex:i]valueForKey:PKey]stringValue];
+            NSArray *img=[[JsonRes objectAtIndex:i]valueForKey:ImgKey];
             if(img.count==0)
             ImageUrl=nil;
             else
