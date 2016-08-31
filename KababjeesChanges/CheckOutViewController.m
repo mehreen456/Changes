@@ -115,14 +115,12 @@
     
    if (!([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
    {
-   [self.view endEditing:YES];
-
     name=self.NameField.text;
     num=self.ContactField.text;
     address=self.AddressField.text;
     time=[self time];
     [self PostData];
-    [self performSelector:@selector(goToNextView) withObject:nil afterDelay:2];
+    [self performSelector:@selector(goToNextView) withObject:nil afterDelay:4];
    }
 }
 
@@ -179,6 +177,7 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
+    [self.view endEditing:YES];
    if (([self.NameField.text isEqualToString:@""] || [self.ContactField.text isEqualToString:@"" ]  ||[self.AddressField.text isEqualToString:@""] ))
     {
         UIWindow *window = [UIApplication sharedApplication].windows.lastObject;

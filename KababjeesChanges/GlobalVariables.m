@@ -59,7 +59,7 @@ BOOL Running=NO;
     if(c==1)
     mycolor=[UIColor colorWithRed:124/255.0f green:175/255.0f blue:65/255.0f alpha:1.0f];
     else
-        mycolor=[UIColor colorWithRed:215/255.0f green:8/255.0f blue:13/255.0f alpha:1.0f];
+    mycolor=[UIColor colorWithRed:215/255.0f green:8/255.0f blue:13/255.0f alpha:1.0f];
 
     return mycolor;
 

@@ -62,7 +62,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
    
-    return NLwidth+Dlines+20 ;
+    return NLwidth+Dlines+25 ;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

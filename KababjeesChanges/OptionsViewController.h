@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalVariables.h"
 
 @interface OptionsViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIButton *table;
+@property (strong, nonatomic) IBOutlet UIButton *order;
 
 @end

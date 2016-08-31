@@ -13,15 +13,14 @@
 @end
 
 @implementation OptionsViewController
+@synthesize table,order;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
      self.navigationItem.hidesBackButton = YES;
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+     [self.table setBackgroundColor: [[GlobalVariables class]color:1]];
+     [self.order setBackgroundColor: [[GlobalVariables class]color:1]];
 }
 
 @end

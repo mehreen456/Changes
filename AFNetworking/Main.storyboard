@@ -55,7 +55,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNp-IQ-hKN">
-                                <rect key="frame" x="87" y="322" width="146" height="35"/>
+                                <rect key="frame" x="87" y="278" width="146" height="35"/>
                                 <color key="backgroundColor" red="0.31372550129999999" green="0.96470594409999999" blue="0.058823533359999999" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="16"/>
                                 <state key="normal" title="Place Order">
@@ -66,13 +66,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCu-Ys-WXq">
-                                <rect key="frame" x="87" y="237" width="146" height="35"/>
+                                <rect key="frame" x="87" y="193" width="146" height="35"/>
                                 <color key="backgroundColor" red="0.31372550129999999" green="0.96470594409999999" blue="0.058823533359999999" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="qWM-N6-EH4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="15"/>
-                                <state key="normal" title="Table Resveration">
+                                <state key="normal" title="Table Reservation">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -112,6 +112,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Kababjee's" id="xV9-3g-Lqm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="order" destination="DNp-IQ-hKN" id="FXT-k2-DH0"/>
+                        <outlet property="table" destination="qCu-Ys-WXq" id="eno-iS-o12"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iln-Cc-ULs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -901,7 +905,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <segue destination="A1U-dZ-Nid" kind="show" identifier="GoToMain" animates="NO" id="OI1-2V-5HA"/>
+                        <segue destination="Ug6-jG-1mP" kind="show" identifier="GoToMain" animates="NO" id="OAE-eN-jhA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oka-vW-YqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1064,7 +1068,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the date &amp; time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ig4-t6-4oN">
-                                <rect key="frame" x="24" y="55" width="206" height="19"/>
+                                <rect key="frame" x="24" y="99" width="206" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="ylw-9s-Yjg"/>
                                 </constraints>
@@ -1073,7 +1077,7 @@
                                 <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anM-6N-mID">
-                                <rect key="frame" x="24" y="308" width="206" height="19"/>
+                                <rect key="frame" x="24" y="352" width="206" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="58G-Fz-Ucy"/>
                                 </constraints>
@@ -1082,7 +1086,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="742" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28a-9C-NAO">
-                                <rect key="frame" x="24" y="186" width="206" height="19"/>
+                                <rect key="frame" x="24" y="230" width="206" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="zHA-sO-J97"/>
                                 </constraints>
@@ -1091,7 +1095,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Branch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1D-LB-srL">
-                                <rect key="frame" x="24" y="371" width="206" height="19"/>
+                                <rect key="frame" x="24" y="415" width="206" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="nuc-Ct-Y1f"/>
                                 </constraints>
@@ -1100,7 +1104,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiI-G8-fJF">
-                                <rect key="frame" x="24" y="248" width="206" height="19"/>
+                                <rect key="frame" x="24" y="292" width="206" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="Mog-f8-gjF"/>
                                 </constraints>
@@ -1109,7 +1113,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Time and Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PF8-nG-jRC">
-                                <rect key="frame" x="24" y="82" width="272" height="30"/>
+                                <rect key="frame" x="24" y="126" width="272" height="30"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1118,17 +1122,17 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6CJ-g0-s9u">
-                                <rect key="frame" x="24" y="147" width="272" height="30"/>
+                                <rect key="frame" x="24" y="191" width="272" height="30"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cL-EH-aOp">
-                                <rect key="frame" x="24" y="335" width="272" height="30"/>
+                                <rect key="frame" x="24" y="379" width="272" height="30"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select The Branch" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YdL-9w-kN6">
-                                <rect key="frame" x="24" y="398" width="272" height="30"/>
+                                <rect key="frame" x="24" y="442" width="272" height="30"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1136,17 +1140,17 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iO5-bT-gqw">
-                                <rect key="frame" x="24" y="210" width="272" height="30"/>
+                                <rect key="frame" x="24" y="254" width="272" height="30"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bDj-pS-wAy">
-                                <rect key="frame" x="24" y="275" width="272" height="30"/>
+                                <rect key="frame" x="24" y="319" width="272" height="30"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7o-mA-gbU">
-                                <rect key="frame" x="28" y="464" width="264" height="36"/>
+                                <rect key="frame" x="28" y="508" width="264" height="36"/>
                                 <color key="backgroundColor" red="0.31372550129890442" green="0.9647059440612793" blue="0.058823533356189728" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="XPa-ju-cyF"/>
@@ -1157,36 +1161,11 @@
                                 </state>
                                 <connections>
                                     <action selector="SubmitButton:" destination="Eqd-jA-47L" eventType="touchUpInside" id="Syp-bT-iEg"/>
-                                    <segue destination="3Jx-nr-NgY" kind="show" identifier="SubmitSegue" animates="NO" id="L26-gt-x8m"/>
+                                    <segue destination="3Jx-nr-NgY" kind="show" identifier="SubmitSegue" animates="NO" id="wwj-fj-JBL"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="13" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v4q-vf-VWQ">
-                                <rect key="frame" x="24" y="427" width="272" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="e7S-Un-DR2"/>
-                                </constraints>
-                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="BCELL" rowHeight="13" id="alg-mP-iZg">
-                                        <rect key="frame" x="0.0" y="28" width="272" height="13"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="alg-mP-iZg" id="fvZ-2i-EQj">
-                                            <rect key="frame" x="0.0" y="0.0" width="272" height="12"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="Eqd-jA-47L" id="sCO-kC-X2v"/>
-                                    <outlet property="delegate" destination="Eqd-jA-47L" id="Nsu-m2-Ja4"/>
-                                </connections>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="746" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyJ-cj-qVD">
-                                <rect key="frame" x="24" y="120" width="206" height="19"/>
+                                <rect key="frame" x="24" y="164" width="206" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="ofT-Ed-4v0"/>
                                 </constraints>
@@ -1195,7 +1174,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-jh-Oxc">
-                                <rect key="frame" x="0.0" y="106" width="320" height="343"/>
+                                <rect key="frame" x="0.0" y="150" width="320" height="343"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="490" id="S86-i2-IkS"/>
@@ -1215,7 +1194,7 @@
                                 </variation>
                             </datePicker>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EsW-0M-ajl">
-                                <rect key="frame" x="0.0" y="449" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="493" width="320" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <barButtonItem style="done" systemItem="done" id="DG0-Rh-yKJ">
@@ -1231,6 +1210,46 @@
                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                                 <color key="barTintColor" red="1" green="0.0" blue="0.010051519910000001" alpha="1" colorSpace="calibratedRGB"/>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="13" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v4q-vf-VWQ">
+                                <rect key="frame" x="24" y="471" width="272" height="97"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="2vb-kr-DyF"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="110" id="8cD-tL-4gd"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="97" id="A30-Lw-dwH"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="97" id="YyA-gg-svG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="111" id="blw-Uu-hys"/>
+                                    <constraint firstAttribute="height" constant="128" id="e7S-Un-DR2"/>
+                                    <constraint firstAttribute="height" constant="110" id="mTu-Y8-Cgh"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="129" id="xlr-dK-qVE"/>
+                                </constraints>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="BCELL" rowHeight="13" id="alg-mP-iZg">
+                                        <rect key="frame" x="0.0" y="28" width="272" height="13"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="alg-mP-iZg" id="fvZ-2i-EQj">
+                                            <rect key="frame" x="0.0" y="0.0" width="272" height="12"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="YyA-gg-svG"/>
+                                        <exclude reference="blw-Uu-hys"/>
+                                        <exclude reference="e7S-Un-DR2"/>
+                                        <exclude reference="mTu-Y8-Cgh"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="Eqd-jA-47L" id="sCO-kC-X2v"/>
+                                    <outlet property="delegate" destination="Eqd-jA-47L" id="Nsu-m2-Ja4"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1366,10 +1385,9 @@
         <image name="menu-icon.png" width="22" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L26-gt-x8m"/>
-        <segue reference="c4z-is-aDi"/>
         <segue reference="EGY-h9-Hfe"/>
+        <segue reference="wwj-fj-JBL"/>
+        <segue reference="ASt-ee-4sH"/>
         <segue reference="UWf-2E-bm7"/>
-        <segue reference="hqk-hC-W8v"/>
     </inferredMetricsTieBreakers>
 </document>

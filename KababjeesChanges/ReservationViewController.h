@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GlobalVariables.h"
 
-@interface ReservationViewController : UIViewController <UITextFieldDelegate>
-
-
+@interface ReservationViewController : UIViewController <UITextFieldDelegate,UIAlertViewDelegate>
 
 @property (strong,nonatomic) NSMutableArray * BArray;
 @property (strong, nonatomic) IBOutlet UIButton *SButton;

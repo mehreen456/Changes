@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.navigationController.navigationBarHidden=YES;
-    [self performSelector:@selector(goToNextView) withObject:nil afterDelay:10];
+    [self performSelector:@selector(goToNextView) withObject:nil afterDelay:7];
     BasketItems=0;
     TPrice=@"00";
     

@@ -15,6 +15,8 @@
     NSMutableArray *Json;
     NSString *Bid,*email,*persons,*name,*datetime,*phone;
     NSDictionary *jsonDictionary;
+    NSDate *mydate;
+    int timestamp;
 }
 @end
 
@@ -25,7 +27,7 @@
     [super viewDidLoad];
     [self set];
     [self retriveData];
-    
+     
 }
 
 #pragma mark - UITableViewDelegate
@@ -56,6 +58,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     Categories *currentCat=[BArray objectAtIndex:indexPath.row];
+    
+    cell.textLabel.textAlignment = NSTextAlignmentLeft;
     cell.textLabel.text=currentCat.CName ;
     [cell.textLabel setFont:[UIFont boldSystemFontOfSize:12.0]];
    
@@ -135,24 +139,6 @@
     [self.view endEditing:YES];
 }
 
-#pragma mark - Passing Data Through Segue
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-   if (([self.CName.text isEqualToString:@""] || [self.CEmail.text isEqualToString:@"" ]  ||[self.CPersons.text isEqualToString:@""] ||[self.CPhoneNo.text isEqualToString:@""] ||[self.Branch.text isEqualToString:@""] ||[self.DateTime.text isEqualToString:@""]))
-    {
-        UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
-        UIView *new=[[UIView alloc]init];
-        new.backgroundColor=[UIColor clearColor];
-        [window addSubview:new];
-        [window makeToast:@"Please enter data correctly"];
-        [new removeFromSuperview];
-        return NO;
-    }
-   
-    return NO;
-  
-}
 
 #pragma mark - Delegate Methods
 
@@ -214,7 +200,7 @@
 - (IBAction)DateTime:(id)sender {
     
     dateFormatter =[[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm"];
     DateTime.text=[NSString stringWithFormat:@"%@" , [dateFormatter stringFromDate:self.DatePicker.date]];
     self.DatePicker.hidden=NO;
     self.TabBar.hidden=NO;
@@ -224,6 +210,13 @@
 - (IBAction)CloseDatePicker:(id)sender {
     
     self.DateTime.text=[NSString stringWithFormat:@"%@" ,[dateFormatter stringFromDate:self.DatePicker.date]];
+    NSDateFormatter * dateFormatter1 = [[NSDateFormatter alloc] init] ;
+    [dateFormatter1 setDateFormat:@"dd/MM/yyyy HH:mm"] ;
+    NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    [dateFormatter1 setTimeZone:gmt];
+    NSDate *date = [dateFormatter1 dateFromString:self.DateTime.text] ;
+    NSTimeInterval interval  = [date timeIntervalSince1970] ;
+    datetime= [NSString stringWithFormat:@"%f", interval];
     self.DatePicker.hidden=YES;
     self.TabBar.hidden=YES;
     
@@ -238,21 +231,27 @@
 }
 - (IBAction)SubmitButton:(id)sender {
     
-    [self.navigationController popViewControllerAnimated:NO];
-
+    [self.view endEditing:YES];
+    
     if (!([self.CName.text isEqualToString:@""] || [self.CEmail.text isEqualToString:@"" ]  ||[self.CPersons.text isEqualToString:@""] ||[self.CPhoneNo.text isEqualToString:@""] ||[self.Branch.text isEqualToString:@""] ||[self.DateTime.text isEqualToString:@""]))
     {
-        [self.view endEditing:YES];
-        phone=self.CPhoneNo.text;
-        persons=self.CPersons.text;
-        email=self.CEmail.text;
-        name=self.CName.text;
-        datetime=self.DateTime.text;
-       [self PostData];
-  
-        [self performSelector:@selector(goToNextView) withObject:nil afterDelay:2];
+        [self showMessage:@"Are you sure?"
+                withTitle:@"Confirmation"];
         
    }
+    
+}
+#pragma mark - Passing Data Through Segue
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    
+    if (([self.CName.text isEqualToString:@""] || [self.CEmail.text isEqualToString:@"" ]  ||[self.CPersons.text isEqualToString:@""] ||[self.CPhoneNo.text isEqualToString:@""] ||[self.Branch.text isEqualToString:@""] ||[self.DateTime.text isEqualToString:@""]))
+            [self.view makeToast:@"Please enter data correctly"];
+        
+    
+    
+    return NO;
     
 }
 
@@ -287,7 +286,7 @@
     self.DateTime.delegate=self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-    
+    self.DatePicker.locale = [NSLocale localeWithLocaleIdentifier:@"en_GB"];
 }
 
 -(void) retriveData
@@ -317,6 +316,35 @@
         NSLog(@"Data retrived faild");
         [self.view makeToast:@"No Internet Connection"];
     }];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    self.DatePicker.hidden=YES;
+    [self.view endEditing:YES];
+}
+
+-(void)showMessage:(NSString*)message withTitle:(NSString *)title
+{
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:title
+                                  message:message
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        
+        [self.view endEditing:YES];
+        phone=self.CPhoneNo.text;
+        persons=self.CPersons.text;
+        email=self.CEmail.text;
+        name=self.CName.text;
+        [self PostData];
+        [self performSelector:@selector(goToNextView) withObject:nil ];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:okAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
