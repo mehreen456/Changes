@@ -13,7 +13,7 @@
     NSDateFormatter *dateFormatter;
     CGRect oldFrame;
     NSMutableArray *Json;
-    NSString *Bid,*email,*persons,*name,*datetime,*phone;
+    NSString *Bid,*email,*persons,*name,*datetime,*phone,*AvailableTime;
     NSDictionary *jsonDictionary;
     NSDate *mydate;
     int timestamp;
@@ -23,11 +23,11 @@
 @implementation ReservationViewController
 @synthesize DateTime,DatePicker,Branch,BArray,dropdownTable,CName,CPersons,CPhoneNo,CEmail,SButton;
 - (void)viewDidLoad {
-    
+  
+    [self DateTime].enabled = NO;
     [super viewDidLoad];
     [self set];
     [self retriveData];
-     
 }
 
 #pragma mark - UITableViewDelegate
@@ -71,9 +71,15 @@
     Categories *c1= [BArray objectAtIndex:indexPath.row];
     Bid=c1.CId;
     self.Branch.text=c1.CName;
+    if([Bid isEqualToString:@"1"] || [Bid isEqualToString:@"2"] || [Bid isEqualToString:@"3"] || [Bid isEqualToString:@"4"] || [Bid isEqualToString:@"6"])
+        self.DateTime.placeholder=@"Timings 6:59 pm to 12:59 am";
+    
+    if([Bid isEqualToString:@"5"] || [Bid isEqualToString:@"7"])
+        self.DateTime.placeholder=@"Timings 12 pm to 12 am";
+
     [self.dropdownTable deselectRowAtIndexPath:[self.dropdownTable indexPathForSelectedRow] animated:NO];
     [self.dropdownTable setContentOffset:CGPointZero animated:NO];
-    self.dropdownTable.hidden = YES;
+     self.dropdownTable.hidden = YES;
 }
 
 #pragma mark - UITextFieldDelegate
@@ -112,7 +118,8 @@
     [UIView animateWithDuration:0.15 animations:^
      {
          CGRect newFrame = [self.view frame];
-         newFrame.origin.y -= 30;
+         newFrame.origin.y -= 40;
+         newFrame.size.height+=40;
          [self.view setFrame:newFrame];
          
      }completion:^(BOOL finished)
@@ -134,6 +141,7 @@
      }];
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
     self.dropdownTable.hidden = YES;
     [self Branch].enabled = YES;
     [self.view endEditing:YES];
@@ -199,9 +207,9 @@
 
 - (IBAction)DateTime:(id)sender {
     
+    self.DateTime.text=nil;
     dateFormatter =[[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm"];
-    DateTime.text=[NSString stringWithFormat:@"%@" , [dateFormatter stringFromDate:self.DatePicker.date]];
     self.DatePicker.hidden=NO;
     self.TabBar.hidden=NO;
     
@@ -209,6 +217,8 @@
 
 - (IBAction)CloseDatePicker:(id)sender {
     
+    if([self validTime])
+        return;
     self.DateTime.text=[NSString stringWithFormat:@"%@" ,[dateFormatter stringFromDate:self.DatePicker.date]];
     NSDateFormatter * dateFormatter1 = [[NSDateFormatter alloc] init] ;
     [dateFormatter1 setDateFormat:@"dd/MM/yyyy HH:mm"] ;
@@ -227,7 +237,9 @@
     [self.view endEditing:YES];
     [self Branch].enabled = NO;
     self.dropdownTable.hidden = NO;
-    
+    self.DatePicker.hidden=YES;
+    self.DateTime.text=nil;
+     [self DateTime].enabled = YES;
 }
 - (IBAction)SubmitButton:(id)sender {
     
@@ -235,8 +247,12 @@
     
     if (!([self.CName.text isEqualToString:@""] || [self.CEmail.text isEqualToString:@"" ]  ||[self.CPersons.text isEqualToString:@""] ||[self.CPhoneNo.text isEqualToString:@""] ||[self.Branch.text isEqualToString:@""] ||[self.DateTime.text isEqualToString:@""]))
     {
-        [self showMessage:@"Are you sure?"
-                withTitle:@"Confirmation"];
+        phone=self.CPhoneNo.text;
+        persons=self.CPersons.text;
+        email=self.CEmail.text;
+        name=self.CName.text;
+        [self PostData];
+        [self showMessage];
         
    }
     
@@ -245,14 +261,12 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    
     if (([self.CName.text isEqualToString:@""] || [self.CEmail.text isEqualToString:@"" ]  ||[self.CPersons.text isEqualToString:@""] ||[self.CPhoneNo.text isEqualToString:@""] ||[self.Branch.text isEqualToString:@""] ||[self.DateTime.text isEqualToString:@""]))
-            [self.view makeToast:@"Please enter data correctly"];
-        
-    
+         [self.view makeToast:@"Please enter data correctly"];
+    else
+         [self EmptyFields];
     
     return NO;
-    
 }
 
 #pragma mark - View's Own Methods
@@ -323,28 +337,55 @@
     [self.view endEditing:YES];
 }
 
--(void)showMessage:(NSString*)message withTitle:(NSString *)title
+-(void)showMessage
 {
     
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:title
-                                  message:message
-                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Confirmation" message:@"Your reservation has been successfully placed! You will soon receive a confirmation call." preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        [self.view endEditing:YES];
-        phone=self.CPhoneNo.text;
-        persons=self.CPersons.text;
-        email=self.CEmail.text;
-        name=self.CName.text;
-        [self PostData];
-        [self performSelector:@selector(goToNextView) withObject:nil ];
-    }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    [alert addAction:okAction];
-    [alert addAction:cancelAction];
-    [self presentViewController:alert animated:YES completion:nil];
+        [alertController dismissViewControllerAnimated:YES completion:^{
+            [self performSelector:@selector(goToNextView) withObject:nil ];
+            
+        }];
+        
+    });
+    
 }
 
+-(BOOL) validTime
+{
+    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitHour | NSCalendarUnitMinute fromDate:[self.DatePicker date]];
+    if ([Bid isEqualToString:@"1"] ||[Bid isEqualToString:@"3"] ||[Bid isEqualToString:@"6"] ||[Bid isEqualToString:@"4"] || [Bid isEqualToString:@"2"])
+    {
+        
+      if (!(([dateComponents hour] >18 && [dateComponents hour]<=23) || ([dateComponents hour] ==18 && [dateComponents minute]== 59 ) || ([dateComponents hour] ==00 && [dateComponents minute]<59 ))){
+        
+        [self.view makeToast:@"This time can't be selected"];
+        return YES;
+    }
+    }
+   
+    if ([Bid isEqualToString:@"7"] || [Bid isEqualToString:@"5"])
+    {
+        if (!(([dateComponents hour] >=12 && [dateComponents hour]<=23) || ([dateComponents hour] ==00 && [dateComponents minute]==00 ))){
+            
+            [self.view makeToast:@"This time can't be selected"];
+            return YES;
+        }
+    }
+   
+           return NO;
+}
+-(void) EmptyFields
+{
+    self.CName.text=nil;
+    self.CPhoneNo.text=nil;
+    self.CPersons.text=nil;
+    self.CEmail.text=nil;
+    self.Branch.text=nil;
+    self.DateTime.text=nil;
+}
 @end

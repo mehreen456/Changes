@@ -93,13 +93,13 @@
             [CategoriesArray addObject:Cobj];
         }
              SWRevealViewController *sv=self.revealViewController;
-            [sv revealToggle:self];
+             [sv revealToggle:self];
      
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Data retrived faild");
         [self.view makeToast:@"No Internet Connection"];
     }];
- 
+   
      [self.myTable reloadData];
 }
 
