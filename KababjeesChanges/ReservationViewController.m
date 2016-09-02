@@ -353,7 +353,7 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         [alertController dismissViewControllerAnimated:YES completion:^{
             [self performSelector:@selector(goToNextView) withObject:nil ];
@@ -370,7 +370,7 @@
     if ([Bid isEqualToString:@"1"] ||[Bid isEqualToString:@"3"] ||[Bid isEqualToString:@"6"] ||[Bid isEqualToString:@"4"] || [Bid isEqualToString:@"2"])
     {
         
-      if (!(([dateComponents hour] >18 && [dateComponents hour]<=23) || ([dateComponents hour] ==18 && [dateComponents minute]== 59 ) || ([dateComponents hour] ==00 && [dateComponents minute]<59 ))){
+      if (!(([dateComponents hour] >=18 && [dateComponents hour]<=23) || ([dateComponents hour] ==00 && [dateComponents minute]==00))){
         
         [self.DatePicker makeToast:@"Invalid Timings"];
         return YES;
