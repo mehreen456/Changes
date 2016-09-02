@@ -16,14 +16,14 @@
     NSString *Bid,*email,*persons,*name,*datetime,*phone,*AvailableTime;
     NSDictionary *jsonDictionary;
     NSDate *mydate;
-    int timestamp;
+    int timestamp,move;
 }
 @end
 
 @implementation ReservationViewController
 @synthesize DateTime,DatePicker,Branch,BArray,dropdownTable,CName,CPersons,CPhoneNo,CEmail,SButton;
 - (void)viewDidLoad {
-  
+     move=0;
     [self DateTime].enabled = NO;
     [super viewDidLoad];
     [self set];
@@ -92,8 +92,11 @@
         return NO;
     }
     else
+    {
+        if(textField==self.CPhoneNo || textField==self.CPersons)
+        move=1;
         return YES;
-    
+    }
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -117,10 +120,20 @@
 - (void)keyboardWillShow:(NSNotification*)aNotification {
     [UIView animateWithDuration:0.15 animations:^
      {
+         if(move==1)
+         {
+             CGRect newFrame = [self.view frame];
+             newFrame.origin.y -= 70;
+             newFrame.size.height+=50;
+             [self.view setFrame:newFrame];
+         }
+         else
+         {
          CGRect newFrame = [self.view frame];
-         newFrame.origin.y -= 40;
-         newFrame.size.height+=40;
+         newFrame.origin.y -= 30;
+         newFrame.size.height+=30;
          [self.view setFrame:newFrame];
+         }
          
      }completion:^(BOOL finished)
      {
@@ -268,13 +281,14 @@
     
     return NO;
 }
-
-#pragma mark - View's Own Methods
-
 - (void)goToNextView {
     
     [self performSegueWithIdentifier:@"SubmitSegue" sender:self];
 }
+
+
+#pragma mark - View's Own Methods
+
 
 -(void)set
 {
@@ -331,11 +345,6 @@
         [self.view makeToast:@"No Internet Connection"];
     }];
 }
--(void)viewWillDisappear:(BOOL)animated
-{
-    self.DatePicker.hidden=YES;
-    [self.view endEditing:YES];
-}
 
 -(void)showMessage
 {
@@ -363,7 +372,7 @@
         
       if (!(([dateComponents hour] >18 && [dateComponents hour]<=23) || ([dateComponents hour] ==18 && [dateComponents minute]== 59 ) || ([dateComponents hour] ==00 && [dateComponents minute]<59 ))){
         
-        [self.view makeToast:@"This time can't be selected"];
+        [self.DatePicker makeToast:@"Invalid Timings"];
         return YES;
     }
     }
@@ -372,7 +381,7 @@
     {
         if (!(([dateComponents hour] >=12 && [dateComponents hour]<=23) || ([dateComponents hour] ==00 && [dateComponents minute]==00 ))){
             
-            [self.view makeToast:@"This time can't be selected"];
+            [self.DatePicker makeToast:@"Invalid Timings"];
             return YES;
         }
     }
@@ -387,5 +396,11 @@
     self.CEmail.text=nil;
     self.Branch.text=nil;
     self.DateTime.text=nil;
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    self.DatePicker.hidden=YES;
+    [self.view endEditing:YES];
 }
 @end

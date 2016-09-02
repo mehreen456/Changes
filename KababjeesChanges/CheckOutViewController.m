@@ -147,6 +147,7 @@
      {
          CGRect newFrame = [self.view frame];
          newFrame.origin.y -= 30;
+         newFrame.size.height+=30;
          [self.view setFrame:newFrame];
          subv=[[UIView alloc]init];
         

@@ -22,5 +22,8 @@
      [self.table setBackgroundColor: [[GlobalVariables class]color:1]];
      [self.order setBackgroundColor: [[GlobalVariables class]color:1]];
 }
-
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self.view endEditing:YES];
+}
 @end
