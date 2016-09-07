@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GlobalVariables.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface OptionsViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *table;

@@ -349,6 +349,8 @@
     NSTimeInterval oneDay = 60 * 60 * 24;
     self.DatePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:oneDay * 2];
     self.DatePicker.backgroundColor=[UIColor whiteColor];
+    [self.DatePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
+    [self.DatePicker setValue:[UIColor colorWithRed:123/255.0f green:104/255.0f blue:238/255.0f alpha:1.0f] forKey:@"backgroundColor"];
     self.navigationItem.title= [[GlobalVariables class]Title:@"Reserve a Table" ];
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     oldFrame.origin.y= self.view.frame.origin.y;
@@ -366,6 +368,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     self.TimePicker.locale = [NSLocale localeWithLocaleIdentifier:@"en_GB"];
     [self.DatePicker setDatePickerMode:UIDatePickerModeDate];
+   
 
 }
 
@@ -477,7 +480,12 @@
     [self.TimePicker setMaximumDate:endDate];
     [self.TimePicker setDate:startDate animated:YES];
     [self.TimePicker reloadInputViews];
-}
+    [self.TimePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
+    [self.TimePicker setValue:[UIColor colorWithRed:123/255.0f green:104/255.0f blue:238/255.0f alpha:1.0f] forKey:@"backgroundColor"];
+    
+    
+
+   }
 
 - (BOOL)validateEmailWithString:(NSString*)email1
  {

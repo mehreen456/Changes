@@ -22,6 +22,10 @@
      [self.table setBackgroundColor: [[GlobalVariables class]color:1]];
      [self.order setBackgroundColor: [[GlobalVariables class]color:1]];
      showmenu=NO;
+    order.layer.cornerRadius = 10;
+    order.clipsToBounds = YES;
+    table.layer.cornerRadius = 10;
+    table.clipsToBounds = YES;
 }
 -(void) viewWillAppear:(BOOL)animated
 {
