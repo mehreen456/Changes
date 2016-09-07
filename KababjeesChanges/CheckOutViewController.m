@@ -24,7 +24,7 @@
 @end
 
 @implementation CheckOutViewController
-@synthesize customview,PButton;
+@synthesize customview,PButton,toastview;
 @synthesize NameField = _NameField;
 @synthesize ContactField = _ContactField;
 @synthesize AddressField = _AddressField;
@@ -119,8 +119,27 @@
     num=self.ContactField.text;
     address=self.AddressField.text;
     time=[self time];
-    [self PostData];
-    [self performSelector:@selector(goToNextView) withObject:nil afterDelay:4];
+   [self PostData];
+    
+    defaults = [NSUserDefaults standardUserDefaults];
+    [ItemsOrder addObject:TPrice];
+    
+    NSObject * object = [defaults objectForKey:@"Orders"];
+       if(object == nil){
+           
+           Torders=[[NSMutableArray alloc] init];
+           [Torders addObject:ItemsOrder];
+           [defaults setObject:Torders forKey:@"Orders"];
+       }
+       
+       else
+       {
+           Torders = [[defaults objectForKey:@"Orders"]mutableCopy];
+           [Torders addObject:ItemsOrder];
+           [defaults setObject:Torders forKey:@"Orders"];
+    }
+    [defaults synchronize];
+    [self performSelector:@selector(goToNextView) withObject:nil ];
    }
 }
 
@@ -147,7 +166,6 @@
      {
          CGRect newFrame = [self.view frame];
          newFrame.origin.y -= 30;
-         newFrame.size.height+=30;
          [self.view setFrame:newFrame];
          subv=[[UIView alloc]init];
         

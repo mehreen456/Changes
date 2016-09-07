@@ -18,11 +18,12 @@
 #import "UIView+Toast.h"
 
 
-extern NSString *CID,*CTitle,*TPrice,*Key,*DataType,*MenuUrl,*CatUrl,*CType,*Authorization,*NKey,*IdKey,*DesKey,*PKey,*IKey,*UKey,*OrderUrl,*INKey,*QKey,*IPKey,*ImgKey,*BaseUrl;
+extern NSString *CID,*CTitle,*TPrice,*Key,*DataType,*MenuUrl,*CatUrl,*CType,*Authorization,*NKey,*IdKey,*DesKey,*PKey,*IKey,*UKey,*OrderUrl,*INKey,*QKey,*IPKey,*ImgKey,*BaseUrl,*OP;
 extern int *BasketItems,*Relaod,*LoadData;
 extern  NSUInteger btp;
-extern NSMutableArray *ItemsOrder,*MenuArray;
-extern BOOL Running;
+extern NSMutableArray *ItemsOrder,*MenuArray,*Torders;
+extern BOOL Running,showmenu;
+extern  NSUserDefaults *defaults;
 
 @interface GlobalVariables : NSObject
 

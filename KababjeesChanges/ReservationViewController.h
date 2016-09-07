@@ -11,10 +11,15 @@
 
 @interface ReservationViewController : UIViewController <UITextFieldDelegate,UIAlertViewDelegate>
 
+
+@property (strong, nonatomic) IBOutlet UIView *toastview;
+
 @property (strong,nonatomic) NSMutableArray * BArray;
 @property (strong, nonatomic) IBOutlet UIButton *SButton;
-
 @property (strong, nonatomic) IBOutlet UIDatePicker *DatePicker;
+
+@property (strong, nonatomic) IBOutlet UIDatePicker *TimePicker;
+
 @property (strong, nonatomic) IBOutlet UIToolbar *TabBar;
 
 @property (strong, nonatomic) IBOutlet UITextField *DateTime;

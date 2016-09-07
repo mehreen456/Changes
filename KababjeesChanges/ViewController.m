@@ -20,6 +20,7 @@
     [super viewDidLoad];
     [self Drawer];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+   // [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Reservations"];
 }
 
 -(void) viewDidAppear:(BOOL)animated

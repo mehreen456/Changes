@@ -8,6 +8,11 @@
 
 #import "CategoriesViewController.h"
 
+@interface CategoriesViewController ()
+
+@property (nonatomic, strong) NSArray *contents;
+
+@end
 
 @implementation CategoriesViewController
 
@@ -16,7 +21,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    self.myTable.SKSTableViewDelegate = self;
     ItemsOrder =[[NSMutableArray alloc]init];
     [self retriveData];
      
@@ -25,48 +30,129 @@
 
 
 #pragma mark - UITableViewDelegate
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (NSArray *)contents
+{
+  
+    if (!_contents && CategoriesArray!=nil)
+    {
+        
+        _contents = @[
+                      @[
+                          @[@"My Order", @"Online Order",@"My Reservation"],
+                          @[@"Reservation",@"Make Reservation"],
+                          @[@"Menu",CategoriesArray]]
+                      ];
+    }
+   
+    return _contents;
+}
+
+
+
+
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
-
+    return [self.contents count];
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 50;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return CategoriesArray.count;
-   }
+    return [self.contents[section] count];
 
+}
+
+- (NSInteger)tableView:(SKSTableView *)tableView numberOfSubRowsAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section==0 && indexPath.row==2)
+        return self.CategoriesArray.count;
+  
+    else
+
+    return [self.contents[indexPath.section][indexPath.row] count] - 1;
+}
+
+- (BOOL)tableView:(SKSTableView *)tableView shouldExpandSubRowsOfCellAtIndexPath:(NSIndexPath *)indexPath
+{
+   return YES;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    static NSString *CellIdentifier = @"SKSTableViewCell";
+    
+    SKSTableViewCell *cell = [myTable dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell)
+        cell = [[SKSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    cell.backgroundColor=[UIColor whiteColor];
+    cell.textLabel.text = self.contents[indexPath.section][indexPath.row][0];
+    cell.expandable = YES;
+    return cell;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForSubRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *simpleTableIdentifier = @"CCELL";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UITableViewCell *cell = [myTable dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    if(indexPath.section==0 && indexPath.row==2)
+    {
+        Categories *currentCat=[CategoriesArray objectAtIndex:indexPath.subRow-1];
+        cell.textLabel.text=currentCat.CName ;
+    }
     
-    Categories *currentCat=[CategoriesArray objectAtIndex:indexPath.row];
-    cell.textLabel.text=currentCat.CName ;
+    else
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.contents[indexPath.section][indexPath.row][indexPath.subRow]];
     cell.backgroundColor=[UIColor whiteColor];
-    
     return cell;
 }
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(SKSTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Categories *c1= [CategoriesArray objectAtIndex:indexPath.row];
-    CID=c1.CId; 
+    return 50.0f;
+}
+
+
+- (void)tableView:(SKSTableView *)tableView didSelectSubRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section==0 && indexPath.row==2)
+    {
+    Categories *c1= [CategoriesArray objectAtIndex:indexPath.subRow-1];
+    CID=c1.CId;
     CTitle=c1.CName;
-   
-   }
+    [self performSegueWithIdentifier:@"Menu" sender:self];
+ 
+    }
+   if(indexPath.section==0 && indexPath.row==1)
+    [self performSelector:@selector(goToNextView) withObject:nil ];
+    
+   if(indexPath.section==0 && indexPath.row==0 && indexPath.subRow==1)
+        [self performSegueWithIdentifier:@"MYOrder" sender:self];
+   if(indexPath.section==0 && indexPath.row==0 && indexPath.subRow==2)
+        [self performSegueWithIdentifier:@"MyReservation" sender:self];
+    
+}
+
+#pragma mark - Actions
+
+- (void)collapseSubrows
+{
+    [self.myTable collapseCurrentlyExpandedIndexPaths];
+}
 
 #pragma mark - Load Data Through API
 
@@ -101,39 +187,43 @@
     }];
    
      [self.myTable reloadData];
-}
+   
+     }
 
 #pragma mark - Passing Data Through Segue
+-(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+  return NO;
 
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    
-    
-    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
+      if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
         Relaod=0;
         swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
   
             UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
             [navController.navigationBar setBackgroundColor: [[GlobalVariables class]color:0]];
-                       [navController setViewControllers: @[dvc] animated: NO ];
-                       [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: NO];
-                 };
-        
-}
-}
+                       [navController setViewControllers: @[dvc] animated: YES ];
+                       [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
+            showmenu=YES;
 
+                 };
+}
+    
+}
+- (void)goToNextView {
+   
+    [self performSegueWithIdentifier:@"Reservation" sender:self];
+}
 #pragma mark - Delegate Methods
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    myTable.alwaysBounceVertical = NO;
-}
 
 -(void)viewWillDisappear:(BOOL)animated
 {
      [self.myTable deselectRowAtIndexPath:[self.myTable indexPathForSelectedRow] animated:NO];
-      [myTable setContentOffset:CGPointZero animated:NO];
+      [self.myTable setContentOffset:CGPointZero animated:NO];
     
 }
 

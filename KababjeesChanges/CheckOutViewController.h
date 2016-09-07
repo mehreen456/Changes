@@ -10,6 +10,7 @@
 #import "GlobalVariables.h"
 
 @interface CheckOutViewController : UIViewController <UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UIView *toastview;
 
 @property (strong, nonatomic) IBOutlet UITextField *NameField;
 @property (strong, nonatomic) IBOutlet UITextField *ContactField;

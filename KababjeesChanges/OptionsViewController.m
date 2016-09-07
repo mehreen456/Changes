@@ -21,6 +21,7 @@
      self.navigationItem.hidesBackButton = YES;
      [self.table setBackgroundColor: [[GlobalVariables class]color:1]];
      [self.order setBackgroundColor: [[GlobalVariables class]color:1]];
+     showmenu=NO;
 }
 -(void) viewWillAppear:(BOOL)animated
 {
