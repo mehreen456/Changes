@@ -316,6 +316,7 @@
 
         
    }
+   
     
 }
 #pragma mark - Passing Data Through Segue
@@ -323,7 +324,7 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     if (([self.CName.text isEqualToString:@""] || [self.CEmail.text isEqualToString:@"" ]  ||[self.CPersons.text isEqualToString:@""] ||[self.CPhoneNo.text isEqualToString:@""] ||[self.Branch.text isEqualToString:@""] ||[self.DateTime.text isEqualToString:@""]))
-         [self.toastview makeToast:@"Please enter data correctly"];
+         [self.view makeToast:@"Please enter data correctly"];
     else
          [self EmptyFields];
     

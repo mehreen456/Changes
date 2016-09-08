@@ -95,8 +95,7 @@
         
     }
     cell.priceLabel.text=[@"TotalPrice: "  stringByAppendingString:[[Myorders objectAtIndex:indexPath.section] objectAtIndex:k] ];
-    cell.priceLabel.textColor=[[GlobalVariables class]color:1];
-    return cell;
+        return cell;
 }
 -(void) data
 {

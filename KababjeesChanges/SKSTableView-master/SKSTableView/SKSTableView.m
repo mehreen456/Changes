@@ -189,7 +189,7 @@ CGFloat const kDefaultCellHeight = 44.0f;
     else
     {
         UITableViewCell *cell = [_SKSTableViewDelegate tableView:(SKSTableView *)tableView cellForSubRowAtIndexPath:correspondingIndexPath];
-        cell.backgroundColor = [self separatorColor];
+        cell.backgroundColor = [UIColor whiteColor]; //[self separatorColor];
         cell.backgroundView = nil;
         cell.indentationLevel = 2;
         
