@@ -1181,8 +1181,8 @@
                                 </items>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
-                            <datePicker contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-jh-Oxc">
-                                <rect key="frame" x="12" y="172" width="169" height="277"/>
+                            <datePicker contentMode="scaleToFill" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-jh-Oxc">
+                                <rect key="frame" x="16" y="172" width="193" height="277"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="201" id="eHe-ux-dss"/>
@@ -1203,15 +1203,26 @@
                                 </variation>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="nNq-Tn-FG8">
-                                <rect key="frame" x="181" y="172" width="127" height="277"/>
+                                <rect key="frame" x="207" y="172" width="97" height="277"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="0BG-hR-xWP"/>
                                     <constraint firstAttribute="width" constant="127" id="CMe-7O-7Xl"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="92" id="DTj-wa-nME"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="92" id="kGP-lX-A8c"/>
+                                    <constraint firstAttribute="width" constant="98" id="m5c-3O-Q2h"/>
                                     <constraint firstAttribute="height" constant="277" id="qEZ-a0-OV8"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="494752678.859914">
                                     <!--2016-09-05 07:17:58 +0000-->
                                 </date>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="CMe-7O-7Xl"/>
+                                        <exclude reference="kGP-lX-A8c"/>
+                                        <exclude reference="m5c-3O-Q2h"/>
+                                    </mask>
+                                </variation>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1228,10 +1239,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="iO5-bT-gqw" secondAttribute="trailing" id="8dt-3f-e2E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EsW-0M-ajl" secondAttribute="trailing" constant="-4" id="8iM-an-hBC"/>
                             <constraint firstItem="dEx-jh-Oxc" firstAttribute="leading" secondItem="yUJ-Wu-X8b" secondAttribute="leadingMargin" constant="-20" id="9t2-IJ-cjx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nNq-Tn-FG8" secondAttribute="trailing" id="AoU-dL-Cg9"/>
                             <constraint firstItem="EsW-0M-ajl" firstAttribute="top" secondItem="dEx-jh-Oxc" secondAttribute="bottom" id="DeB-T6-4Bs"/>
                             <constraint firstItem="nNq-Tn-FG8" firstAttribute="height" secondItem="dEx-jh-Oxc" secondAttribute="height" id="ELT-Fb-u8N"/>
+                            <constraint firstItem="nNq-Tn-FG8" firstAttribute="leading" secondItem="dEx-jh-Oxc" secondAttribute="trailing" constant="-6" id="FrH-Ky-wV0"/>
                             <constraint firstItem="bDj-pS-wAy" firstAttribute="height" secondItem="YdL-9w-kN6" secondAttribute="height" id="G2k-nz-tiu"/>
                             <constraint firstItem="iO5-bT-gqw" firstAttribute="height" secondItem="YdL-9w-kN6" secondAttribute="height" id="IG8-Cj-Z6Z"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="dEx-jh-Oxc" secondAttribute="leading" id="IKy-ZT-KO7"/>
                             <constraint firstAttribute="leadingMargin" secondItem="YdL-9w-kN6" secondAttribute="leading" id="JUu-Fy-IdC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="anM-6N-mID" secondAttribute="trailing" constant="66" id="NfY-Ue-8mX"/>
                             <constraint firstItem="s7o-mA-gbU" firstAttribute="leading" secondItem="yUJ-Wu-X8b" secondAttribute="leadingMargin" constant="4" id="Nil-LB-jMT"/>
@@ -1250,36 +1264,57 @@
                             <constraint firstAttribute="leadingMargin" secondItem="o1D-LB-srL" secondAttribute="leading" id="Vm9-BJ-hHV"/>
                             <constraint firstItem="Xef-d9-lKE" firstAttribute="top" secondItem="s7o-mA-gbU" secondAttribute="bottom" constant="53" id="Yhv-Q1-fxj"/>
                             <constraint firstItem="wiI-G8-fJF" firstAttribute="top" secondItem="iO5-bT-gqw" secondAttribute="bottom" constant="8" id="Yjv-Ff-vGA"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="dEx-jh-Oxc" secondAttribute="leading" id="aC6-Lc-loC"/>
                             <constraint firstItem="dEx-jh-Oxc" firstAttribute="top" secondItem="PF8-nG-jRC" secondAttribute="bottom" constant="-2" id="buv-vX-2cu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6CJ-g0-s9u" secondAttribute="trailing" id="eA1-bS-Sx8"/>
                             <constraint firstItem="YdL-9w-kN6" firstAttribute="top" secondItem="o1D-LB-srL" secondAttribute="bottom" constant="8" id="hKh-hp-npA"/>
                             <constraint firstAttribute="leadingMargin" secondItem="6CJ-g0-s9u" secondAttribute="leading" id="hNC-7S-Ugs"/>
                             <constraint firstItem="dEx-jh-Oxc" firstAttribute="leading" secondItem="yUJ-Wu-X8b" secondAttribute="leadingMargin" constant="-4" id="iOg-80-csc"/>
+                            <constraint firstItem="nNq-Tn-FG8" firstAttribute="leading" secondItem="dEx-jh-Oxc" secondAttribute="trailing" id="jv6-mf-Tt7"/>
                             <constraint firstAttribute="leadingMargin" secondItem="anM-6N-mID" secondAttribute="leading" id="kIb-9m-5KS"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Ig4-t6-4oN" secondAttribute="leading" id="kv7-Kx-cDN"/>
+                            <constraint firstItem="nNq-Tn-FG8" firstAttribute="leading" secondItem="dEx-jh-Oxc" secondAttribute="trailing" constant="-6" id="m7z-ju-RSG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bDj-pS-wAy" secondAttribute="trailing" id="nKt-W3-cEY"/>
                             <constraint firstItem="dEx-jh-Oxc" firstAttribute="leading" secondItem="yUJ-Wu-X8b" secondAttribute="leadingMargin" constant="-4" id="ntD-n1-iUT"/>
                             <constraint firstItem="6CJ-g0-s9u" firstAttribute="top" secondItem="DyJ-cj-qVD" secondAttribute="bottom" constant="8" id="nzY-GH-dZw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nNq-Tn-FG8" secondAttribute="trailing" id="o2J-RG-icq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wiI-G8-fJF" secondAttribute="trailing" constant="66" id="oZg-CA-4OI"/>
                             <constraint firstAttribute="leadingMargin" secondItem="wiI-G8-fJF" secondAttribute="leading" id="p6H-nd-LtC"/>
                             <constraint firstItem="EsW-0M-ajl" firstAttribute="leading" secondItem="yUJ-Wu-X8b" secondAttribute="leadingMargin" constant="-4" id="pqn-wt-Q0w"/>
+                            <constraint firstItem="nNq-Tn-FG8" firstAttribute="leading" secondItem="dEx-jh-Oxc" secondAttribute="trailing" constant="-2" id="q64-61-qaT"/>
+                            <constraint firstItem="nNq-Tn-FG8" firstAttribute="leading" secondItem="dEx-jh-Oxc" secondAttribute="trailing" constant="-2" id="qAs-xP-j9S"/>
                             <constraint firstItem="nNq-Tn-FG8" firstAttribute="top" secondItem="PF8-nG-jRC" secondAttribute="bottom" constant="-2" id="rtI-wK-Nd5"/>
                             <constraint firstAttribute="leadingMargin" secondItem="iO5-bT-gqw" secondAttribute="leading" id="tpY-Tp-Bqs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nNq-Tn-FG8" secondAttribute="trailing" constant="-20" id="uK6-7e-Eed"/>
                             <constraint firstAttribute="leadingMargin" secondItem="bDj-pS-wAy" secondAttribute="leading" id="vrf-lW-DJD"/>
                             <constraint firstItem="o1D-LB-srL" firstAttribute="top" secondItem="idg-aV-rok" secondAttribute="bottom" constant="20" id="vzA-7y-hlq"/>
+                            <constraint firstItem="nNq-Tn-FG8" firstAttribute="leading" secondItem="dEx-jh-Oxc" secondAttribute="trailing" constant="-6" id="wJ9-Vh-tvp"/>
                             <constraint firstItem="s7o-mA-gbU" firstAttribute="top" secondItem="8cL-EH-aOp" secondAttribute="bottom" constant="16" id="wbt-O3-Csu"/>
                             <constraint firstItem="PF8-nG-jRC" firstAttribute="top" secondItem="Ig4-t6-4oN" secondAttribute="bottom" constant="8" id="yEr-Mc-zLs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8cL-EH-aOp" secondAttribute="trailing" id="ya2-Gx-cJV"/>
                             <constraint firstAttribute="leadingMargin" secondItem="v4q-vf-VWQ" secondAttribute="leading" id="yaN-gF-oML"/>
+                            <constraint firstItem="nNq-Tn-FG8" firstAttribute="leading" secondItem="dEx-jh-Oxc" secondAttribute="trailing" constant="-6" id="yu9-7c-wqr"/>
                             <constraint firstAttribute="leadingMargin" secondItem="8cL-EH-aOp" secondAttribute="leading" id="z7L-kM-Kkb"/>
                             <constraint firstItem="v4q-vf-VWQ" firstAttribute="top" secondItem="YdL-9w-kN6" secondAttribute="bottom" constant="-2" id="zcq-p1-4AY"/>
+                            <constraint firstItem="nNq-Tn-FG8" firstAttribute="leading" secondItem="dEx-jh-Oxc" secondAttribute="trailing" id="zl0-jk-sgr"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="9t2-IJ-cjx"/>
+                                <exclude reference="aC6-Lc-loC"/>
+                                <exclude reference="iOg-80-csc"/>
                                 <exclude reference="ntD-n1-iUT"/>
+                                <exclude reference="FrH-Ky-wV0"/>
+                                <exclude reference="NtV-ul-k8l"/>
+                                <exclude reference="SiM-or-SHW"/>
+                                <exclude reference="jv6-mf-Tt7"/>
+                                <exclude reference="m7z-ju-RSG"/>
+                                <exclude reference="o2J-RG-icq"/>
+                                <exclude reference="qAs-xP-j9S"/>
                                 <exclude reference="uK6-7e-Eed"/>
+                                <exclude reference="wJ9-Vh-tvp"/>
+                                <exclude reference="yu9-7c-wqr"/>
+                                <exclude reference="zl0-jk-sgr"/>
                                 <exclude reference="4N9-x7-EFJ"/>
                                 <exclude reference="RYf-AL-ffK"/>
                             </mask>

@@ -341,18 +341,15 @@
 
 -(void)set
 {
+    self.SButton.layer.cornerRadius = 5;
+    self.SButton.clipsToBounds = YES;
     self.DatePicker.hidden=YES;
     self.TimePicker.hidden=YES;
     self.TabBar.hidden=YES;
     self.dropdownTable.hidden=YES;
     self.DateTime.delegate=self;
     [self.SButton setBackgroundColor: [[GlobalVariables class]color:1]];
-    NSTimeInterval oneDay = 60 * 60 * 24;
-    self.DatePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:oneDay * 2];
-    self.DatePicker.backgroundColor=[UIColor whiteColor];
-    [self.DatePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
-    [self.DatePicker setValue:[UIColor colorWithRed:123/255.0f green:104/255.0f blue:238/255.0f alpha:1.0f] forKey:@"backgroundColor"];
-    self.navigationItem.title= [[GlobalVariables class]Title:@"Reserve a Table" ];
+       self.navigationItem.title= [[GlobalVariables class]Title:@"Reserve a Table" ];
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     oldFrame.origin.y= self.view.frame.origin.y;
     self.Branch.rightViewMode = UITextFieldViewModeAlways;
@@ -365,11 +362,14 @@
     self.CEmail.delegate = self;
     self.Branch.delegate=self;
     self.DateTime.delegate=self;
+    [self.DatePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
+    [self.DatePicker setValue:[UIColor colorWithRed:123/255.0f green:104/255.0f blue:238/255.0f alpha:1.0f] forKey:@"backgroundColor"];
+    [self.TimePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
+    [self.TimePicker setValue:[UIColor colorWithRed:123/255.0f green:104/255.0f blue:238/255.0f alpha:1.0f] forKey:@"backgroundColor"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-    self.TimePicker.locale = [NSLocale localeWithLocaleIdentifier:@"en_GB"];
-    [self.DatePicker setDatePickerMode:UIDatePickerModeDate];
-   
+    
+    [self maxmindate];
 
 }
 
@@ -481,9 +481,6 @@
     [self.TimePicker setMaximumDate:endDate];
     [self.TimePicker setDate:startDate animated:YES];
     [self.TimePicker reloadInputViews];
-    [self.TimePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
-    [self.TimePicker setValue:[UIColor colorWithRed:123/255.0f green:104/255.0f blue:238/255.0f alpha:1.0f] forKey:@"backgroundColor"];
-    
     
 
    }
@@ -504,10 +501,26 @@
     if (weekday == 1 ||weekday == 7 ||weekday == 6)
     {
         ismove=NO;
-        [self showMessage:@"Alert!" :@"Sorry you can't make reservation for weekends"];
+        [self showMessage:@"Alert!" :@"Sorry you can't make reservation for weekends. Please select days except friday,saturday and sunday"];
         return YES;
     }
-
+    
     return NO;
+}
+-(void)maxmindate
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *currentDate = [NSDate date];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setMonth:1];
+    NSDate *maxDate = [calendar dateByAddingComponents:comps toDate:currentDate options:0];
+    self.DatePicker.maximumDate=maxDate;
+    self.TimePicker.locale = [NSLocale localeWithLocaleIdentifier:@"en_GB"];
+    [self.DatePicker setDatePickerMode:UIDatePickerModeDate];
+    NSTimeInterval oneDay = 60 * 60 * 24;
+    self.DatePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:oneDay * 2];
+    
+   
+
 }
 @end

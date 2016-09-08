@@ -40,7 +40,8 @@
     
     [self.PButton setBackgroundColor: [[GlobalVariables class]color:1]];
      self.navigationItem.title= [[GlobalVariables class]Title:@"Place Order" ];
-    
+    self.PButton.layer.cornerRadius = 5;
+    self.PButton.clipsToBounds = YES;
     _NameField.delegate = self;
     _ContactField.delegate=self;
     _AddressField.delegate=self;
