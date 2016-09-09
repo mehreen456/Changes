@@ -21,10 +21,11 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.myTable.frame=CGRectMake(0, 0, 0, 0);
     self.myTable.SKSTableViewDelegate = self;
     ItemsOrder =[[NSMutableArray alloc]init];
     [self retriveData];
-     
+    self.view.backgroundColor=[UIColor blackColor];
     Running=NO;
 }
 
@@ -94,7 +95,7 @@
     
     if (!cell)
         cell = [[SKSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    cell.backgroundColor=[UIColor whiteColor];
+    cell.backgroundColor=[UIColor groupTableViewBackgroundColor];
     cell.textLabel.text = self.contents[indexPath.section][indexPath.row][0];
     cell.expandable = YES;
     return cell;
@@ -117,6 +118,7 @@
     
     else
     cell.textLabel.text = [NSString stringWithFormat:@"%@", self.contents[indexPath.section][indexPath.row][indexPath.subRow]];
+    cell.textLabel.font=[UIFont systemFontOfSize:15];
     cell.backgroundColor=[UIColor whiteColor];
     return cell;
 }

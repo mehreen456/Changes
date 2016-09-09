@@ -62,7 +62,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
    
-    return NLwidth+Dlines+25 ;
+    return NLwidth+Dlines ;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -99,7 +99,7 @@
    cell.backgroundColor = [UIColor colorWithRed:1. green:1. blue:1. alpha:0.5];
    CGSize textSize = [currentCat.MIdescrp sizeWithAttributes:@{NSFontAttributeName:[cell.descriptionLabel font]}];
     CGFloat strikeWidth = textSize.width;
-    Dlines=(strikeWidth/cell.descriptionLabel.frame.size.width+1)*25;
+    Dlines=(strikeWidth/cell.descriptionLabel.frame.size.width+1)*25+25;
     CGSize textSize2 = [currentCat.MIname sizeWithAttributes:@{NSFontAttributeName:[cell.nameLabel font]}];
     CGFloat strikeWidth2 = textSize2.width;
 
