@@ -10,6 +10,7 @@
 #import "GlobalVariables.h"
 
 @interface ReservationViewController : UIViewController <UITextFieldDelegate,UIAlertViewDelegate>
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *DoneButton;
 
 
 @property (strong, nonatomic) IBOutlet UIView *toastview;

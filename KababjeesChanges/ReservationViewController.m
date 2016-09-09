@@ -359,6 +359,7 @@
     self.DatePicker.hidden=YES;
     self.TimePicker.hidden=YES;
     self.TabBar.hidden=YES;
+    self.DoneButton.tintColor =[[GlobalVariables class]color:1];
     self.dropdownTable.hidden=YES;
     self.DateTime.delegate=self;
     [self.SButton setBackgroundColor: [[GlobalVariables class]color:1]];

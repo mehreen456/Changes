@@ -1534,6 +1534,7 @@
                         <outlet property="CPhoneNo" destination="bDj-pS-wAy" id="Sme-MR-x5P"/>
                         <outlet property="DatePicker" destination="dEx-jh-Oxc" id="3K2-GV-LRS"/>
                         <outlet property="DateTime" destination="PF8-nG-jRC" id="3WN-Ay-Frx"/>
+                        <outlet property="DoneButton" destination="DG0-Rh-yKJ" id="eZt-RA-tmv"/>
                         <outlet property="SButton" destination="s7o-mA-gbU" id="oUi-QS-zbM"/>
                         <outlet property="TabBar" destination="EsW-0M-ajl" id="2dz-Qa-dfB"/>
                         <outlet property="TimePicker" destination="nNq-Tn-FG8" id="udJ-dG-wO5"/>
