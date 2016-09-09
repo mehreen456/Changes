@@ -102,7 +102,13 @@
     else
     {
         if(textField==self.CPhoneNo || textField==self.CPersons)
-        move=1;
+         {
+                CGRect newFrame = [self.view frame];
+                newFrame.origin.y =oldFrame.origin.y-150;
+                [self.view setFrame:newFrame];
+                move=0;
+         }
+        
         return YES;
     }
 }
@@ -140,18 +146,10 @@
 - (void)keyboardWillShow:(NSNotification*)aNotification {
     [UIView animateWithDuration:0.15 animations:^
      {
-         if(move==1)
-         {
-             CGRect newFrame = [self.view frame];
-             newFrame.origin.y -= 70;
-             [self.view setFrame:newFrame];
-         }
-         else
-         {
          CGRect newFrame = [self.view frame];
          newFrame.origin.y -= 30;
          [self.view setFrame:newFrame];
-         }
+        
          
      }completion:^(BOOL finished)
      {
@@ -297,14 +295,14 @@
     }
     else
     {
-    if (!([self.CName.text isEqualToString:@""] || [self.CEmail.text isEqualToString:@"" ]  ||[self.CPersons.text isEqualToString:@""] ||[self.CPhoneNo.text isEqualToString:@""] ||[self.Branch.text isEqualToString:@""] ||[self.DateTime.text isEqualToString:@""]))
+   if (!([self.CName.text isEqualToString:@""] || [self.CEmail.text isEqualToString:@"" ]  ||[self.CPersons.text isEqualToString:@""] ||[self.CPhoneNo.text isEqualToString:@""] ||[self.Branch.text isEqualToString:@""] ||[self.DateTime.text isEqualToString:@""]))
     {
         
         phone=self.CPhoneNo.text;
         persons=self.CPersons.text;
         email=self.CEmail.text;
         name=self.CName.text;
-        [self PostData];
+       //[self PostData];
         [self EmptyFields];
         
         defaults = [NSUserDefaults standardUserDefaults];
@@ -331,7 +329,7 @@
         
    }
        else
-         [self.view makeToast:@"Please enter data correctly"];
+        [self.view makeToast:@"Please enter data correctly"];
     }
     
 }
@@ -343,8 +341,10 @@
  }
 - (void)goToNextView {
     
-    [self showMessage:@"Confirmation" :@"Your reservation has been successfully placed! You will soon receive a confirmation call."];
     ismove=YES;
+    
+    [self showMessage:@"Confirmation" :@"Your reservation has been successfully placed! You will soon receive a confirmation call."];
+   
     
 }
 
@@ -352,7 +352,7 @@
 
 -(void)set
 {
-    self.CPhoneNo.inputAccessoryView = [self done];
+  //  self.CPhoneNo.inputAccessoryView = [self done];
     self.CPersons.inputAccessoryView = [self done];
     self.SButton.layer.cornerRadius = 5;
     self.SButton.clipsToBounds = YES;
@@ -420,18 +420,20 @@
 {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:Title message:message  preferredStyle:UIAlertControllerStyleAlert];
-  UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
         [alertController dismissViewControllerAnimated:YES completion:^{
+           
             if(ismove)
             {
                 [self performSegueWithIdentifier:@"SubmitSegue" sender:self];
-                ismove=NO;
-            }
-        }];
-       
-    }];
-    [alertController addAction:defaultAction];
-    
+              
+            }        }];
+        
+    });
+
     [self presentViewController:alertController animated:YES completion:nil];
     
   
