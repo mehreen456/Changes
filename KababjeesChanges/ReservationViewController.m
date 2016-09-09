@@ -419,7 +419,7 @@
 {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:Title message:message  preferredStyle:UIAlertControllerStyleAlert];
-   /* UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+  UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         [alertController dismissViewControllerAnimated:YES completion:^{
             if(ismove)
             {
@@ -429,22 +429,11 @@
         }];
        
     }];
-    [alertController addAction:defaultAction];*/
+    [alertController addAction:defaultAction];
     
     [self presentViewController:alertController animated:YES completion:nil];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [alertController dismissViewControllerAnimated:YES completion:^{
-           if(ismove)
-           {
-           [self performSegueWithIdentifier:@"SubmitSegue" sender:self];
-               ismove=NO;
-           }
-            
-        }];
-    
-    });
+  
     
 }
 
