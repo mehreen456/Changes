@@ -105,7 +105,7 @@
     
     Torders = [defaults objectForKey:@"Reservations"];
     if(Torders.count==0)
-        [self showMessage:@"Welcome!" :@"You have not order any thing yet"];
+        [self showMessage:@"Welcome!" :@"You have no reservations."];
     [_mytable reloadData];
 }
 -(void)show{
@@ -139,7 +139,7 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         [alertController dismissViewControllerAnimated:YES completion:^{
             SWRevealViewController *sv=self.revealViewController;

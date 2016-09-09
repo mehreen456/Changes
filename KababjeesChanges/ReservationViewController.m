@@ -25,7 +25,8 @@
 @implementation ReservationViewController
 @synthesize DateTime,DatePicker,Branch,BArray,dropdownTable,CName,CPersons,CPhoneNo,CEmail,SButton;
 - (void)viewDidLoad {
-     move=0;
+  
+    move=0;ismove=NO;
     [self DateTime].enabled = NO;
     [super viewDidLoad];
     [self set];
@@ -68,7 +69,7 @@
     
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
     cell.textLabel.text=currentCat.CName ;
-    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+    [cell.textLabel setFont:[UIFont systemFontOfSize:17.0]];
    
     return cell;
 }
@@ -79,7 +80,7 @@
     Bid=c1.CId;
     self.Branch.text=c1.CName;
     if([Bid isEqualToString:@"1"] || [Bid isEqualToString:@"2"] || [Bid isEqualToString:@"3"] || [Bid isEqualToString:@"4"] || [Bid isEqualToString:@"6"])
-        self.DateTime.placeholder=@"Timings 6:59 pm to 12:59 am";
+        self.DateTime.placeholder=@"Timings 6:59 pm to 12 am";
     
     if([Bid isEqualToString:@"5"] || [Bid isEqualToString:@"7"])
         self.DateTime.placeholder=@"Timings 12 pm to 12 am";
@@ -105,6 +106,11 @@
         return YES;
     }
 }
+-(BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    return YES;
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if (textField == self.CName)
@@ -120,11 +126,12 @@
         [self.CPhoneNo becomeFirstResponder];
     }
     else if (textField == self.CPhoneNo)
+    {
         [self.CPersons becomeFirstResponder];
+    }
     
     else
         [textField resignFirstResponder];
-    
     return YES;
 }
 
@@ -237,7 +244,7 @@
     [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     dateFormatter1 =[[NSDateFormatter alloc]init];
     [dateFormatter1 setDateFormat:@"HH:mm"];
-    
+    self.SButton.enabled=NO;
     self.DatePicker.hidden=NO;
     self.TimePicker.hidden=NO;
     self.TabBar.hidden=NO;
@@ -262,7 +269,7 @@
     NSDate *date = [dateFormatter2 dateFromString:self.DateTime.text] ;
     NSTimeInterval interval  = [date timeIntervalSince1970] ;
     datetime=[NSString stringWithFormat:@"%f", interval];
-    
+    self.SButton.enabled=YES;
     self.DatePicker.hidden=YES;
     self.TimePicker.hidden=YES;
     self.TabBar.hidden=YES;
@@ -283,16 +290,23 @@
 - (IBAction)SubmitButton:(id)sender {
     
     [self.view endEditing:YES];
-    
+    if ([self.CPersons.text isEqualToString:@"0"])
+    {
+        self.CPersons.text=@"";
+        [self showMessage:@"Invalid Data" :@"Please enter correct no of persons."];
+    }
+    else
+    {
     if (!([self.CName.text isEqualToString:@""] || [self.CEmail.text isEqualToString:@"" ]  ||[self.CPersons.text isEqualToString:@""] ||[self.CPhoneNo.text isEqualToString:@""] ||[self.Branch.text isEqualToString:@""] ||[self.DateTime.text isEqualToString:@""]))
     {
+        
         phone=self.CPhoneNo.text;
         persons=self.CPersons.text;
         email=self.CEmail.text;
         name=self.CName.text;
         [self PostData];
-        [self showMessage:@"Confirmation" :@"Your reservation has been successfully placed! You will soon receive a confirmation call."];
-    
+        [self EmptyFields];
+        
         defaults = [NSUserDefaults standardUserDefaults];
         branch=self.Branch.text;
         [Pdata addObject:branch];
@@ -313,34 +327,33 @@
         }
     
         [defaults synchronize];
-
+        [self performSelector:@selector(goToNextView) withObject:nil ];
         
    }
-   
+       else
+         [self.view makeToast:@"Please enter data correctly"];
+    }
     
 }
 #pragma mark - Passing Data Through Segue
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    if (([self.CName.text isEqualToString:@""] || [self.CEmail.text isEqualToString:@"" ]  ||[self.CPersons.text isEqualToString:@""] ||[self.CPhoneNo.text isEqualToString:@""] ||[self.Branch.text isEqualToString:@""] ||[self.DateTime.text isEqualToString:@""]))
-         [self.view makeToast:@"Please enter data correctly"];
-    else
-         [self EmptyFields];
-    
-    return NO;
-}
+         return NO;
+ }
 - (void)goToNextView {
     
-    [self performSegueWithIdentifier:@"SubmitSegue" sender:self];
+    [self showMessage:@"Confirmation" :@"Your reservation has been successfully placed! You will soon receive a confirmation call."];
+    ismove=YES;
+    
 }
-
 
 #pragma mark - View's Own Methods
 
-
 -(void)set
 {
+    self.CPhoneNo.inputAccessoryView = [self done];
+    self.CPersons.inputAccessoryView = [self done];
     self.SButton.layer.cornerRadius = 5;
     self.SButton.clipsToBounds = YES;
     self.DatePicker.hidden=YES;
@@ -362,10 +375,10 @@
     self.CEmail.delegate = self;
     self.Branch.delegate=self;
     self.DateTime.delegate=self;
-    [self.DatePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
-    [self.DatePicker setValue:[UIColor colorWithRed:123/255.0f green:104/255.0f blue:238/255.0f alpha:1.0f] forKey:@"backgroundColor"];
-    [self.TimePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
-    [self.TimePicker setValue:[UIColor colorWithRed:123/255.0f green:104/255.0f blue:238/255.0f alpha:1.0f] forKey:@"backgroundColor"];
+    [self.DatePicker setValue:[[GlobalVariables class]color:1] forKey:@"textColor"];
+    [self.DatePicker setValue:[UIColor groupTableViewBackgroundColor] forKey:@"backgroundColor"];
+    [self.TimePicker setValue:[[GlobalVariables class]color:1]  forKey:@"textColor"];
+    [self.TimePicker setValue:[UIColor groupTableViewBackgroundColor] forKey:@"backgroundColor"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     
@@ -405,18 +418,32 @@
 -(void)showMessage:(NSString*)Title :(NSString *)message
 {
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:Title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:Title message:message  preferredStyle:UIAlertControllerStyleAlert];
+   /* UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        [alertController dismissViewControllerAnimated:YES completion:^{
+            if(ismove)
+            {
+                [self performSegueWithIdentifier:@"SubmitSegue" sender:self];
+                ismove=NO;
+            }
+        }];
+       
+    }];
+    [alertController addAction:defaultAction];*/
     
     [self presentViewController:alertController animated:YES completion:nil];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         [alertController dismissViewControllerAnimated:YES completion:^{
-            if(ismove)
-            [self performSelector:@selector(goToNextView) withObject:nil ];
+           if(ismove)
+           {
+           [self performSegueWithIdentifier:@"SubmitSegue" sender:self];
+               ismove=NO;
+           }
             
         }];
-        
+    
     });
     
 }
@@ -498,10 +525,10 @@
     NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:self.DatePicker.date];
     int weekday =(int)[comps weekday];
     
-    if (weekday == 1 ||weekday == 7 ||weekday == 6)
+    if (weekday == 1 ||weekday == 7 )
     {
-        ismove=NO;
-        [self showMessage:@"Alert!" :@"Sorry you can't make reservation for weekends. Please select days except friday,saturday and sunday"];
+      
+        [self showMessage:@"Alert!" :@"Sorry you can't make reservation for weekends. Please select days except saturday and sunday"];
         return YES;
     }
     
@@ -519,8 +546,21 @@
     [self.DatePicker setDatePickerMode:UIDatePickerModeDate];
     NSTimeInterval oneDay = 60 * 60 * 24;
     self.DatePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:oneDay * 2];
-    
-   
-
+ 
 }
-@end
+-(UIToolbar *) done
+{
+    UIToolbar* keyboardToolbar = [[UIToolbar alloc] init];
+    [keyboardToolbar sizeToFit];
+    UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                  target:nil action:nil];
+    UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                  target:self.view action:@selector(endEditing:)];
+    doneBarButton.tintColor=[UIColor grayColor];
+    keyboardToolbar.items = @[flexBarButton, doneBarButton];
+
+    return keyboardToolbar;
+}
+    @end

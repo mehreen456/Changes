@@ -65,4 +65,5 @@ BOOL Running=NO,showmenu=NO;
     return mycolor;
 
 }
+
 @end

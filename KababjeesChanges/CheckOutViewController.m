@@ -42,6 +42,8 @@
      self.navigationItem.title= [[GlobalVariables class]Title:@"Place Order" ];
     self.PButton.layer.cornerRadius = 5;
     self.PButton.clipsToBounds = YES;
+    _ContactField.inputAccessoryView=[self done];
+    
     _NameField.delegate = self;
     _ContactField.delegate=self;
     _AddressField.delegate=self;
@@ -214,5 +216,21 @@
 - (void)goToNextView {
     
     [self performSegueWithIdentifier:@"TySegue" sender:self];
+}
+
+-(UIToolbar *) done
+{
+    UIToolbar* keyboardToolbar = [[UIToolbar alloc] init];
+    [keyboardToolbar sizeToFit];
+    UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                      target:nil action:nil];
+    UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                      target:self.view action:@selector(endEditing:)];
+     doneBarButton.tintColor=[UIColor grayColor];
+    keyboardToolbar.items = @[flexBarButton, doneBarButton];
+    
+    return keyboardToolbar;
 }
 @end
