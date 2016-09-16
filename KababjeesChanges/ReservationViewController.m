@@ -80,7 +80,7 @@
     Bid=c1.CId;
     self.Branch.text=c1.CName;
     if([Bid isEqualToString:@"1"] || [Bid isEqualToString:@"2"] || [Bid isEqualToString:@"3"] || [Bid isEqualToString:@"4"] || [Bid isEqualToString:@"6"])
-        self.DateTime.placeholder=@"Timings 6:59 pm to 12 am";
+        self.DateTime.placeholder=@"Timings 6 pm to 12 am";
     
     if([Bid isEqualToString:@"5"] || [Bid isEqualToString:@"7"])
         self.DateTime.placeholder=@"Timings 12 pm to 12 am";
@@ -241,7 +241,7 @@
     dateFormatter =[[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     dateFormatter1 =[[NSDateFormatter alloc]init];
-    [dateFormatter1 setDateFormat:@"HH:mm"];
+    [dateFormatter1 setDateFormat:@"HH:mm "];
     self.SButton.enabled=NO;
     self.DatePicker.hidden=NO;
     self.TimePicker.hidden=NO;
@@ -261,7 +261,7 @@
     self.DateTime.text=[[self.DateTime.text stringByAppendingString:@" " ] stringByAppendingString: [NSString stringWithFormat:@"%@" ,[dateFormatter1 stringFromDate:self.TimePicker.date]]];
     time=self.DateTime.text;
     NSDateFormatter * dateFormatter2 = [[NSDateFormatter alloc] init] ;
-    [dateFormatter2 setDateFormat:@"dd/MM/yyyy  HH:mm" ] ;
+    [dateFormatter2 setDateFormat:@"dd/MM/yyyy  HH:mm " ] ;
     NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
     [dateFormatter2 setTimeZone:gmt];
     NSDate *date = [dateFormatter2 dateFromString:self.DateTime.text] ;
@@ -302,7 +302,7 @@
         persons=self.CPersons.text;
         email=self.CEmail.text;
         name=self.CName.text;
-       //[self PostData];
+        [self PostData];
         [self EmptyFields];
         
         defaults = [NSUserDefaults standardUserDefaults];
@@ -352,7 +352,6 @@
 
 -(void)set
 {
-  //  self.CPhoneNo.inputAccessoryView = [self done];
     self.CPersons.inputAccessoryView = [self done];
     self.SButton.layer.cornerRadius = 5;
     self.SButton.clipsToBounds = YES;
@@ -490,7 +489,7 @@
     [components setSecond: 0];
     NSDate *startDate = [gregorian dateFromComponents: components];
     
-    [components setHour: endHour];
+    [components setHour:endHour];
     [components setMinute: 59];
     [components setSecond: 59];
     NSDate *endDate = [gregorian dateFromComponents: components];

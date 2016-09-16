@@ -42,16 +42,19 @@
 
 - (NSArray *)contents
 {
-  
     if (!_contents && CategoriesArray!=nil)
     {
         
         _contents = @[
                       @[
-                          @[@"My Order", @"Online Order",@"My Reservation"],
+                          @[@"Online Order", @"My Order",@"My Reservation"],
                           @[@"Reservation",@"Make Reservation"],
                           @[@"Menu",CategoriesArray]]
                       ];
+    }
+    else {
+        
+        
     }
    
     return _contents;
@@ -178,7 +181,7 @@
             NSString *CId = [[[Json objectAtIndex:i]valueForKey:IKey ]stringValue] ;
             Categories *Cobj=[[Categories alloc] initWithCId:CId andCName:CName];
             
-            [CategoriesArray addObject:Cobj];
+           [CategoriesArray addObject:Cobj];
         }
              SWRevealViewController *sv=self.revealViewController;
              [sv revealToggle:self];
@@ -187,8 +190,17 @@
         NSLog(@"Data retrived faild");
         [self.view makeToast:@"No Internet Connection"];
     }];
-   
-     [self.myTable reloadData];
+    [self.myTable reloadData];
+    if(_contents==nil)
+    {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Title" message:@"Sorry! There is some problem in retriving data. You may call 111-666-111 to place your order." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        [alert dismissViewControllerAnimated:YES completion:^{
+        }];
+    }];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    }
    
      }
 

@@ -15,6 +15,7 @@
    NSInteger Price,totalPrice;
    BOOL deleteIT;
    UILabel *label;
+   OrderCell *cell;
 }
 
 @end
@@ -47,7 +48,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    OrderCell *cell =[tableView dequeueReusableCellWithIdentifier:@"myCell"];
+    cell =[tableView dequeueReusableCellWithIdentifier:@"myCell"];
     if(!cell)
     {
         [tableView registerNib:[UINib nibWithNibName:@"OrderCell" bundle:nil] forCellReuseIdentifier:@"myCell"];
@@ -63,8 +64,9 @@
     cell.Quantity.delegate=self;
     
     if (j==1)
-        [[cell.contentView viewWithTag:201] setHidden:NO];
-    
+    {
+       [[cell.contentView viewWithTag:201] setHidden:NO];
+    }
     if(j==0)
         [[cell.contentView viewWithTag:201] setHidden:YES];
    
@@ -85,7 +87,10 @@
   
     return cell;
 }
-
+- (void)tableView:(UITableView *)tblView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [cell.Quantity becomeFirstResponder];
+}
 
 #pragma mark - UITextFieldDelegate
 
@@ -147,7 +152,7 @@ else
     }
     else
     {
-         j=1;
+        j=1;
         [Button setTitle:@"Apply Changes" forState:UIControlStateNormal];
         [Button setTintColor:[UIColor redColor]];
     }
