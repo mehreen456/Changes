@@ -241,7 +241,7 @@
     dateFormatter =[[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     dateFormatter1 =[[NSDateFormatter alloc]init];
-    [dateFormatter1 setDateFormat:@"HH:mm "];
+    [dateFormatter1 setDateFormat:@"HH:mm"];
     self.SButton.enabled=NO;
     self.DatePicker.hidden=NO;
     self.TimePicker.hidden=NO;
@@ -261,7 +261,7 @@
     self.DateTime.text=[[self.DateTime.text stringByAppendingString:@" " ] stringByAppendingString: [NSString stringWithFormat:@"%@" ,[dateFormatter1 stringFromDate:self.TimePicker.date]]];
     time=self.DateTime.text;
     NSDateFormatter * dateFormatter2 = [[NSDateFormatter alloc] init] ;
-    [dateFormatter2 setDateFormat:@"dd/MM/yyyy  HH:mm " ] ;
+    [dateFormatter2 setDateFormat:@"dd/MM/yyyy  HH:mm"] ;
     NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
     [dateFormatter2 setTimeZone:gmt];
     NSDate *date = [dateFormatter2 dateFromString:self.DateTime.text] ;
