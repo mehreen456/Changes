@@ -67,6 +67,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    
     return [self.contents count];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -188,20 +189,21 @@
      
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Data retrived faild");
-        [self.view makeToast:@"No Internet Connection"];
-    }];
-    [self.myTable reloadData];
-    if(CategoriesArray==nil)
-    {
+       
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Title" message:@"Sorry! There is some problem in retriving data. You may call 111-666-111 to place your order." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-            [alert dismissViewControllerAnimated:YES completion:^{
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                [alert dismissViewControllerAnimated:YES completion:^{
+                }];
             }];
-        }];
-        [alert addAction:defaultAction];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+  
+        
 
+    }];
+    
+    [self.myTable reloadData];
+    
      }
 
 #pragma mark - Passing Data Through Segue

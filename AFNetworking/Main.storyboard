@@ -175,8 +175,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="309" height="180"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Feed Your Taste Buds With Desi Tarka,That Too With" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGM-Ze-f5f">
-                                            <rect key="frame" x="8" y="118" width="224" height="44"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed Your Taste Buds With Desi Tarka,That Too With" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGM-Ze-f5f">
+                                            <rect key="frame" x="8" y="118" width="279" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="Qfd-5t-cwH"/>
                                             </constraints>
@@ -184,8 +184,8 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="q8o-DQ-GDd">
-                                            <rect key="frame" x="-1" y="0.0" width="310" height="180"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="q8o-DQ-GDd">
+                                            <rect key="frame" x="0.0" y="0.0" width="309" height="180"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
