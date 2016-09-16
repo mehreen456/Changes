@@ -79,11 +79,12 @@
     Categories *c1= [BArray objectAtIndex:indexPath.row];
     Bid=c1.CId;
     self.Branch.text=c1.CName;
-    if([Bid isEqualToString:@"1"] || [Bid isEqualToString:@"2"] || [Bid isEqualToString:@"3"] || [Bid isEqualToString:@"4"] || [Bid isEqualToString:@"6"])
-        self.DateTime.placeholder=@"Timings 6:00 pm to 11:59 pm";
     
-    if([Bid isEqualToString:@"5"] || [Bid isEqualToString:@"7"])
+    if([Bid isEqualToString:@"9"] || [Bid isEqualToString:@"7"])
         self.DateTime.placeholder=@"Timings 12:00 pm to 11:59 pm";
+    else
+        self.DateTime.placeholder=@"Timings 6:00 pm to 11:59 pm";
+
 
     [self.dropdownTable deselectRowAtIndexPath:[self.dropdownTable indexPathForSelectedRow] animated:NO];
     [self.dropdownTable setContentOffset:CGPointZero animated:NO];
@@ -255,6 +256,7 @@
     {
         [self.view makeToast:@"Error"];
     }
+   
    if(![self day])
    {
     self.DateTime.text=[NSString stringWithFormat:@"%@" ,[dateFormatter stringFromDate:self.DatePicker.date]];
@@ -375,6 +377,7 @@
     self.CEmail.delegate = self;
     self.Branch.delegate=self;
     self.DateTime.delegate=self;
+    [self.TimePicker setDatePickerMode:UIDatePickerModeTime];
     [self.DatePicker setValue:[[GlobalVariables class]color:1] forKey:@"textColor"];
     [self.DatePicker setValue:[UIColor groupTableViewBackgroundColor] forKey:@"backgroundColor"];
     [self.TimePicker setValue:[[GlobalVariables class]color:1]  forKey:@"textColor"];
@@ -441,12 +444,12 @@
 
 -(void) validTime
 {
-    if ([Bid isEqualToString:@"1"] ||[Bid isEqualToString:@"3"] ||[Bid isEqualToString:@"6"] ||[Bid isEqualToString:@"4"] || [Bid isEqualToString:@"2"])
-        [self startTime:18 endTime:23];
     
-    if ([Bid isEqualToString:@"7"] || [Bid isEqualToString:@"5"])
+    if ([Bid isEqualToString:@"7"] || [Bid isEqualToString:@"9"])
         [self startTime:12 endTime:23];
-    
+    else
+        [self startTime:18 endTime:23];
+
 }
 -(void) EmptyFields
 {
@@ -494,7 +497,6 @@
     [components setSecond: 59];
     NSDate *endDate = [gregorian dateFromComponents: components];
     
-    [self.TimePicker setDatePickerMode:UIDatePickerModeTime];
     [self.TimePicker setMinimumDate:startDate];
     [self.TimePicker setMaximumDate:endDate];
     [self.TimePicker setDate:startDate animated:YES];
@@ -518,11 +520,11 @@
     
     if (weekday == 1 ||weekday == 7 )
     {
-      
-        [self showMessage:@"Alert!" :@"Sorry you can't make reservation for weekends. Please select days except saturday and sunday"];
+    
+       [self showMessage:@"Alert!" :@"Sorry you can't make reservation for weekends. Please select days except saturday and sunday"];
         return YES;
     }
-    
+   
     return NO;
 }
 -(void)maxmindate
