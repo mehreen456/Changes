@@ -191,17 +191,17 @@
         [self.view makeToast:@"No Internet Connection"];
     }];
     [self.myTable reloadData];
-    if(_contents==nil)
+    if(CategoriesArray==nil)
     {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Title" message:@"Sorry! There is some problem in retriving data. You may call 111-666-111 to place your order." preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        [alert dismissViewControllerAnimated:YES completion:^{
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Title" message:@"Sorry! There is some problem in retriving data. You may call 111-666-111 to place your order." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            [alert dismissViewControllerAnimated:YES completion:^{
+            }];
         }];
-    }];
-    [alert addAction:defaultAction];
-    [self presentViewController:alert animated:YES completion:nil];
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
     }
-   
+
      }
 
 #pragma mark - Passing Data Through Segue

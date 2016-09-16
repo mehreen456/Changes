@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF480BC61D8BD2950069F23D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF480BC51D8BD2950069F23D /* Assets.xcassets */; };
 		CF560AED1D61A0E90004DFA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560AEC1D61A0E90004DFA5 /* main.m */; };
 		CF560AF01D61A0E90004DFA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560AEF1D61A0E90004DFA5 /* AppDelegate.m */; };
 		CF560B4A1D61A1710004DFA5 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B151D61A1710004DFA5 /* AFHTTPSessionManager.m */; };
@@ -24,7 +25,6 @@
 		CF560B561D61A1710004DFA5 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B311D61A1710004DFA5 /* UIProgressView+AFNetworking.m */; };
 		CF560B571D61A1710004DFA5 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B331D61A1710004DFA5 /* UIRefreshControl+AFNetworking.m */; };
 		CF560B581D61A1710004DFA5 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CF560B351D61A1710004DFA5 /* UIWebView+AFNetworking.m */; };
-		CF560B591D61A1710004DFA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF560B361D61A1710004DFA5 /* Assets.xcassets */; };
 		CF59FBA31D7FCF2E00FB1E6E /* MyOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF59FBA11D7FCF2E00FB1E6E /* MyOrderTableViewCell.m */; };
 		CF59FBA41D7FCF2E00FB1E6E /* MyOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF59FBA21D7FCF2E00FB1E6E /* MyOrderTableViewCell.xib */; };
 		CF59FBBC1D802EA000FB1E6E /* expandableImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CF59FBB41D802EA000FB1E6E /* expandableImage.png */; };
@@ -58,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF480BC51D8BD2950069F23D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF560AE81D61A0E90004DFA5 /* KababjeesChanges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KababjeesChanges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF560AEC1D61A0E90004DFA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CF560AEE1D61A0E90004DFA5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -96,7 +97,6 @@
 		CF560B331D61A1710004DFA5 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		CF560B341D61A1710004DFA5 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		CF560B351D61A1710004DFA5 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		CF560B361D61A1710004DFA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		CF59FBA01D7FCF2E00FB1E6E /* MyOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderTableViewCell.h; sourceTree = "<group>"; };
 		CF59FBA11D7FCF2E00FB1E6E /* MyOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderTableViewCell.m; sourceTree = "<group>"; };
 		CF59FBA21D7FCF2E00FB1E6E /* MyOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderTableViewCell.xib; sourceTree = "<group>"; };
@@ -188,9 +188,9 @@
 				CF560AEE1D61A0E90004DFA5 /* AppDelegate.h */,
 				CF560AFC1D61A0E90004DFA5 /* Info.plist */,
 				CF560AEF1D61A0E90004DFA5 /* AppDelegate.m */,
-				CF560B361D61A1710004DFA5 /* Assets.xcassets */,
 				CF9F72481D624A6C00B9B0AE /* LaunchScreen.storyboard */,
 				CF9F72491D624A6C00B9B0AE /* Main.storyboard */,
+				CF480BC51D8BD2950069F23D /* Assets.xcassets */,
 				CF7145801D7E7F7900456B4A /* MyOrder */,
 				CF71457F1D7E7F7500456B4A /* MyReservation */,
 				CF5ACCDA1D71F2C300379E67 /* OptionsViewController */,
@@ -493,9 +493,9 @@
 				CF59FBBC1D802EA000FB1E6E /* expandableImage.png in Resources */,
 				CF59FBBD1D802EA000FB1E6E /* expandableImage@2x.png in Resources */,
 				CF9F724C1D624A6C00B9B0AE /* Main.storyboard in Resources */,
-				CF560B591D61A1710004DFA5 /* Assets.xcassets in Resources */,
 				CF9F72741D624BEC00B9B0AE /* MyTableCell.xib in Resources */,
 				CF59FBA41D7FCF2E00FB1E6E /* MyOrderTableViewCell.xib in Resources */,
+				CF480BC61D8BD2950069F23D /* Assets.xcassets in Resources */,
 				CF9F724B1D624A6C00B9B0AE /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -80,10 +80,10 @@
     Bid=c1.CId;
     self.Branch.text=c1.CName;
     if([Bid isEqualToString:@"1"] || [Bid isEqualToString:@"2"] || [Bid isEqualToString:@"3"] || [Bid isEqualToString:@"4"] || [Bid isEqualToString:@"6"])
-        self.DateTime.placeholder=@"Timings 6 pm to 12 am";
+        self.DateTime.placeholder=@"Timings 6:00 pm to 11:59 pm";
     
     if([Bid isEqualToString:@"5"] || [Bid isEqualToString:@"7"])
-        self.DateTime.placeholder=@"Timings 12 pm to 12 am";
+        self.DateTime.placeholder=@"Timings 12:00 pm to 11:59 pm";
 
     [self.dropdownTable deselectRowAtIndexPath:[self.dropdownTable indexPathForSelectedRow] animated:NO];
     [self.dropdownTable setContentOffset:CGPointZero animated:NO];
