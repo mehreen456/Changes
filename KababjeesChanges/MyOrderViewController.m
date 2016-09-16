@@ -74,7 +74,7 @@
     }
   
     
-    cell.backgroundColor = [UIColor colorWithRed:1. green:1. blue:1. alpha:0.5];
+    cell.backgroundColor =[UIColor colorWithRed:1. green:1. blue:1. alpha:0.5];
     Dlines=[Myorders[indexPath.section] count]*25;
     
     NLwidth=25;
@@ -137,7 +137,7 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         [alertController dismissViewControllerAnimated:YES completion:^{
             SWRevealViewController *sv=self.revealViewController;

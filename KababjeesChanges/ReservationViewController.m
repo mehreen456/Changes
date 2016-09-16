@@ -305,7 +305,6 @@
         email=self.CEmail.text;
         name=self.CName.text;
         [self PostData];
-        [self EmptyFields];
         
         defaults = [NSUserDefaults standardUserDefaults];
         branch=self.Branch.text;
@@ -327,6 +326,7 @@
         }
     
         [defaults synchronize];
+        [self EmptyFields];
         [self performSelector:@selector(goToNextView) withObject:nil ];
         
    }
