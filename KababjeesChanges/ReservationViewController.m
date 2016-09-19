@@ -391,6 +391,7 @@
 
 -(void) retriveData
 {
+    [DejalActivityView activityViewForView:self.dropdownTable withLabel:@"Loading Branches..." width:self.view.frame.size.width-self.view.frame.size.width/3];
     
     NSString *string = [NSString stringWithFormat:@"%@/branches", BaseUrl];
     NSURL *url = [NSURL URLWithString:string];
@@ -412,6 +413,7 @@
             [BArray addObject:Cobj];
         }
         [self.dropdownTable reloadData];
+         [DejalActivityView removeView];
                
     } failure:^(NSURLSessionTask *operation, NSError *error) {
       //  NSLog(@"Data retrived faild");

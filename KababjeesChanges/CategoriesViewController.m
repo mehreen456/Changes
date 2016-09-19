@@ -164,7 +164,7 @@
 
 -(void) retriveData
 {
-    [DejalActivityView activityViewForView:self.view withLabel:@"Loading ..." width:self.view.frame.size.width-self.view.frame.size.width/3];
+    [DejalActivityView activityViewForView:self.view withLabel:@"Loading Data..." width:self.view.frame.size.width-self.view.frame.size.width/3];
     
     NSString *string = [NSString stringWithFormat:@"%@/categories", BaseUrl];
     NSURL *url = [NSURL URLWithString:string];
