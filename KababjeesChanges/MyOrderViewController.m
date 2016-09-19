@@ -84,6 +84,7 @@
     cell.descriptionLabel.frame=CGRectMake(cell.descriptionLabel.frame.origin.x,cell.nameLabel.frame.origin.y+NLwidth, cell.descriptionLabel.frame.size.width, Dlines);
     cell.nameLabel.text = [@"Order " stringByAppendingString:[NSString stringWithFormat: @"%ld", (long)indexPath.section+1]];
     cell.descriptionLabel.text=@"";
+    cell.descriptionLabel.textAlignment=NSTextAlignmentLeft;
     cell.nameLabel.textAlignment = NSTextAlignmentLeft;
     cell.nameLabel.textColor=[[GlobalVariables class]color:0];
     int k;

@@ -56,6 +56,7 @@
     }
     
     cell.Quantity.text=[[ItemsOrder objectAtIndex:indexPath.row]valueForKey:QKey ];
+    cell.Quantity.textAlignment=NSTextAlignmentLeft;
     cell.OrderLabel.text=[@" x " stringByAppendingString:[[ItemsOrder objectAtIndex:indexPath.row]valueForKey:INKey]];
     Price=[[[ItemsOrder objectAtIndex:indexPath.row]valueForKey:IPKey ]integerValue];
     NSInteger oldqun=[[[ItemsOrder objectAtIndex:indexPath.row]valueForKey:QKey ]integerValue];
