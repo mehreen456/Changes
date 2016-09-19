@@ -249,6 +249,7 @@ else
 
 -(void) show
 {
+    _LabelItem.textColor=[[GlobalVariables class]color:1];
     AmountLabel1.text=[@"Rs. " stringByAppendingString:TPrice];
     AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
     [self AddBorders];

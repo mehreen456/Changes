@@ -14,6 +14,7 @@
 #import "ViewController.h"
 
 @interface BasketViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UILabel *LabelItem;
 @property (strong, nonatomic) IBOutlet UIButton *addbutn;
 
 @property (strong, nonatomic) IBOutlet UIButton *Button;

@@ -481,11 +481,18 @@
                                     <segue destination="ruC-c7-ZlZ" kind="show" identifier="EToMain" id="hqk-hC-W8v"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select item to edit" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSU-hQ-oog">
+                                <rect key="frame" x="205" y="60" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="AAV-Wv-Ctg" secondAttribute="leading" id="3a7-Zr-Msm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hTu-dZ-KnE" secondAttribute="trailing" constant="-4" id="3ub-UF-pVs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pSU-hQ-oog" secondAttribute="trailing" constant="-4" id="5cE-i2-7Sr"/>
                             <constraint firstAttribute="trailing" secondItem="4Gz-D1-oNl" secondAttribute="trailing" id="7H3-Ub-ZGr"/>
                             <constraint firstAttribute="leadingMargin" secondItem="AAV-Wv-Ctg" secondAttribute="leading" id="BTx-21-F7L"/>
                             <constraint firstItem="hTu-dZ-KnE" firstAttribute="leading" secondItem="AAV-Wv-Ctg" secondAttribute="trailing" constant="72" id="Cjr-jF-pM1"/>
@@ -496,12 +503,15 @@
                             <constraint firstItem="4Gz-D1-oNl" firstAttribute="leading" secondItem="ljf-LG-SaJ" secondAttribute="leading" id="J5Q-6I-Sac"/>
                             <constraint firstItem="mha-rG-WP2" firstAttribute="top" secondItem="F37-Ky-cDE" secondAttribute="bottom" constant="23" id="KYH-dA-geX"/>
                             <constraint firstAttribute="trailing" secondItem="4Gz-D1-oNl" secondAttribute="trailing" id="Ogl-TL-2BJ"/>
+                            <constraint firstItem="4Gz-D1-oNl" firstAttribute="top" secondItem="pSU-hQ-oog" secondAttribute="bottom" constant="2" id="Pp8-Hb-Zib"/>
                             <constraint firstItem="F37-Ky-cDE" firstAttribute="top" secondItem="4Gz-D1-oNl" secondAttribute="bottom" constant="20" id="Pul-zo-vYg"/>
                             <constraint firstItem="4Gz-D1-oNl" firstAttribute="leading" secondItem="ljf-LG-SaJ" secondAttribute="leading" id="RnO-zi-dlm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hTu-dZ-KnE" secondAttribute="trailing" id="Tt3-py-Yj0"/>
+                            <constraint firstItem="pSU-hQ-oog" firstAttribute="top" secondItem="hTu-dZ-KnE" secondAttribute="bottom" constant="2" id="VwB-P2-wlz"/>
                             <constraint firstItem="hTu-dZ-KnE" firstAttribute="top" secondItem="ry3-gy-xV4" secondAttribute="bottom" constant="8" id="XbV-Ih-Idb"/>
                             <constraint firstItem="cfI-0k-jEx" firstAttribute="top" secondItem="mha-rG-WP2" secondAttribute="bottom" id="Z5Z-ah-szH"/>
                             <constraint firstItem="F37-Ky-cDE" firstAttribute="leading" secondItem="ljf-LG-SaJ" secondAttribute="leading" id="ZRu-74-z6w"/>
+                            <constraint firstItem="4Gz-D1-oNl" firstAttribute="top" secondItem="pSU-hQ-oog" secondAttribute="bottom" constant="2" id="ZU2-3B-S9m"/>
                             <constraint firstItem="hTu-dZ-KnE" firstAttribute="leading" secondItem="AAV-Wv-Ctg" secondAttribute="trailing" constant="72" id="em5-Sf-K8E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hTu-dZ-KnE" secondAttribute="trailing" id="mk6-2n-06C"/>
                             <constraint firstItem="mha-rG-WP2" firstAttribute="leading" secondItem="ljf-LG-SaJ" secondAttribute="leading" id="mqP-kU-viH"/>
@@ -509,6 +519,7 @@
                             <constraint firstAttribute="trailing" secondItem="mha-rG-WP2" secondAttribute="trailing" id="q3z-68-sRW"/>
                             <constraint firstAttribute="trailing" secondItem="F37-Ky-cDE" secondAttribute="trailing" id="rtb-wP-Zu8"/>
                             <constraint firstItem="cfI-0k-jEx" firstAttribute="top" secondItem="F37-Ky-cDE" secondAttribute="bottom" constant="61" id="vjP-06-RH8"/>
+                            <constraint firstItem="pSU-hQ-oog" firstAttribute="width" secondItem="hTu-dZ-KnE" secondAttribute="width" id="wiu-u7-p5T"/>
                             <constraint firstItem="AAV-Wv-Ctg" firstAttribute="top" secondItem="ry3-gy-xV4" secondAttribute="bottom" constant="8" id="xe6-GZ-eDt"/>
                             <constraint firstItem="AAV-Wv-Ctg" firstAttribute="top" secondItem="ry3-gy-xV4" secondAttribute="bottom" constant="8" id="xta-YW-Ar7"/>
                         </constraints>
@@ -528,6 +539,7 @@
                         <outlet property="AmountLabel1" destination="z5I-vv-sD6" id="ydt-jW-DFt"/>
                         <outlet property="AmountLabel2" destination="AGF-EP-O8S" id="PkY-Dt-Kbi"/>
                         <outlet property="Button" destination="hTu-dZ-KnE" id="wyI-tX-Gu3"/>
+                        <outlet property="LabelItem" destination="pSU-hQ-oog" id="5ko-9W-cTO"/>
                         <outlet property="OrderTable" destination="4Gz-D1-oNl" id="g8A-jN-Vrp"/>
                         <outlet property="PriceView" destination="etE-GQ-FRg" id="l2J-y7-wbw"/>
                         <outlet property="addbutn" destination="dDA-p5-Zkd" id="2ZF-hQ-cGU"/>
