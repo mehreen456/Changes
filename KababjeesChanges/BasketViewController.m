@@ -151,12 +151,14 @@ else
         j=0;
         [Button setTitle:@"Edit Order" forState:UIControlStateNormal];
         [Button setTintColor:[UIColor blueColor]];
+          _LabelItem.hidden=YES;
     }
     else
     {
         j=1;
         [Button setTitle:@"Apply Changes" forState:UIControlStateNormal];
         [Button setTintColor:[UIColor redColor]];
+          _LabelItem.hidden=NO;
     }
    
     [OrderTable reloadData];
@@ -250,6 +252,7 @@ else
 -(void) show
 {
     _LabelItem.textColor=[[GlobalVariables class]color:1];
+    _LabelItem.hidden=YES;
     AmountLabel1.text=[@"Rs. " stringByAppendingString:TPrice];
     AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
     [self AddBorders];
