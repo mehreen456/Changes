@@ -30,6 +30,7 @@
     [super viewDidLoad];
     Button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
      [self show];
+    
    
 }
 
@@ -63,7 +64,7 @@
     totalPrice= Price*oldqun;
     cell.OrderPriceLabel.text=[NSString stringWithFormat:@"%ld", (long)totalPrice];
     cell.Quantity.delegate=self;
-    
+    cell.Quantity.inputAccessoryView =[[GlobalVariables class]done:self.view];
     if (j==1)
     {
        [[cell.contentView viewWithTag:201] setHidden:NO];
@@ -85,7 +86,7 @@
         [[cell.contentView viewWithTag:201] setHidden:YES];
        
       }
-  
+   
     return cell;
 }
 - (void)tableView:(UITableView *)tblView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -189,6 +190,7 @@ else
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
    if([identifier isEqualToString:@"GoToMain"])
+   
             return YES;
    
     else if ([identifier isEqualToString:@"GoToProceed"])

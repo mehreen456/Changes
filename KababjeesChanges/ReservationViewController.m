@@ -81,9 +81,9 @@
     self.Branch.text=c1.CName;
     
     if([Bid isEqualToString:@"MAS"] || [Bid isEqualToString:@"CF"])
-        self.DateTime.placeholder=@"Timings 12:00 pm to 11:59 pm";
+        self.DateTime.placeholder=@"Timings 12:00 to 23:59 ";
     else
-        self.DateTime.placeholder=@"Timings 6:00 pm to 11:59 pm";
+        self.DateTime.placeholder=@"Timings 18:00 to 23:59 ";
 
 
     [self.dropdownTable deselectRowAtIndexPath:[self.dropdownTable indexPathForSelectedRow] animated:NO];
@@ -354,7 +354,7 @@
 
 -(void)set
 {
-    self.CPersons.inputAccessoryView = [self done];
+    self.CPersons.inputAccessoryView =[[GlobalVariables class]done:self.view];
     self.SButton.layer.cornerRadius = 5;
     self.SButton.clipsToBounds = YES;
     self.DatePicker.hidden=YES;
@@ -368,7 +368,7 @@
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     oldFrame.origin.y= self.view.frame.origin.y;
     self.Branch.rightViewMode = UITextFieldViewModeAlways;
-    self.Branch.rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DropDown"]];
+    self.Branch.rightView =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DropDown"]];
     self.DateTime.rightViewMode = UITextFieldViewModeAlways;
     self.DateTime.rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DropDown"]];
     self.CName.delegate = self;

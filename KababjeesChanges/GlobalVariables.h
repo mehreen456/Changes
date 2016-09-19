@@ -30,5 +30,5 @@ extern  NSUserDefaults *defaults;
 +(UIButton *) BarButton;
 +(NSString *) Title:(NSString *) showtitle ;
 +(UIColor *) color:(int) c;
-
++(UIToolbar *) done :(UIView *) view;
 @end

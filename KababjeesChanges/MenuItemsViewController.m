@@ -201,7 +201,7 @@
             destViewController.Price=m1.MIprice;
             destViewController.imageUrl=m1.MImg;
             destViewController.ItemID=m1.MId;
-           destViewController.navigationItem.rightBarButtonItem=rightBarButton;
+            destViewController.navigationItem.rightBarButtonItem=rightBarButton;
      }
 
 }

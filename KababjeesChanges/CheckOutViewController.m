@@ -42,7 +42,7 @@
      self.navigationItem.title= [[GlobalVariables class]Title:@"Place Order" ];
     self.PButton.layer.cornerRadius = 5;
     self.PButton.clipsToBounds = YES;
-    _ContactField.inputAccessoryView=[self done];
+    _ContactField.inputAccessoryView=[[GlobalVariables class]done:self.view];
     
     _NameField.delegate = self;
     _ContactField.delegate=self;
@@ -161,7 +161,17 @@
    
     return YES;
 }
+-(BOOL) textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if(textField==self.AddressField)
+    {
+        CGRect newFrame = [self.view frame];
+        newFrame.origin.y -= 30;
+        [self.view setFrame:newFrame];
 
+    }
+    return YES;
+}
 #pragma mark - Keyboard Methods
 
 - (void)keyboardWillShow:(NSNotification*)aNotification {
@@ -170,8 +180,7 @@
          CGRect newFrame = [self.view frame];
          newFrame.origin.y -= 30;
          [self.view setFrame:newFrame];
-         subv=[[UIView alloc]init];
-        
+         
      }completion:^(BOOL finished)
      {
          
@@ -206,7 +215,7 @@
         UIView *new=[[UIView alloc]init];
         new.backgroundColor=[UIColor clearColor];
         [window addSubview:new];
-        [window makeToast:@"Please enter data correctly"];
+        [window makeToast:@"Please fill all mandatory fields"];
         [new removeFromSuperview];
         return NO;
     }
@@ -218,19 +227,4 @@
     [self performSegueWithIdentifier:@"TySegue" sender:self];
 }
 
--(UIToolbar *) done
-{
-    UIToolbar* keyboardToolbar = [[UIToolbar alloc] init];
-    [keyboardToolbar sizeToFit];
-    UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
-                                      initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                      target:nil action:nil];
-    UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc]
-                                      initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                      target:self.view action:@selector(endEditing:)];
-     doneBarButton.tintColor=[UIColor grayColor];
-    keyboardToolbar.items = @[flexBarButton, doneBarButton];
-    
-    return keyboardToolbar;
-}
 @end

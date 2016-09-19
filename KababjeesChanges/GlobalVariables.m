@@ -65,5 +65,21 @@ BOOL Running=NO,showmenu=NO;
     return mycolor;
 
 }
++(UIToolbar *) done :(UIView *) view
+{
+    UIToolbar* keyboardToolbar = [[UIToolbar alloc] init];
+    [keyboardToolbar sizeToFit];
+    UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                      target:nil action:nil];
+    UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                      target:view action:@selector(endEditing:)];
+    doneBarButton.tintColor=[UIColor grayColor];
+    keyboardToolbar.items = @[flexBarButton, doneBarButton];
+    
+    return keyboardToolbar;
+}
+
 
 @end

@@ -10,7 +10,9 @@
 
 
 @interface ViewController ()
-
+{
+    UIBarButtonItem *rightBarButton;
+}
 @end
 
 @implementation ViewController
@@ -20,8 +22,23 @@
     [super viewDidLoad];
     [self Drawer];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
-   // [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Reservations"];
-  //  [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Orders"];
+    
+    if(BasketItems>0)
+    {
+        UIView* BLView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 110, 50)];
+        UIButton *basket=[[GlobalVariables class]BarButton];
+        basket.frame = BLView.frame;
+        [basket addTarget:self action:@selector(basket) forControlEvents:UIControlEventTouchUpInside];
+        [BLView addSubview:basket];
+        
+        rightBarButton = [[UIBarButtonItem alloc]initWithCustomView:BLView];
+        self.navigationItem.rightBarButtonItem = rightBarButton;
+    }
+    
+
+   
+    // [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Reservations"];
+    //  [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Orders"];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -49,4 +66,10 @@ if ( revealViewController )
 
 }
 }
+
+-(void) basket
+{
+    [self performSegueWithIdentifier:@"BSegue" sender:self.view];
+}
+
 @end
