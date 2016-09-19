@@ -80,7 +80,7 @@
     Bid=c1.CId;
     self.Branch.text=c1.CName;
     
-    if([Bid isEqualToString:@"9"] || [Bid isEqualToString:@"7"])
+    if([Bid isEqualToString:@"MAS"] || [Bid isEqualToString:@"CF"])
         self.DateTime.placeholder=@"Timings 12:00 pm to 11:59 pm";
     else
         self.DateTime.placeholder=@"Timings 6:00 pm to 11:59 pm";
@@ -218,17 +218,17 @@
                                   ^(NSData *data, NSURLResponse *response, NSError *error) {
                                       
                                       if (error) {
-                                          NSLog(@"Error ... ");
+                                         // NSLog(@"Error ... ");
                                           return;
                                       }
                                       
                                       if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-                                          NSLog(@"Response HTTP Status code: %ld\n", (long)[(NSHTTPURLResponse *)response statusCode]);
-                                          NSLog(@"Response HTTP Headers:\n%@\n", [(NSHTTPURLResponse *)response allHeaderFields]);
+                                         // NSLog(@"Response HTTP Status code: %ld\n", (long)[(NSHTTPURLResponse *)response statusCode]);
+                                         // NSLog(@"Response HTTP Headers:\n%@\n", [(NSHTTPURLResponse *)response allHeaderFields]);
                                       }
                                       
-                                      NSString* body = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                      NSLog(@"Response Body:\n%@\n", body);
+                                    //  NSString* body = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                     // NSLog(@"Response Body:\n%@\n", body);
                                   }];
     [task resume];
 }
@@ -391,13 +391,14 @@
 
 -(void) retriveData
 {
+    
     NSString *string = [NSString stringWithFormat:@"%@/branches", BaseUrl];
     NSURL *url = [NSURL URLWithString:string];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:DataType forHTTPHeaderField:CType];
     [manager.requestSerializer setValue:Key forHTTPHeaderField:Authorization];
     
-    manager.responseSerializer=[AFJSONResponseSerializer serializer];
+     manager.responseSerializer=[AFJSONResponseSerializer serializer];
     [manager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
         BArray =[[NSMutableArray alloc]init];
@@ -406,16 +407,18 @@
         for(int i=0;i<Json.count;i++)
         {
             NSString *Name = [[Json objectAtIndex:i]valueForKey:NKey];
-            NSString *CId = [[[Json objectAtIndex:i]valueForKey:IKey ]stringValue] ;
+            NSString *CId = [[Json objectAtIndex:i]valueForKey:@"code"] ;
             Categories *Cobj=[[Categories alloc] initWithCId:CId andCName:Name];
             [BArray addObject:Cobj];
         }
         [self.dropdownTable reloadData];
-        
+               
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Data retrived faild");
-        [self.toastview makeToast:@"No Internet Connection"];
+      //  NSLog(@"Data retrived faild");
+        [self.view makeToast:@"No Internet Connection"];
     }];
+    
+  
 }
 
 -(void)showMessage:(NSString*)Title :(NSString *)message
@@ -432,7 +435,8 @@
             {
                 [self performSegueWithIdentifier:@"SubmitSegue" sender:self];
               
-            }        }];
+            }
+        }];
         
     });
 
@@ -445,7 +449,7 @@
 -(void) validTime
 {
     
-    if ([Bid isEqualToString:@"7"] || [Bid isEqualToString:@"9"])
+    if ([Bid isEqualToString:@"CF"] || [Bid isEqualToString:@"MAS"])
         [self startTime:12 endTime:23];
     else
         [self startTime:18 endTime:23];

@@ -84,17 +84,17 @@
                                   ^(NSData *data, NSURLResponse *response, NSError *error) {
                                       
                                       if (error) {
-                                          NSLog(@"Error ... ");
+                                       //   NSLog(@"Error ... ");
                                           return;
                                       }
                                       
                                       if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-                                          NSLog(@"Response HTTP Status code: %ld\n", (long)[(NSHTTPURLResponse *)response statusCode]);
-                                          NSLog(@"Response HTTP Headers:\n%@\n", [(NSHTTPURLResponse *)response allHeaderFields]);
+                                       //   NSLog(@"Response HTTP Status code: %ld\n", (long)[(NSHTTPURLResponse *)response statusCode]);
+                                        //  NSLog(@"Response HTTP Headers:\n%@\n", [(NSHTTPURLResponse *)response allHeaderFields]);
                                       }
                                       
-                                      NSString* body = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                      NSLog(@"Response Body:\n%@\n", body);
+                                     // NSString* body = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                    //  NSLog(@"Response Body:\n%@\n", body);
                                   }];
     [task resume];
 }

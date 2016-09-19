@@ -164,6 +164,8 @@
 
 -(void) retriveData
 {
+    [DejalActivityView activityViewForView:self.view withLabel:@"Loading ..." width:self.view.frame.size.width-self.view.frame.size.width/3];
+    
     NSString *string = [NSString stringWithFormat:@"%@/categories", BaseUrl];
     NSURL *url = [NSURL URLWithString:string];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -184,11 +186,12 @@
             
            [CategoriesArray addObject:Cobj];
         }
-             SWRevealViewController *sv=self.revealViewController;
-             [sv revealToggle:self];
-     
+        
+        SWRevealViewController *sv=self.revealViewController;
+        [sv revealToggle:self];
+        
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Data retrived faild");
+     //   NSLog(@"Data retrived faild");
        
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Title" message:@"Sorry! There is some problem in retriving data. You may call 111-666-111 to place your order." preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
@@ -201,8 +204,10 @@
         
 
     }];
-    
+   
+
     [self.myTable reloadData];
+    [DejalActivityView removeView];
     
      }
 
