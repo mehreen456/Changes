@@ -368,9 +368,9 @@
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     oldFrame.origin.y= self.view.frame.origin.y;
     self.Branch.rightViewMode = UITextFieldViewModeAlways;
-    self.Branch.rightView =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DropDown"]];
+    self.Branch.rightView = [self arrow];
     self.DateTime.rightViewMode = UITextFieldViewModeAlways;
-    self.DateTime.rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DropDown"]];
+    self.DateTime.rightView = [self arrow];
     self.CName.delegate = self;
     self.CPhoneNo.delegate=self;
     self.CPersons.delegate=self;
@@ -561,5 +561,12 @@
     keyboardToolbar.items = @[flexBarButton, doneBarButton];
 
     return keyboardToolbar;
+}
+-(UIImageView *) arrow
+{
+UIImageView *arrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DropDown"]];
+arrow.frame = CGRectMake(0.0, 0.0, arrow.image.size.width+10.0, arrow.image.size.height);
+arrow.contentMode = UIViewContentModeCenter;
+    return arrow;
 }
     @end
