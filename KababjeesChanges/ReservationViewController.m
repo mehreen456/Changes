@@ -12,10 +12,11 @@
 {
     NSDateFormatter *dateFormatter,*dateFormatter1;
     CGRect oldFrame;
-    NSMutableArray *Json,*Pdata;
+    NSMutableArray *Json,*Pdata,*User,*UserInfo;
     NSString *Bid,*email,*persons,*name,*datetime,*phone,*AvailableTime,*time,*branch;
     NSDictionary *jsonDictionary;
     NSDate *mydate;
+    NSInteger i;
     int timestamp,move;
     BOOL ismove;
     long L_datetime,L_Bid;
@@ -34,7 +35,7 @@
     if(showmenu)
        [self show];
     Pdata=[[NSMutableArray alloc]init];
-  
+    UserInfo=[[NSMutableArray alloc]init];
 }
 
 #pragma mark - UITableViewDelegate
@@ -115,6 +116,26 @@
 }
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
+    if(textField==self.CName)
+    {
+        defaults = [NSUserDefaults standardUserDefaults];
+        NSString *Iname=self.CName.text;
+        User = [defaults objectForKey:@"UserInfo"];
+        NSInteger num=User.count;
+        for(i=num;i>0;i--)
+        {
+            NSString *Uname=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"name"];
+          
+            if ([Uname isEqualToString:Iname]) {
+                self.CPhoneNo.text=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"phone"];
+                self.CEmail.text=[[[User objectAtIndex:i] objectAtIndex:0] valueForKey:@"email"];
+                break;
+            }
+        }
+        
+        return YES;
+    }
+
     [self.view endEditing:YES];
     return YES;
 }
@@ -207,6 +228,7 @@
                       @"email": email,
                       };
     [Pdata addObject:jsonDictionary];
+    [UserInfo addObject:jsonDictionary];
     NSError *error;
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
                                                        options:NSJSONWritingPrettyPrinted error:&error];
@@ -307,10 +329,41 @@
         [self PostData];
         
         defaults = [NSUserDefaults standardUserDefaults];
+        
         branch=self.Branch.text;
         [Pdata addObject:branch];
         [Pdata addObject:time];
         NSObject * object = [defaults objectForKey:@"Reservations"];
+        NSObject *obj=[defaults objectForKey:@"UserInfo"];
+        if(obj == nil){
+            
+            User =[[NSMutableArray alloc] init];
+            [User addObject:UserInfo];
+            [defaults setObject:User forKey:@"UserInfo"];
+        }
+        
+        else
+        {
+        	User = [[defaults objectForKey:@"UserInfo"]mutableCopy];
+            NSInteger num =User.count;
+            for(i=num;i>0;i--)
+            {
+                NSString *Uname=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"name"];
+                NSString *Uphone=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"phone"];
+                NSString *Uemail=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"email"];
+
+                if ([Uname isEqualToString:self.CName.text] && [Uphone isEqualToString:self.CName.text] && [Uemail isEqualToString:self.CName.text]) {
+                    
+                   
+                }
+
+                else
+                {
+                [User addObject:UserInfo];
+                [defaults setObject:User forKey:@"UserInfo"];
+                 }
+            }
+        }
         if(object == nil){
           
             Torders=[[NSMutableArray alloc] init];

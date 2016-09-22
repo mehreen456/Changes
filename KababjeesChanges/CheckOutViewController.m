@@ -13,12 +13,14 @@
     int key,hide;
     NSData *kj;
     NSString *name,*address,*time,*num;
+    NSInteger i;
     NSNumber *contact;
     NSDictionary *jsonDictionary;
     CGRect oldFrame ;
     CGSize kbSize;
     CGPoint kbposi;
-    UIView * subv;
+    UIView  *subv;
+    NSMutableArray *User,*UserInfo;
 }
 
 @end
@@ -42,6 +44,7 @@
      self.navigationItem.title= [[GlobalVariables class]Title:@"Place Order" ];
     self.PButton.layer.cornerRadius = 5;
     self.PButton.clipsToBounds = YES;
+     UserInfo=[[NSMutableArray alloc]init];
     _ContactField.inputAccessoryView=[[GlobalVariables class]done:self.view];
     
     _NameField.delegate = self;
@@ -77,7 +80,7 @@
                                                        options:NSJSONWritingPrettyPrinted error:&error];
    
     [request setHTTPBody:jsonData];
-    
+    [UserInfo addObject:jsonDictionary];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
                                             completionHandler:
@@ -126,7 +129,37 @@
     
     defaults = [NSUserDefaults standardUserDefaults];
     [ItemsOrder addObject:TPrice];
-    
+       
+       NSObject *obj=[defaults objectForKey:@"UCInfo"];
+       if(obj == nil){
+           
+           User =[[NSMutableArray alloc] init];
+           [User addObject:UserInfo];
+           [defaults setObject:User forKey:@"UCInfo"];
+       }
+       
+       else
+       {
+               User = [[defaults objectForKey:@"UCInfo"]mutableCopy];
+               NSInteger sum =User.count;
+               for(i=sum;i>0;i--)
+               {
+                   NSString *Uname=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:NKey];
+                   NSString *Uphone=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"phone"];
+                   NSString *Uemail=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"address"];
+                   
+                   if ([Uname isEqualToString:self.NameField.text] && [Uphone isEqualToString:self.ContactField.text] && [Uemail isEqualToString:self.AddressField.text]) {
+                   
+                   }
+                   
+                   else
+                   {
+                       [User addObject:UserInfo];
+                       [defaults setObject:User forKey:@"UCInfo"];
+                   }
+               }
+       }
+
     NSObject * object = [defaults objectForKey:@"Orders"];
        if(object == nil){
            
@@ -172,6 +205,28 @@
     }
     return YES;
 }
+-(BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    if(textField==self.NameField)
+    {
+        defaults = [NSUserDefaults standardUserDefaults];
+        NSString *Iname=self.NameField.text;
+        User = [defaults objectForKey:@"UCInfo"];
+        NSInteger sum =User.count;
+        for(i=sum;i>0;i--)
+        {
+            NSString *Uname=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:NKey];
+            
+            if ([Uname isEqualToString:Iname]) {
+                self.ContactField.text=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"phone"];
+                self.AddressField.text=[[[User objectAtIndex:i] objectAtIndex:0] valueForKey:@"address"];
+                break;
+            }
+        }
+    }
+     return YES;
+}
+
 #pragma mark - Keyboard Methods
 
 - (void)keyboardWillShow:(NSNotification*)aNotification {
