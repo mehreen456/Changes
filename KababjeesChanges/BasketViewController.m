@@ -89,9 +89,10 @@
    
     return cell;
 }
+
 - (void)tableView:(UITableView *)tblView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [cell.Quantity becomeFirstResponder];
+      [cell.Quantity becomeFirstResponder];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -245,8 +246,6 @@ else
        }
         AmountLabel1.text=[@"Rs. " stringByAppendingString:TPrice];
         AmountLabel2.text=[@"Rs. " stringByAppendingString:TPrice];
-   
- 
 }
 
 -(void) show
@@ -260,6 +259,7 @@ else
     [self setcolor];
     [self Tap];
 }
+
 -(void)Tap
 {
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
@@ -270,6 +270,7 @@ else
     
     
 }
+
 -(void) setcolor
 {
     [self.Button  setTitleColor:[[GlobalVariables class]color:0] forState:UIControlStateNormal ];
@@ -278,12 +279,14 @@ else
     [self.chckbtn setBackgroundColor: [[GlobalVariables class]color:1]];
     
 }
+
 -(void) navigation
 {
     self.navigationItem.title= [[GlobalVariables class]Title:@"Checkout" ];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
+
 -(void)AddBorders
 {
     UIView *topBorder = [UIView new];
@@ -296,12 +299,14 @@ else
     [PriceView addSubview:bottomBorder];
     
 }
+
 #pragma mark - Delegate Methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
   self.OrderTable.alwaysBounceVertical = NO;
 }
+
 -(void)viewWillDisappear:(BOOL)animated
 {
      [self.view endEditing:YES];

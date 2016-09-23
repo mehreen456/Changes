@@ -11,6 +11,7 @@
 @interface CheckOutViewController ()
 {
     int key,hide;
+    BOOL exist;
     NSData *kj;
     NSString *name,*address,*time,*num;
     NSInteger i;
@@ -33,7 +34,7 @@
 
 - (void)viewDidLoad
 {
-    key=1;
+    key=1;exist=NO;
     [super viewDidLoad];
     oldFrame.origin.y= self.view.frame.origin.y;
     oldFrame.size.height= self.view.frame.size.height;
@@ -142,23 +143,29 @@
        {
                User = [[defaults objectForKey:@"UCInfo"]mutableCopy];
                NSInteger sum =User.count;
-               for(i=sum;i>0;i--)
+               for(i=sum-1;i>=0;i--)
                {
-                   NSString *Uname=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:NKey];
+                 NSString *Uname=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:NKey];
+                 NSString *Iname=self.NameField.text;
+                 if ([Uname isEqualToString:Iname])
+                 {
                    NSString *Uphone=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"phone"];
                    NSString *Uemail=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"address"];
-                   
-                   if ([Uname isEqualToString:self.NameField.text] && [Uphone isEqualToString:self.ContactField.text] && [Uemail isEqualToString:self.AddressField.text]) {
-                   
+                   NSString *Iphone=self.ContactField.text;
+                                     NSString *Iadd=self.AddressField.text;
+                   if ([Uname isEqualToString:Iname] && [Uphone isEqualToString:Iphone] && [Uemail isEqualToString:Iadd]) {
+                       exist=YES;
+                       break;
                    }
-                   
-                   else
-                   {
-                       [User addObject:UserInfo];
-                       [defaults setObject:User forKey:@"UCInfo"];
-                   }
+                }
+              }
+              if(!exist)
+              {
+               [User addObject:UserInfo];
+               [defaults setObject:User forKey:@"UCInfo"];
                }
-       }
+        }
+
 
     NSObject * object = [defaults objectForKey:@"Orders"];
        if(object == nil){
@@ -213,7 +220,7 @@
         NSString *Iname=self.NameField.text;
         User = [defaults objectForKey:@"UCInfo"];
         NSInteger sum =User.count;
-        for(i=sum;i>0;i--)
+        for(i=sum-1;i>=0;i--)
         {
             NSString *Uname=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:NKey];
             

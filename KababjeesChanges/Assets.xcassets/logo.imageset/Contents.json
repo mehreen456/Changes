@@ -2,17 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "kj-240-241.png",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "kj-130_130.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "kj-240-240.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "kj-195-195.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "kj-240-242.png",
       "scale" : "3x"
     }
   ],

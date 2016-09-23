@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "imageedit_16_4342924185.png",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "DropDown-20_20.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "imageedit_15_3713906731.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "DropDown-40-40.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "imageedit_14_5072597164.png",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "DropDown 60_60.png"
     }
   ],
   "info" : {

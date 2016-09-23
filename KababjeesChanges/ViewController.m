@@ -35,7 +35,8 @@
         self.navigationItem.rightBarButtonItem = rightBarButton;
     }
     
-
+   //   [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UCInfo"];
+    //  [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserInfo"];
    
     // [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Reservations"];
     //  [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Orders"];

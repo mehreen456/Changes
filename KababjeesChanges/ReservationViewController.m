@@ -16,9 +16,9 @@
     NSString *Bid,*email,*persons,*name,*datetime,*phone,*AvailableTime,*time,*branch;
     NSDictionary *jsonDictionary;
     NSDate *mydate;
-    NSInteger i;
+    NSInteger t;
     int timestamp,move;
-    BOOL ismove;
+    BOOL ismove,exist;
     long L_datetime,L_Bid;
 }
 @end
@@ -27,7 +27,7 @@
 @synthesize DateTime,DatePicker,Branch,BArray,dropdownTable,CName,CPersons,CPhoneNo,CEmail,SButton;
 - (void)viewDidLoad {
   
-    move=0;ismove=NO;
+    move=0;ismove=NO;exist=NO;
     [self DateTime].enabled = NO;
     [super viewDidLoad];
     [self set];
@@ -122,13 +122,13 @@
         NSString *Iname=self.CName.text;
         User = [defaults objectForKey:@"UserInfo"];
         NSInteger num=User.count;
-        for(i=num;i>0;i--)
+        for(t=num-1;t>=0;t--)
         {
-            NSString *Uname=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"name"];
+            NSString *Uname=[[[User objectAtIndex:t]objectAtIndex:0] valueForKey:@"name"];
           
             if ([Uname isEqualToString:Iname]) {
-                self.CPhoneNo.text=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"phone"];
-                self.CEmail.text=[[[User objectAtIndex:i] objectAtIndex:0] valueForKey:@"email"];
+                self.CPhoneNo.text=[[[User objectAtIndex:t]objectAtIndex:0] valueForKey:@"phone"];
+                self.CEmail.text=[[[User objectAtIndex:t] objectAtIndex:0] valueForKey:@"email"];
                 break;
             }
         }
@@ -344,24 +344,30 @@
         
         else
         {
-        	User = [[defaults objectForKey:@"UserInfo"]mutableCopy];
+            
+            User = [[defaults objectForKey:@"UserInfo"]mutableCopy];
             NSInteger num =User.count;
-            for(i=num;i>0;i--)
+            for(t=num-1;t>=0;t--)
             {
-                NSString *Uname=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"name"];
-                NSString *Uphone=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"phone"];
-                NSString *Uemail=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"email"];
-
-                if ([Uname isEqualToString:self.CName.text] && [Uphone isEqualToString:self.CName.text] && [Uemail isEqualToString:self.CName.text]) {
-                    
-                   
-                }
-
-                else
+                NSString *Uname=[[[User objectAtIndex:t]objectAtIndex:0] valueForKey:@"name"];
+                NSString *Iname=self.CName.text;
+                if ([Uname isEqualToString:Iname])
                 {
+                NSString *Uphone=[[[User objectAtIndex:t]objectAtIndex:0] valueForKey:@"phone"];
+                NSString *Uemail=[[[User objectAtIndex:t]objectAtIndex:0] valueForKey:@"email"];
+                NSString *Iphone=self.CPhoneNo.text;
+                
+                NSString *Iemail=self.CEmail.text;
+                if ([Uphone isEqualToString:Iphone] && [Uemail isEqualToString:Iemail]) {
+                    exist=YES;
+                    break;
+                }
+                }
+            }
+            if(!exist)
+            {
                 [User addObject:UserInfo];
                 [defaults setObject:User forKey:@"UserInfo"];
-                 }
             }
         }
         if(object == nil){
@@ -408,6 +414,7 @@
 -(void)set
 {
     self.CPersons.inputAccessoryView =[[GlobalVariables class]done:self.view];
+    self.CPhoneNo.inputAccessoryView =[[GlobalVariables class]done:self.view];
     self.SButton.layer.cornerRadius = 5;
     self.SButton.clipsToBounds = YES;
     self.DatePicker.hidden=YES;
