@@ -81,5 +81,15 @@ BOOL Running=NO,showmenu=NO;
     return keyboardToolbar;
 }
 
++(NSString *) systime
+{
+    NSDate *now = [NSDate date];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"dd/MM/yyyy hh:mma";
+    dateFormatter.locale=[NSLocale localeWithLocaleIdentifier:@"en_GB"];
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    return [dateFormatter stringFromDate:now];
+}
 
 @end

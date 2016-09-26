@@ -26,7 +26,7 @@ extern BOOL Running,showmenu;
 extern  NSUserDefaults *defaults;
 
 @interface GlobalVariables : NSObject
-
++(NSString *) systime;
 +(UIButton *) BarButton;
 +(NSString *) Title:(NSString *) showtitle ;
 +(UIColor *) color:(int) c;

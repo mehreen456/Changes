@@ -75,13 +75,15 @@
                       @"device_os": @2,
                       @"order_detail": ItemsOrder
                       };
+    
+    [UserInfo addObject:jsonDictionary];
 
     NSError *error;
-    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
+   NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
                                                        options:NSJSONWritingPrettyPrinted error:&error];
    
     [request setHTTPBody:jsonData];
-    [UserInfo addObject:jsonDictionary];
+   
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
                                             completionHandler:
@@ -101,19 +103,11 @@
                                     //  NSLog(@"Response Body:\n%@\n", body);
                                   }];
     [task resume];
-}
+
+   }
 
 #pragma mark - Getting System Time
 
--(NSString *) time
-{
-    NSDate *now = [NSDate date];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"hh:mm:ss";
-    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
-    return [dateFormatter stringFromDate:now];
-}
 
 #pragma mark - View Button
 
@@ -125,11 +119,12 @@
     name=self.NameField.text;
     num=self.ContactField.text;
     address=self.AddressField.text;
-    time=[self time];
-   [self PostData];
+    time=[[GlobalVariables class] systime];
+    [self PostData];
     
     defaults = [NSUserDefaults standardUserDefaults];
     [ItemsOrder addObject:TPrice];
+    [ItemsOrder addObject:time];
        
        NSObject *obj=[defaults objectForKey:@"UCInfo"];
        if(obj == nil){
@@ -206,7 +201,7 @@
     if(textField==self.AddressField)
     {
         CGRect newFrame = [self.view frame];
-        newFrame.origin.y -= 30;
+        newFrame.origin.y -= 40;
         [self.view setFrame:newFrame];
 
     }

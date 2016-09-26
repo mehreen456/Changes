@@ -176,8 +176,8 @@ else
         [self.view makeToast:@"Item Deleted"];
         NSInteger diff=[TPrice integerValue]-totalPrice;
         TPrice=[NSString stringWithFormat:@"%2lu", (unsigned long)diff];
-         [OrderTable reloadData];
-         [self change];
+        [OrderTable reloadData];
+        [self change];
          
     }
 }

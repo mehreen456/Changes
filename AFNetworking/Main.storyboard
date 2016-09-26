@@ -1018,12 +1018,12 @@
                                         <exclude reference="dTq-iA-SzC"/>
                                         <exclude reference="g5R-Vh-15K"/>
                                         <exclude reference="xkN-fu-V6q"/>
+                                        <exclude reference="hSD-kE-Byz"/>
+                                        <exclude reference="zEK-v4-PJX"/>
                                         <exclude reference="824-hR-u64"/>
                                         <exclude reference="D2r-eH-h2D"/>
                                         <exclude reference="psL-pa-KrH"/>
                                         <exclude reference="wCH-Jg-t3r"/>
-                                        <exclude reference="hSD-kE-Byz"/>
-                                        <exclude reference="zEK-v4-PJX"/>
                                         <exclude reference="PbL-yK-CWE"/>
                                         <exclude reference="fmU-AP-tkA"/>
                                         <exclude reference="gSc-KN-Hnf"/>
@@ -1713,7 +1713,7 @@
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CELL" rowHeight="96" id="Xxg-kc-pnS">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CELL" rowHeight="96" id="Xxg-kc-pnS">
                                         <rect key="frame" x="0.0" y="28" width="300" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xxg-kc-pnS" id="cq9-35-f22">
@@ -1863,8 +1863,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="HtS-yL-A52"/>
         <segue reference="b1d-4d-sHp"/>
-        <segue reference="CiU-re-Uvq"/>
         <segue reference="wwj-fj-JBL"/>
         <segue reference="tUa-FW-azI"/>
+        <segue reference="ASt-ee-4sH"/>
     </inferredMetricsTieBreakers>
 </document>

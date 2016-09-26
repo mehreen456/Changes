@@ -47,7 +47,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     
-    return NLwidth+Dlines+25;
+    return NLwidth+Dlines+50;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -83,26 +83,28 @@
     
     cell.descriptionLabel.frame=CGRectMake(cell.descriptionLabel.frame.origin.x,cell.nameLabel.frame.origin.y+NLwidth, cell.descriptionLabel.frame.size.width, Dlines);
     cell.nameLabel.text = [@"Order " stringByAppendingString:[NSString stringWithFormat: @"%ld", (long)indexPath.section+1]];
-    cell.descriptionLabel.text=@"";
+    cell.descriptionLabel.text=[@"Order Time: "  stringByAppendingString:[[Myorders objectAtIndex:indexPath.section] lastObject]];
+    cell.descriptionLabel.text=[cell.descriptionLabel.text stringByAppendingString:@"\nItems Ordered: \n\t"];
     cell.descriptionLabel.textAlignment=NSTextAlignmentLeft;
     cell.nameLabel.textAlignment = NSTextAlignmentLeft;
     cell.nameLabel.textColor=[[GlobalVariables class]color:0];
     int k;
     
-    for(k=0;k<[Myorders[indexPath.section] count]-1;k++)
+    for(k=0;k<[Myorders[indexPath.section] count]-2;k++)
     {
-         cell.descriptionLabel.text=[[[cell.descriptionLabel.text stringByAppendingString:[[[[Myorders objectAtIndex:indexPath.section] objectAtIndex:k]valueForKey:QKey] stringByAppendingString:@" x " ]] stringByAppendingString:[[[Myorders objectAtIndex:indexPath.section] objectAtIndex:k]valueForKey:@"item_name"]] stringByAppendingString:@"\n"];
+         cell.descriptionLabel.text=[[[cell.descriptionLabel.text stringByAppendingString:[[[[Myorders objectAtIndex:indexPath.section] objectAtIndex:k]valueForKey:QKey] stringByAppendingString:@" x " ]] stringByAppendingString:[[[Myorders objectAtIndex:indexPath.section] objectAtIndex:k]valueForKey:@"item_name"]] stringByAppendingString:@"\n\t"];
         
         
     }
     cell.priceLabel.text=[@"TotalPrice: "  stringByAppendingString:[[Myorders objectAtIndex:indexPath.section] objectAtIndex:k] ];
-        return cell;
+    return cell;
 }
 -(void) data
 {
     defaults = [NSUserDefaults standardUserDefaults];
  
     Myorders = [defaults objectForKey:@"Orders"];
+    Myorders=[[[Myorders reverseObjectEnumerator] allObjects] mutableCopy];
     if(Myorders.count==0)
         [self showMessage:@"Welcome!" :@"You have not ordered any thing yet."];
     [mytable reloadData];
@@ -110,7 +112,6 @@
 -(void)show{
     
     UIBarButtonItem *menu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu-icon" ] style:UIBarButtonItemStylePlain target:self.revealViewController action:@selector(revealToggle:)];
-    
     self.navigationItem.leftBarButtonItem = menu;
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
     
@@ -150,4 +151,5 @@
     });
     
 }
+
 @end

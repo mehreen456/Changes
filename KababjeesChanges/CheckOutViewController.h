@@ -21,7 +21,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *PButton;
 
 -(void) PostData;
--(NSString *) time;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 
 @end

@@ -463,6 +463,7 @@
 				TargetAttributes = {
 					CF560AE71D61A0E90004DFA5 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 2ZHT2AXTR7;
 					};
 				};
 			};
@@ -637,12 +638,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: kashif Saeed (2ZHT2AXTR7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: kashif Saeed (2ZHT2AXTR7)";
 				INFOPLIST_FILE = KababjeesChanges/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.KababjeesChanges;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "de7e50ee-f676-49df-84ec-2d24845ba7e7";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -651,12 +654,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: kashif Saeed (2ZHT2AXTR7)";
 				INFOPLIST_FILE = KababjeesChanges/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.KababjeesChanges;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "de7e50ee-f676-49df-84ec-2d24845ba7e7";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

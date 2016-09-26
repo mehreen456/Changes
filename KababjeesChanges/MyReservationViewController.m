@@ -92,7 +92,7 @@
     cell.nameLabel.textColor=[[GlobalVariables class]color:0];
     
     cell.descriptionLabel.text=[@"\nBranch Name: " stringByAppendingString:[[Torders objectAtIndex:indexPath.section] objectAtIndex:1]];
-    cell.descriptionLabel.text=[[[[cell.descriptionLabel.text stringByAppendingString:@"\nNo of Persons: "] stringByAppendingString:[[[Torders objectAtIndex:indexPath.section] objectAtIndex:0]valueForKey:@"no_of_person"]]stringByAppendingString:@"\nTime: "]stringByAppendingString:[[Torders objectAtIndex:indexPath.section] objectAtIndex:2]];
+    cell.descriptionLabel.text=[[[[[[cell.descriptionLabel.text stringByAppendingString:@"\nNo of Persons: "] stringByAppendingString:[[[Torders objectAtIndex:indexPath.section] objectAtIndex:0]valueForKey:@"no_of_person"]]stringByAppendingString:@"\nReservation Time: "]stringByAppendingString:[[Torders objectAtIndex:indexPath.section] objectAtIndex:2]] stringByAppendingString:@"\nReserved At: "]stringByAppendingString:[[Torders objectAtIndex:indexPath.section] objectAtIndex:3]];
 ;    
     cell.priceLabel.hidden=YES;
     
@@ -104,6 +104,9 @@
     defaults = [NSUserDefaults standardUserDefaults];
     
     Torders = [defaults objectForKey:@"Reservations"];
+    Torders=[[[Torders reverseObjectEnumerator] allObjects] mutableCopy];
+    
+
     if(Torders.count==0)
         [self showMessage:@"Welcome!" :@"You have no reservations."];
     else
@@ -115,6 +118,7 @@
     
     self.navigationItem.leftBarButtonItem = menu;
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
+    
     
     self.navigationItem.title=[[GlobalVariables class]Title:@"MyReservations"];
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];

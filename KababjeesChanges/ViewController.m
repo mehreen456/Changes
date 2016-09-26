@@ -38,8 +38,8 @@
    //   [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UCInfo"];
     //  [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserInfo"];
    
-    // [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Reservations"];
-    //  [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Orders"];
+     //[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Reservations"];
+     //[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Orders"];
 }
 
 -(void) viewDidAppear:(BOOL)animated

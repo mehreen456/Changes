@@ -253,6 +253,7 @@
                                      // NSLog(@"Response Body:\n%@\n", body);
                                   }];
     [task resume];
+ 
 }
 
 #pragma mark - Buttons Function
@@ -329,10 +330,11 @@
         [self PostData];
         
         defaults = [NSUserDefaults standardUserDefaults];
-        
+        NSString *systime=[[GlobalVariables class] systime];
         branch=self.Branch.text;
         [Pdata addObject:branch];
         [Pdata addObject:time];
+        [Pdata addObject:systime];
         NSObject * object = [defaults objectForKey:@"Reservations"];
         NSObject *obj=[defaults objectForKey:@"UserInfo"];
         if(obj == nil){
@@ -603,8 +605,8 @@
     self.DatePicker.maximumDate=maxDate;
     self.TimePicker.locale = [NSLocale localeWithLocaleIdentifier:@"en_GB"];
     [self.DatePicker setDatePickerMode:UIDatePickerModeDate];
-    NSTimeInterval oneDay = 60 * 60 * 24;
-    self.DatePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:oneDay * 2];
+    NSTimeInterval oneDay = 60 * 60*24;
+    self.DatePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:oneDay];
  
 }
 -(UIToolbar *) done
