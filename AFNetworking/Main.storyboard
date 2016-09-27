@@ -1255,7 +1255,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Display" translatesAutoresizingMaskIntoConstraints="NO" id="M7o-PV-4PX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Display" translatesAutoresizingMaskIntoConstraints="NO" id="M7o-PV-4PX">
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                             </imageView>
                         </subviews>
@@ -1862,7 +1862,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HtS-yL-A52"/>
-        <segue reference="b1d-4d-sHp"/>
+        <segue reference="UWf-2E-bm7"/>
         <segue reference="wwj-fj-JBL"/>
         <segue reference="tUa-FW-azI"/>
         <segue reference="ASt-ee-4sH"/>

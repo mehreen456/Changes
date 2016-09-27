@@ -76,9 +76,9 @@
                       @"order_detail": ItemsOrder
                       };
     
-    [UserInfo addObject:jsonDictionary];
 
-    NSError *error;
+    [UserInfo addObject:jsonDictionary];
+  NSError *error;
    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
                                                        options:NSJSONWritingPrettyPrinted error:&error];
    
@@ -222,6 +222,7 @@
             if ([Uname isEqualToString:Iname]) {
                 self.ContactField.text=[[[User objectAtIndex:i]objectAtIndex:0] valueForKey:@"phone"];
                 self.AddressField.text=[[[User objectAtIndex:i] objectAtIndex:0] valueForKey:@"address"];
+                [self.AddressField becomeFirstResponder];
                 break;
             }
         }

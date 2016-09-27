@@ -129,6 +129,8 @@
             if ([Uname isEqualToString:Iname]) {
                 self.CPhoneNo.text=[[[User objectAtIndex:t]objectAtIndex:0] valueForKey:@"phone"];
                 self.CEmail.text=[[[User objectAtIndex:t] objectAtIndex:0] valueForKey:@"email"];
+                [self.CEmail becomeFirstResponder];
+
                 break;
             }
         }
@@ -229,10 +231,10 @@
                       };
     [Pdata addObject:jsonDictionary];
     [UserInfo addObject:jsonDictionary];
-    NSError *error;
+  NSError *error;
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
                                                        options:NSJSONWritingPrettyPrinted error:&error];
-    [request setHTTPBody:jsonData];
+  [request setHTTPBody:jsonData];
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
@@ -253,7 +255,7 @@
                                      // NSLog(@"Response Body:\n%@\n", body);
                                   }];
     [task resume];
- 
+
 }
 
 #pragma mark - Buttons Function

@@ -9,13 +9,14 @@
 #import "GlobalVariables.h"
 
 NSString *CID = @" ", *CTitle = @" ", *TPrice = @" ",*OP;
-NSString *Key=@"042e96b6-31cb-4746-b139-3d3e70bdf137", *DataType=@"application/json",*CType=@"Content-Type",*Authorization=@"Authorization";
-NSString *NKey=@"name",*IdKey=@"category_id",*DesKey=@"description",*PKey=@"price",*ImgKey=@"images",*UKey=@"url",*INKey=@"item_name",*QKey=@"quantity",*IPKey=@"item_price",*IKey=@"id",*BaseUrl= @"http://olo.dmenu.co:3002/api/v1";
+NSString *Key=@"e6b4777d-7edd-4622-aba7-a7b2c12b4630", *DataType=@"application/json",*CType=@"Content-Type",*Authorization=@"Authorization";
+NSString *NKey=@"name",*IdKey=@"category_id",*DesKey=@"description",*PKey=@"price",*ImgKey=@"images",*UKey=@"url",*INKey=@"item_name",*QKey=@"quantity",*IPKey=@"item_price",*IKey=@"id",*BaseUrl= @"http://olo.dmenu.co:3003/api/v1";
 NSMutableArray * ItemsOrder= nil,*MenuArray=nil,*Torders=nil;
 NSUInteger btp=0;
 NSUserDefaults *defaults;
 int *BasketItems=0, *Relaod=0 ,*LoadData;
 BOOL Running=NO,showmenu=NO;
+// Production: @"042e96b6-31cb-4746-b139-3d3e70bdf137"
 //e6b4777d-7edd-4622-aba7-a7b2c12b4630
 @implementation GlobalVariables
 
