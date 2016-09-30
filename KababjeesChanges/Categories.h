@@ -12,8 +12,12 @@
 
 @property(nonatomic,strong) NSString * CId;
 @property(nonatomic,strong) NSString * CName;
+@property(nonatomic,strong) NSString * BId;
+@property(nonatomic,strong) NSString * BName;
+@property(nonatomic,strong) NSString * BCode;
+
 
 -(id) initWithCId: (NSString *) cid andCName: (NSString *) cname;
-
+-(id) initWithBId: (NSString *) bid andBName: (NSString *) bname andCode: (NSString *) bcode;
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation Categories
 
-@synthesize CName, CId;
+@synthesize CName, CId,BId,BName,BCode;
 
 -(id) initWithCId: (NSString *) cid andCName: (NSString *) cname
 {
@@ -18,6 +18,17 @@
     {
         CId=cid;
         CName=cname;
+    }
+    return self;
+    
+}
+-(id) initWithBId: (NSString *) bid andBName: (NSString *) bname andCode: (NSString *) bcode
+{
+    self=[super init];
+    {
+        BId=bid;
+        BName=bname;
+        BCode=bcode;
     }
     return self;
     

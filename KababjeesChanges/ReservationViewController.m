@@ -13,7 +13,7 @@
     NSDateFormatter *dateFormatter,*dateFormatter1;
     CGRect oldFrame;
     NSMutableArray *Json,*Pdata,*User,*UserInfo;
-    NSString *Bid,*email,*persons,*name,*datetime,*phone,*AvailableTime,*time,*branch;
+    NSString *Bid,*email,*persons,*name,*datetime,*phone,*AvailableTime,*time,*branch,*BID;
     NSDictionary *jsonDictionary;
     NSDate *mydate;
     NSInteger t;
@@ -69,7 +69,7 @@
     Categories *currentCat=[BArray objectAtIndex:indexPath.row];
     
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
-    cell.textLabel.text=currentCat.CName ;
+    cell.textLabel.text=currentCat.BName ;
     [cell.textLabel setFont:[UIFont systemFontOfSize:17.0]];
    
     return cell;
@@ -78,8 +78,9 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Categories *c1= [BArray objectAtIndex:indexPath.row];
-    Bid=c1.CId;
-    self.Branch.text=c1.CName;
+    Bid=c1.BCode;
+    BID=c1.BId;
+    self.Branch.text=c1.BName;
     
     if([Bid isEqualToString:@"MAS"] || [Bid isEqualToString:@"CF"])
         self.DateTime.placeholder=@"Timings 12:00 to 23:59 ";
@@ -226,7 +227,7 @@
                       @"no_of_person":persons,
                       @"phone":phone,
                       @"name":name,
-                      @"branch_id":[NSNumber numberWithLongLong:L_Bid],
+                      @"branch_id":BID,//[NSNumber numberWithLongLong:L_Bid],
                       @"email": email,
                       };
     [Pdata addObject:jsonDictionary];
@@ -472,9 +473,12 @@
         for(int i=0;i<Json.count;i++)
         {
             NSString *Name = [[Json objectAtIndex:i]valueForKey:NKey];
-            NSString *CId = [[Json objectAtIndex:i]valueForKey:@"code"] ;
-            Categories *Cobj=[[Categories alloc] initWithCId:CId andCName:Name];
-            [BArray addObject:Cobj];
+            NSString *CId = [[Json objectAtIndex:i]valueForKey:@"code"];
+            NSString *BId=[[Json objectAtIndex:i]valueForKey:@"id"];
+            Categories *Bobj=[[Categories alloc] initWithBId:BId andBName:Name andCode:CId];
+            [BArray addObject:Bobj];
+           // Categories *Cobj=[[Categories alloc] initWithCId:CId andCName:Name];
+           // [BArray addObject:Cobj];
         }
         [self.dropdownTable reloadData];
          [DejalActivityView removeView];

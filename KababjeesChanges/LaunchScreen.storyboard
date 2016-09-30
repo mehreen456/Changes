@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,14 +21,22 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImg" translatesAutoresizingMaskIntoConstraints="NO" id="dUn-th-L0k">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered By: Attribe Solutions" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ym-tc-Uyg">
+                                <rect key="frame" x="103" y="444" width="201" height="16"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldItalicMT" family="Arial" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="1ym-tc-Uyg" secondAttribute="bottom" constant="20" id="3kH-qd-p2r"/>
                             <constraint firstItem="dUn-th-L0k" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="QPp-7b-RKM"/>
                             <constraint firstAttribute="trailing" secondItem="dUn-th-L0k" secondAttribute="trailing" id="i1I-Dn-HPG"/>
                             <constraint firstItem="dUn-th-L0k" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="nI6-xR-7do"/>
                             <constraint firstItem="dUn-th-L0k" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="oe2-QS-hVW"/>
                             <constraint firstItem="dUn-th-L0k" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="prf-a7-g5v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1ym-tc-Uyg" secondAttribute="trailing" id="tqh-b2-vs5"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="dUn-th-L0k" secondAttribute="bottom" id="xdu-qa-wDB"/>
                         </constraints>
                     </view>
