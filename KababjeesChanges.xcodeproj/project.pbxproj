@@ -646,7 +646,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.KababjeesChanges;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "de7e50ee-f676-49df-84ec-2d24845ba7e7";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -661,7 +661,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.attribe.KababjeesChanges;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "de7e50ee-f676-49df-84ec-2d24845ba7e7";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

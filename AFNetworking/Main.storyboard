@@ -178,17 +178,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="25" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jPZ-Dx-s4N" customClass="SKSTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="321" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="480" id="Xyy-6E-c4M"/>
                                 </constraints>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="CL9-xv-9sk">
-                                    <rect key="frame" x="0.0" y="0.0" width="321" height="180"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="q8o-DQ-GDd">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed Your Taste Buds With Desi Tarka,That Too With" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGM-Ze-f5f">
-                                            <rect key="frame" x="8" y="118" width="291" height="44"/>
+                                            <rect key="frame" x="8" y="118" width="290" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="Qfd-5t-cwH"/>
                                             </constraints>
@@ -196,9 +199,6 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerImage" translatesAutoresizingMaskIntoConstraints="NO" id="q8o-DQ-GDd">
-                                            <rect key="frame" x="0.0" y="0.0" width="321" height="180"/>
-                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
@@ -228,10 +228,10 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CCELL" rowHeight="25" id="bAg-kY-v28">
-                                        <rect key="frame" x="0.0" y="208" width="321" height="25"/>
+                                        <rect key="frame" x="0.0" y="208" width="320" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bAg-kY-v28" id="4SW-BB-g3B">
-                                            <rect key="frame" x="0.0" y="0.0" width="321" height="24"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="24"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -258,6 +258,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="jPZ-Dx-s4N" secondAttribute="trailing" constant="38" id="FdL-jl-42j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jPZ-Dx-s4N" secondAttribute="trailing" constant="44" id="KCA-Ga-019"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jPZ-Dx-s4N" secondAttribute="trailing" constant="31" id="Kwt-eL-6rq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jPZ-Dx-s4N" secondAttribute="trailing" constant="39" id="MXa-sx-cM9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jPZ-Dx-s4N" secondAttribute="trailing" constant="38" id="RVl-fB-Zpj"/>
                             <constraint firstItem="jPZ-Dx-s4N" firstAttribute="top" secondItem="O19-BG-vVq" secondAttribute="bottom" id="S1L-jP-Jqd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jPZ-Dx-s4N" secondAttribute="trailing" constant="44" id="V35-vR-4Qn"/>
@@ -265,6 +266,7 @@
                             <constraint firstItem="RBA-PH-fHs" firstAttribute="top" secondItem="jPZ-Dx-s4N" secondAttribute="bottom" id="bmL-jV-VKH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jPZ-Dx-s4N" secondAttribute="trailing" constant="30" id="cjG-M2-uih"/>
                             <constraint firstItem="jPZ-Dx-s4N" firstAttribute="top" secondItem="Mm0-J7-6dO" secondAttribute="topMargin" id="pHe-Gi-7uO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jPZ-Dx-s4N" secondAttribute="trailing" constant="39" id="rqj-WL-K7F"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -277,10 +279,12 @@
                                 <exclude reference="FdL-jl-42j"/>
                                 <exclude reference="KCA-Ga-019"/>
                                 <exclude reference="Kwt-eL-6rq"/>
+                                <exclude reference="RVl-fB-Zpj"/>
                                 <exclude reference="S1L-jP-Jqd"/>
                                 <exclude reference="V35-vR-4Qn"/>
                                 <exclude reference="a0y-qi-Xd5"/>
                                 <exclude reference="cjG-M2-uih"/>
+                                <exclude reference="rqj-WL-K7F"/>
                             </mask>
                         </variation>
                     </view>
@@ -1886,8 +1890,8 @@
         <image name="menu-icon.png" width="22" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lVm-h9-B4o"/>
         <segue reference="wwj-fj-JBL"/>
+        <segue reference="tUa-FW-azI"/>
         <segue reference="ASt-ee-4sH"/>
         <segue reference="4rf-oC-IFx"/>
         <segue reference="uHL-SD-Fyh"/>
